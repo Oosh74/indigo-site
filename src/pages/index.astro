@@ -1,35 +1,33 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import { Picture } from "astro:assets";
+import { formatDate } from "@js/utils";
+
 const services = [
 	{
 		title: "Web Design & Development",
 		text: "Your site should work as hard as you do. We build websites that look sharp, load fast, and turn visitors into customers.",
 		link: "/our-services/website-design-development/",
+		points: ["Custom Website Design", "E-Commerce & Shopify", "Landing Page Design", "UX/UI Design", "Website & WordPress Development"],
 	},
 	{
 		title: "Creative & Branding",
 		text: "Good design gets attention. Great design drives growth. We create logos, materials, and videos that tell your story clearly.",
 		link: "/our-services/creative-design-branding/",
+		points: ["Logo Design", "Marketing Collateral", "Promotional Products", "Video Production (Short & Long Form)"],
 	},
 	{
 		title: "Search Engine Optimization",
-		text: "SEO changes constantly. We focus on technical fixes, strong content, and trusted links that build steady growth.",
+		text: "SEO changes constantly. We focus on what works: technical fixes, strong content, and trusted links that deliver steady growth.",
 		link: "/our-services/search-engine-optimization/",
-	},
-	{
-		title: "Digital Marketing",
-		text: "Ads only work if they reach the right people. We run campaigns that track every dollar and improve over time.",
-		link: "/our-services/digital-marketing/",
-	},
-	{
-		title: "Promo & Print Products",
-		text: "Print still makes an impact. We design cards, brochures, and branded items that keep your business top of mind.",
-		link: "/our-services/print-promotional-products/",
-	},
-	{
-		title: "Social Media",
-		text: "Your audience is online every day. We help you stay visible with purposeful posts, real engagement, and a strong community.",
-		link: "/our-services/social-media-management/",
+		points: [
+			"Technical SEO",
+			"Content Writing & Optimization",
+			"Content Strategy",
+			"Google Business Profile Optimization",
+			"Offsite SEO & Backlinks",
+		],
 	},
 ];
 
@@ -37,19 +35,24 @@ const values = ["Super-service", "Integrity", "Quality", "Relationships"];
 
 const stats = [
 	{
-		number: "15min",
+		number: "≤ 15min",
 		title: "Average Response Time",
-		text: "Most agencies take a day or more to reply. We average 15 minutes so you get answers when you need them.",
+		text: "Most agencies take a day or more to reply. Even urgent requests can sit for hours. We average 15 minutes so you get quick answers when you need them.",
 	},
 	{
 		number: "120%",
 		title: "Increase in Website Traffic",
-		text: "We rebuilt SEO for a local company, fixed technical issues, and traffic more than doubled within a year.",
+		text: "A Long Island fence company wasn't showing up when homeowners searched online. We rebuilt their SEO strategy and traffic more than doubled.",
 	},
 	{
 		number: "150%",
 		title: "Increase in Leads from Website",
-		text: "A website redesign and targeted ad strategy generated significantly more qualified inbound leads.",
+		text: "An outdoor living company had a great showroom but an outdated site that wasn't converting. Their redesigned website now generates 150% more leads.",
+	},
+	{
+		number: "233%",
+		title: "Increase in Tour Requests",
+		text: "A senior living community needed to reach families searching for care. In six months, tour requests rose 233% with web + local SEO improvements.",
 	},
 ];
 
@@ -58,418 +61,903 @@ const plans = [
 		name: "Essential Launch",
 		level: "Level One",
 		text: "Best for startups and lean businesses looking for affordable marketing solutions.",
-		points: ["Branded 5-7 page website", "Foundational SEO", "Flexible and budget-aware setup"],
+		points: [
+			"Branded 5-7 page website",
+			"Basic logo or brand identity",
+			"Foundational SEO",
+			"Social profile setup or refresh",
+			"1-2 graphics/month",
+		],
+		next: "What's next? Look professional. Launch confidently. Get found.",
 	},
 	{
 		name: "Growth Builder",
 		level: "Level Two",
 		text: "Best for businesses ready to scale and generate leads.",
-		points: ["Everything in Level One", "Semi-custom website focused on conversions", "Stronger SEO and lead generation support"],
+		points: [
+			"All benefits from the previous tier",
+			"Semi-custom website focused on user experience",
+			"Full SEO strategy & content creation",
+			"Paid ad management for social + search",
+			"Analytics dashboard with your own account manager",
+		],
+		next: "What's next? Grow awareness. Build momentum. Lead generation.",
 	},
 	{
 		name: "Platinum Performance Partner",
 		level: "Level Three",
-		text: "Best for established businesses looking to scale rapidly and lead their market.",
-		points: ["Everything in prior levels", "Fully custom website and advanced integrations", "Strategic, ongoing growth partnership"],
+		text: "Best for established businesses looking to scale rapidly and dominate their market.",
+		points: [
+			"All benefits from the previous tiers",
+			"Fully custom website with complex integrations",
+			"Enterprise SEO strategy + backlinking",
+			"High-end creative and advanced media",
+			"Priority support with senior strategy leadership",
+		],
+		next: "What's next? Scale intentionally. Convert consistently. Lead your market.",
 	},
 ];
+
+const clientLogos = [
+	"Ocean Electric",
+	"Irrigation Solutions",
+	"Interstate",
+	"The Hot Tub Factory",
+	"Encore",
+	"Aviva Senior Living",
+	"Amendola's Fence Co.",
+	"Hunter Business School",
+];
+
+const posts = await getCollection("blog");
+posts.sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf());
+const featuredPosts = posts.slice(0, 3);
 ---
 
 <BaseLayout
 	title="Indigo Business Solutions | Digital Marketing Agency | Long Island, NY"
 	description="Full-service marketing agency built on real relationships, fast turnaround, and results. We help businesses grow with tailored solutions and unmatched support."
 >
-	<section class="hero">
-		<div class="shell hero-grid">
-			<div class="hero-copy">
-				<p class="eyebrow">Long Island Marketing Agency</p>
-				<h1>Your Marketing Partner, Minus the Overhead</h1>
-				<p>
-					Business is challenging, and most marketing agencies make it harder with empty promises and inflated price tags. We keep things clear, transparent, and focused on your success.
-				</p>
-				<div class="hero-actions">
-					<a class="cs-button-solid" href="/contact-us/">Free Evaluation</a>
-					<a class="text-link" href="/marketing-quiz/">Take Marketing Quiz</a>
+	<div class="home">
+		<section class="home__hero">
+			<div class="home__shell home__hero-grid">
+				<div class="home__hero-content">
+					<h1 class="home__hero-title">Your Marketing <span>Partner</span>, Minus the Overhead</h1>
+					<p>
+						Business is challenging, and most marketing agencies make it harder with empty promises and inflated price tags. We keep things clear, transparent, and focused on your success.
+					</p>
+					<p>Five minutes: that's all it takes to see why we've been one of Long Island's top digital marketing agencies since 2006.</p>
+					<div class="home__hero-actions">
+						<a class="home__btn home__btn--ghost" href="/contact-us/">Free evaluation</a>
+						<a class="home__text-link" href="/our-services/">Our services</a>
+					</div>
 				</div>
-				<p class="micro-copy">Trusted by nearly 200 clients in 30+ states, backed by 50+ five-star reviews.</p>
+				<div class="home__hero-media" aria-hidden="true">
+					<div class="home__hero-photo"></div>
+					<div class="home__hero-badge">Trusted by nearly 200 clients in 30+ states backed by 50+ five-star reviews.</div>
+				</div>
 			</div>
-			<div class="hero-panel">
-				<p>What’s next for your business? Let’s find out together.</p>
-				<a href="tel:+16316309845">(631) 630-9845</a>
-			</div>
-		</div>
-	</section>
+		</section>
 
-	<section class="section shell">
-		<div class="section-head">
-			<p class="eyebrow">Marketing That Grows With You</p>
-			<h2>Marketing Services Built Around Your Business</h2>
-		</div>
-		<div class="card-grid service-grid">
-			{
-				services.map((service) => (
-					<article class="card">
-						<h3>{service.title}</h3>
-						<p>{service.text}</p>
-						<a class="text-link" href={service.link}>Learn more</a>
-					</article>
-				))
-			}
-		</div>
-	</section>
-
-	<section class="section section-soft">
-		<div class="shell two-col">
-			<div>
-				<p class="eyebrow">About Us</p>
-				<h2>Founded On Long Island In 2006, Still Here for Good Reason</h2>
-				<p>
-					Most agencies force you into their system. We start with a conversation: what’s working, what’s not, and where you want to be. Then we build solutions that fit.
-				</p>
-				<p>
-					Clients stick with us because our strategies adapt as they grow. Whether you need a full rebuild or a few fixes, we meet you where you are and help move you forward.
-				</p>
+		<section class="home__section">
+			<div class="home__shell home__split">
+				<div class="home__content">
+					<p class="home__eyebrow">Marketing That Grows With You</p>
+					<h2 class="home__h2">Marketing Services Built Around Your Business</h2>
+					<p>Your business deserves better than cookie-cutter marketing. At Indigo, we deliver creative and digital support that fits your budget and goals.</p>
+					<p>We start by learning your customers, what's working, and what's holding you back. Then we build strategies that scale.</p>
+					<a class="home__btn" href="/our-services/">See all services</a>
+				</div>
+				<div class="home__collage" aria-hidden="true">
+					<div class="home__chip">20+ Years Served</div>
+					<div class="home__chip">30+ States Served</div>
+					<div class="home__media home__media--top"></div>
+					<div class="home__media home__media--bottom"></div>
+					<div class="home__chip">15 Min Response Time</div>
+					<div class="home__chip">5 Star Rating on Google</div>
+				</div>
 			</div>
-			<div class="value-box">
-				<h3>What Drives Us Every Day</h3>
+		</section>
+
+		<section class="home__section home__section--soft">
+			<div class="home__shell home__cards">
+				{
+					services.map((service) => (
+						<article class="home__service-card">
+							<h3>{service.title}</h3>
+							<p>{service.text}</p>
+							<ul>
+								{service.points.map((point) => <li>{point}</li>)}
+							</ul>
+							<a class="home__text-link" href={service.link}>Learn more</a>
+						</article>
+					))
+				}
+			</div>
+		</section>
+
+		<section class="home__section home__section--soft home__section--radius">
+			<div class="home__shell home__split home__split--about">
+				<div class="home__content">
+					<p class="home__eyebrow">About Us</p>
+					<h2 class="home__h2">Founded On Long Island In 2006, Still Here for Good Reason</h2>
+					<p>We started Indigo after seeing too many agencies overpromise, underdeliver, and disappear when things got tough. We knew there had to be a better way.</p>
+					<p>Since then, we've helped hundreds of companies across the USA from small businesses to established nationwide brands, all looking for a partner who listens.</p>
+					<a class="home__btn" href="/about-us/">Our story</a>
+				</div>
+				<div class="home__about-visual" aria-hidden="true"></div>
+			</div>
+			<div class="home__shell home__values">
+				<div>
+					<h3 class="home__h3">What Drives Us Every Day</h3>
+					<p>Marketing never stands still. New platforms appear, rules change, and AI keeps evolving. Our clients count on us as partners, not paychecks.</p>
+				</div>
 				<ul>
 					{values.map((value) => <li>{value}</li>)}
 				</ul>
 			</div>
-		</div>
-	</section>
+		</section>
 
-	<section class="section shell">
-		<div class="section-head">
-			<p class="eyebrow">Why Work With Us</p>
-			<h2>Most Agencies Sell Dreams. We Solve Problems.</h2>
-		</div>
-		<div class="card-grid stat-grid">
-			{
-				stats.map((stat) => (
-					<article class="card">
-						<p class="stat">{stat.number}</p>
-						<h3>{stat.title}</h3>
-						<p>{stat.text}</p>
-					</article>
-				))
-			}
-		</div>
-	</section>
-
-	<section class="section section-soft">
-		<div class="shell">
-			<div class="section-head">
-				<p class="eyebrow">Hear From Our Clients</p>
-				<h2>Testimonials</h2>
-			</div>
-			<div class="card-grid quote-grid">
-				<article class="card">
-					<p>
-						I can’t express enough gratitude to the Indigo team. Great company, great people, great work. I’m a very happy customer.
-					</p>
-					<p class="quote-author">Kristin - Business Owner</p>
+		<section class="home__section home__section--soft">
+			<div class="home__shell home__split">
+				<div class="home__content">
+					<p class="home__eyebrow">Most Agencies Sell Dreams. We Solve Problems.</p>
+					<h2 class="home__h2">Why Work With Us</h2>
+					<p>You've likely heard the pitches before: case studies that don't apply, promises to "10x your leads," and retainers that drain your budget. We don't work that way.</p>
+					<ul class="home__checklist">
+						<li>We start with your real problems, not our sales goals</li>
+						<li>SEO and web design services built around your business</li>
+						<li>Flexible marketing plans that work with your budget</li>
+						<li>Marketing strategy consulting that fits your budget and timeline</li>
+					</ul>
+					<a class="home__btn" href="/about-us/">Learn more about our process</a>
 				</div>
-				<article class="card">
-					<p>
-						Working with Matthew and the Indigo team has been an amazing experience. Their creativity and responsiveness make every interaction a pleasure.
-					</p>
-					<p class="quote-author">Avi - Business Owner</p>
-				</article>
-				<article class="card">
-					<p>
-						Prompt, reliable, and consistently high-quality work. Indigo has been an incredible resource for our team.
-					</p>
-					<p class="quote-author">Michelle - Social Media Director</p>
-				</article>
+				<div class="home__why-visual" aria-hidden="true">
+					<div class="home__why-badge">We help clients look better, reach farther, and grow with confidence.</div>
+				</div>
 			</div>
-		</div>
-	</section>
+			<div class="home__shell home__stat-grid">
+				{
+					stats.map((stat) => (
+						<article class="home__stat-card">
+							<p class="home__stat-number">{stat.number}</p>
+							<h3>{stat.title}</h3>
+							<p>{stat.text}</p>
+						</article>
+					))
+				}
+			</div>
+		</section>
 
-	<section class="section shell">
-		<div class="section-head">
-			<p class="eyebrow">Marketing Service Options</p>
-			<h2>Three Levels, Built for Where You Are Right Now</h2>
-		</div>
-		<div class="card-grid plan-grid">
-			{
-				plans.map((plan) => (
-					<article class="card plan-card">
-						<p class="eyebrow small">{plan.level}</p>
-						<h3>{plan.name}</h3>
-						<p>{plan.text}</p>
-						<ul>
-							{plan.points.map((point) => <li>{point}</li>)}
-						</ul>
-					</article>
-				))
-			}
-		</div>
-	</section>
+		<section class="home__section">
+			<div class="home__shell home__testimonial">
+				<div class="home__google-mark">
+					<img src="./src/icons/Indigo-Google-Reviews-01.svg" alt="Google Reviews Logo">
+					<a href="/news-insights/">Read more of our 50+ five-star reviews</a>
+				</div>
+				<div>
+					<p class="home__eyebrow home__eyebrow--light">Testimonials</p>
+					<h2 class="home__h2 home__h2--light">Hear From Our Clients</h2>
+					<p>
+						I can't express enough gratitude to the Indigo team. Every person I've interacted with has been top-notch. Great company, great people, great work. I'm a very happy customer.
+					</p>
+					<p class="home__quote-name">Kristin - Business Owner</p>
+					<p>Google Review</p>
+				</div>
+			</div>
+		</section>
 
-	<section class="section section-soft">
-		<div class="shell cta-band">
-			<div class="card cta-card">
+		<section class="home__section">
+			<div class="home__shell">
+				<h2 class="home__h2 home__h2--center">Meet Some of Our Clients</h2>
+				<div class="home__logo-grid">
+					{clientLogos.map((logo) => <p class="home__logo-item">{logo}</p>)}
+				</div>
+			</div>
+		</section>
+
+		<section class="home__section home__section--soft home__section--radius">
+			<div class="home__shell home__plans-head">
+				<p class="home__eyebrow">Marketing Service Options</p>
+				<h2 class="home__h2 home__h2--center">Three levels, built for where you are right now</h2>
+				<p class="home__center-text">
+					Whether you're starting out, scaling up, or somewhere in between, we meet you where you are. Our three flexible levels match your needs and budget.
+				</p>
+			</div>
+			<div class="home__shell home__plan-grid">
+				{
+					plans.map((plan) => (
+						<article class="home__plan-card">
+							<p class="home__plan-level">{plan.level}</p>
+							<h3>{plan.name}</h3>
+							<p>{plan.text}</p>
+							<ul>
+								{plan.points.map((point) => <li>{point}</li>)}
+							</ul>
+							<p class="home__plan-next">{plan.next}</p>
+							<a class="home__btn" href="/contact-us/">Talk to our team</a>
+						</article>
+					))
+				}
+			</div>
+			<div class="home__shell home__quiz-cta">
 				<h3>Not sure where to start?</h3>
 				<p>Take our 2-minute quiz and get a clear recommendation based on your challenges, budget, and goals.</p>
-				<a class="text-link" href="/marketing-quiz/">Take marketing quiz</a>
+				<a class="home__btn" href="/marketing-quiz/">Take marketing quiz</a>
 			</div>
-			<div class="card cta-card">
-				<h3>What’s next for your business?</h3>
-				<p>Call us and we’ll review your marketing, show what’s working, what’s not, and how we’d move forward.</p>
-				<a class="text-link" href="/contact-us/">Talk to our team</a>
-			</div>
-		</div>
-	</section>
+		</section>
 
-	<section class="section shell">
-		<div class="section-head">
-			<p class="eyebrow">Insights to Grow Your Business</p>
-			<h2>Marketing Tips, Strategies, and Resources from Our Blog</h2>
-		</div>
-		<div class="card-grid blog-grid">
-			<article class="card">
-				<h3>Your Customers Are Using ChatGPT to Find Businesses. Are They Finding You?</h3>
-				<a class="text-link" href="/your-customers-are-using-chatgpt-to-find-businesses-are-they-finding-you/">Read more</a>
-			</article>
-			<article class="card">
-				<h3>National Skilled Nursing Care Week</h3>
-				<a class="text-link" href="/national-skilled-nursing-care-week/">Read more</a>
-			</article>
-			<article class="card">
-				<h3>SEO for Business Success</h3>
-				<a class="text-link" href="/seo-for-business-success/">Read more</a>
-			</article>
-		</div>
-	</section>
-
-	<section class="section section-soft">
-		<div class="shell contact-grid">
-			<div>
-				<p class="eyebrow">Let's Chat</p>
-				<h2>Contact Us</h2>
-				<p>Give us a call. We’ll listen, share how we’d help, and let you know if we’re the right fit.</p>
-				<p><strong>Location</strong><br />2150 Joshuas Path Suite 201, Hauppauge, NY 11788</p>
-				<p><strong>Phone</strong><br /><a href="tel:+16316309845">(631) 630-9845</a></p>
+		<section class="home__section home__section--darkband">
+			<div class="home__shell home__inner-cta">
+				<h2 class="home__h2">What's next for your business? Let's find out <span>together.</span></h2>
+				<p>Call us and we'll review your marketing, show you what's working, what's not, and how we'd move forward.</p>
+				<a class="home__btn" href="/contact-us/">Talk to our team</a>
 			</div>
-			<form class="card contact-form" action="/contact-us/" method="get">
-				<label>Full Name*<input type="text" name="name" required /></label>
-				<label>Email*<input type="email" name="email" required /></label>
-				<label>Phone Number*<input type="tel" name="phone" required /></label>
-				<label>Business Name*<input type="text" name="business" required /></label>
-				<label>How can we help you?<textarea name="message" rows="4"></textarea></label>
-				<button class="cs-button-solid" type="submit">Contact Us</button>
-			</form>
-		</div>
-	</section>
+		</section>
+
+		<section class="home__section">
+			<div class="home__shell home__blog-head">
+				<p class="home__eyebrow">Insights To Grow Your Business</p>
+				<h2 class="home__h2 home__h2--center">Marketing tips, strategies, and resources from our blog</h2>
+				<p class="home__center-text">We've tried a lot over the years. Some things worked, some didn't. We write about both so you don't have to figure it out the hard way.</p>
+			</div>
+			<div class="home__shell home__blog-grid">
+				{
+					featuredPosts.map((post) => (
+						<article class="home__blog-card">
+							<a href={`/${post.id}/`} class="home__blog-image-link">
+								<Picture src={post.data.image} alt={post.data.imageAlt} formats={["avif", "webp"]} quality={"mid"} />
+							</a>
+							<p class="home__blog-meta">{formatDate(post.data.date)}<br />{post.data.author}</p>
+							<h3>
+								<a href={`/${post.id}/`}>{post.data.title}</a>
+							</h3>
+							<a class="home__text-link" href={`/${post.id}/`}>Read more</a>
+						</article>
+					))
+				}
+			</div>
+			<div class="home__shell home__blog-footer-link">
+				<a class="home__btn" href="/news-insights/">See our full blog</a>
+			</div>
+		</section>
+
+		<section class="home__section">
+			<div class="home__shell home__contact-grid">
+				<div class="home__contact-info">
+					<p class="home__eyebrow">Contact Us</p>
+					<h2 class="home__h2">Let's Chat</h2>
+					<p>Give us a call. We'll listen, share how we'd help, and let you know if we're the right fit.</p>
+					<ul>
+						<li><strong>Location</strong><br />2150 Joshuas Path Suite 201, Hauppauge, NY 11788</li>
+						<li><strong>Phone</strong><br /><a href="tel:+16316309845">(631) 630-9845</a></li>
+						<li><strong>Business Hours</strong><br />Monday-Friday: 8:30 AM-6 PM<br />Saturday-Sunday: Closed</li>
+					</ul>
+				</div>
+				<form class="home__contact-form" action="/contact-us/" method="get">
+					<h3>Contact Form</h3>
+					<label>Full Name*<input type="text" name="name" required /></label>
+					<label>Email*<input type="email" name="email" required /></label>
+					<label>Phone Number*<input type="tel" name="phone" required /></label>
+					<label>Business Name*<input type="text" name="business" required /></label>
+					<label>How can we help you?<textarea name="message" rows="4"></textarea></label>
+					<button class="home__btn" type="submit">Send Message</button>
+				</form>
+			</div>
+		</section>
+	</div>
 </BaseLayout>
 
 <style lang="less">
-	.shell {
-		width: min(1120px, 94%);
-		margin: 0 auto;
+	.home {
+		--home-bg: #eff2f8;
+		--home-surface: #ffffff;
+		--home-surface-soft: #f5f7fc;
+		--home-ink: #101f62;
+		--home-text: #2f3747;
+		--home-dark: #171f4c;
+		--home-accent: #94cf3d;
+		--home-border: #d7deef;
+		--home-shadow: 0 24px 38px -32px rgba(11, 27, 74, 0.34);
+		--home-radius-lg: clamp(1.8rem, 4vw, 3rem);
+		--home-radius-md: clamp(1rem, 2vw, 1.5rem);
+		--home-space-section: clamp(3.5rem, 8vw, 7rem);
+		--home-space-stack: clamp(1rem, 2.4vw, 2rem);
+		--home-fs-eyebrow: clamp(0.73rem, 0.8vw, 0.88rem);
+		--home-fs-h1: clamp(2.3rem, 5.6vw, 5rem);
+		--home-fs-h2: clamp(2rem, 4.2vw, 4rem);
+		--home-fs-h3: clamp(1.5rem, 2.4vw, 2.1rem);
+		--home-fs-body: clamp(1rem, 1.2vw, 1.35rem);
+
+		background: var(--home-bg);
 	}
 
-	.section {
-		padding: clamp(3.5rem, 7vw, 6rem) 0;
+	.home__shell {
+		width: min(1260px, 92%);
+		margin-inline: auto;
 	}
 
-	.section-soft {
-		background: #f4f6fb;
+	.home__section {
+		padding-block: var(--home-space-section);
 	}
 
-	.eyebrow {
-		font-size: 0.8rem;
-		font-weight: 700;
+	.home__section--soft {
+		background: #e9edf6;
+	}
+
+	.home__section--radius {
+		border-top-right-radius: clamp(2rem, 10vw, 12rem);
+	}
+
+	.home__eyebrow {
+		font-size: var(--home-fs-eyebrow);
+		letter-spacing: 0.25em;
 		text-transform: uppercase;
-		letter-spacing: 0.08em;
-		color: var(--secondary);
-		margin-bottom: 0.5rem;
+		color: #5a6697;
+		margin-bottom: 0.7rem;
+		font-weight: 600;
 	}
 
-	.eyebrow.small {
-		font-size: 0.7rem;
+	.home__eyebrow--light {
+		color: #9eb8ff;
 	}
 
-	h1 {
-		font-size: clamp(2rem, 5vw, 3.6rem);
-		line-height: 1.1;
-	}
-
-	h2 {
-		font-size: clamp(1.8rem, 3.5vw, 2.7rem);
-		line-height: 1.2;
-	}
-
-	h3 {
-		font-size: 1.2rem;
-		margin-bottom: 0.65rem;
-	}
-
-	p {
+	.home__h2 {
+		font-size: var(--home-fs-h2);
+		line-height: 1.08;
+		color: var(--home-ink);
 		margin-bottom: 1rem;
 	}
 
-	.hero {
-		padding: clamp(5.5rem, 8vw, 8rem) 0 3.5rem;
-		background: linear-gradient(145deg, #e9efff 0%, #f8fbff 35%, #ffffff 100%);
-	}
-
-	.hero-grid {
-		display: grid;
-		gap: 1.5rem;
-	}
-
-	.hero-panel {
-		background: var(--secondary);
+	.home__h2--light {
 		color: #fff;
-		padding: 1.5rem;
-		border-radius: 1rem;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
 	}
 
-	.hero-panel p {
-		color: #d2ddff;
+	.home__h2--center {
+		text-align: center;
 	}
 
-	.hero-panel a {
-		color: var(--primary);
-		font-size: 1.35rem;
-		font-weight: 700;
+	.home p {
+		font-size: var(--home-fs-body);
+		line-height: 1.55;
+		color: var(--home-text);
+		margin-bottom: 1rem;
+	}
+
+	.home__btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.6rem;
+		padding: clamp(0.74rem, 1.2vw, 1rem) clamp(1.3rem, 2vw, 2rem);
+		border-radius: 999px;
+		background: #0c1b67;
+		color: #fff;
 		text-decoration: none;
+		font-weight: 600;
+		font-size: clamp(1rem, 1vw, 1.15rem);
+		border: 1px solid transparent;
+		transition: background-color 0.2s ease, border-color 0.2s ease;
 	}
 
-	.hero-actions {
+	.home__btn::after {
+		content: "›";
+		font-size: 1.15em;
+		line-height: 1;
+	}
+
+	.home__btn:hover {
+		background: #08124a;
+	}
+
+	.home__btn--ghost {
+		background: transparent;
+		border-color: #d8dcf0;
+	}
+
+	.home__text-link {
+		font-size: clamp(1rem, 1vw, 1.15rem);
+		font-weight: 600;
+		text-decoration: none;
+		color: var(--home-accent);
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.home__text-link::after {
+		content: "›";
+	}
+
+	.home__hero {
+		background:
+			radial-gradient(120% 120% at 95% 95%, rgba(148, 207, 61, 0.12) 0%, rgba(148, 207, 61, 0) 45%),
+			linear-gradient(180deg, #181f4b 0%, #181f4b 100%);
+		padding: clamp(2.8rem, 6.2vw, 5.2rem) 0;
+		border-bottom-left-radius: clamp(3rem, 14vw, 13rem);
+	}
+
+	.home__hero-grid {
+		display: grid;
+		gap: clamp(1.2rem, 2.8vw, 2.5rem);
+		align-items: center;
+		margin-top: 6rem;
+		margin-bottom: 6rem;
+	}
+
+	.home__hero-title {
+		font-size: var(--home-fs-h1);
+		line-height: 1.02;
+		color: #fff;
+		margin-bottom: 1rem;
+		max-width: 13ch;
+	}
+
+	.home__hero-title span {
+		color: var(--home-accent);
+	}
+
+	.home__hero-content p {
+		color: #ecf0ff;
+		max-width: 59ch;
+	}
+
+	.home__hero-actions {
 		display: flex;
+		align-items: center;
+		gap: 0.8rem;
 		flex-wrap: wrap;
-		gap: 0.9rem;
-		margin: 1.25rem 0 0.75rem;
+		margin-top: 1rem;
 	}
 
-	.text-link {
-		color: var(--secondary);
+	.home__hero-media {
+		position: relative;
+		min-height: clamp(19rem, 32vw, 38rem);
+	}
+
+	.home__hero-photo {
+		height: 100%;
+		border-top-right-radius: clamp(5rem, 18vw, 11rem);
+		border-bottom-left-radius: 0.9rem;
+		background: linear-gradient(140deg, #a8d0ff 0%, #56628c 55%, #1f2744 100%);
+		box-shadow: var(--home-shadow);
+	}
+
+	.home__hero-badge {
+		position: absolute;
+		left: -1rem;
+		bottom: 0.7rem;
+		background: #fff;
+		border-radius: 2rem;
+		padding: clamp(1rem, 1.7vw, 1.5rem);
+		width: min(280px, 72%);
+		font-size: clamp(1rem, 1vw, 1.15rem);
+		line-height: 1.4;
+		color: #1f2f55;
+	}
+
+	.home__split {
+		display: grid;
+		gap: clamp(1.5rem, 3vw, 3rem);
+		align-items: center;
+	}
+
+	.home__content {
+		max-width: 70ch;
+	}
+
+	.home__collage {
+		display: grid;
+		grid-template-columns: 0.9fr 1.1fr;
+		gap: 0.8rem;
+	}
+
+	.home__chip,
+	.home__media {
+		border-radius: 1.1rem;
+	}
+
+	.home__chip {
+		background: #041a6f;
+		color: #9fde42;
+		padding: 1rem;
 		font-weight: 700;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		min-height: 6.25rem;
+	}
+
+	.home__media {
+		min-height: 10rem;
+		background: linear-gradient(150deg, #8fd2f1 0%, #b8d2ff 30%, #6e4a24 100%);
+	}
+
+	.home__media--top {
+		border-top-right-radius: clamp(2rem, 6vw, 5rem);
+	}
+
+	.home__media--bottom {
+		border-bottom-left-radius: clamp(2rem, 6vw, 5rem);
+		grid-column: 1 / span 2;
+		min-height: 14rem;
+	}
+
+	.home__cards {
+		display: grid;
+		gap: 1rem;
+	}
+
+		.home__service-card {
+		display: flex; 
+		flex-direction: column;
+	}
+
+	.home__service-card,
+	.home__stat-card,
+	.home__plan-card,
+	.home__contact-form {
+		background: var(--home-surface-soft);
+		border: 1px solid var(--home-border);
+		border-radius: var(--home-radius-lg);
+		padding: clamp(1.2rem, 2.4vw, 2.1rem);
+		box-shadow: var(--home-shadow);
+	}
+
+	.home__service-card h3,
+	.home__stat-card h3,
+	.home__plan-card h3,
+	.home__contact-form h3,
+	.home__values h3,
+	.home__quiz-cta h3 {
+		font-size: var(--home-fs-h3);
+		line-height: 1.15;
+		color: var(--home-ink);
+		margin-bottom: 0.7rem;
+	}
+
+	.home__service-card ul,
+	.home__plan-card ul,
+	.home__checklist,
+	.home__contact-info ul {
+		list-style: none;
+		padding: 0;
+		margin: 1rem 0;
+	}
+
+	.home__service-card li,
+	.home__plan-card li,
+	.home__checklist li,
+	.home__contact-info li {
+		padding-left: 1.2rem;
+		position: relative;
+		margin-bottom: 0.45rem;
+		font-size: clamp(0.96rem, 0.95vw, 1.1rem);
+		line-height: 1.45;
+		color: #2c3858;
+	}
+
+	.home__service-card li::before,
+	.home__plan-card li::before,
+	.home__checklist li::before {
+		content: "›";
+		position: absolute;
+		left: 0;
+		color: #729a2e;
+	}
+
+	.home__service-card a {
+		margin-top: auto;
+	}
+
+	.home__split--about {
+		margin-bottom: clamp(1.5rem, 3vw, 3rem);
+	}
+
+	.home__about-visual,
+	.home__why-visual {
+		background: linear-gradient(145deg, #5c759c 0%, #2b3b69 45%, #d7dbe8 100%);
+		border-radius: var(--home-radius-lg);
+		min-height: clamp(18rem, 33vw, 32rem);
+		position: relative;
+	}
+
+	.home__values {
+		background: #f6f8fc;
+		border: 1px solid var(--home-border);
+		border-radius: var(--home-radius-lg);
+		padding: clamp(1.3rem, 2.5vw, 2rem);
+		display: grid;
+		gap: 1.2rem;
+	}
+
+	.home__values ul li {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-block: 0.35rem;
+		font-size: clamp(1.25rem, 1.75vw, 1.9rem);
+		color: var(--home-ink);
+	}
+
+	.home__values ul li::after {
+		content: "⌄";
+		font-size: 0.95em;
+	}
+
+	.home__why-badge {
+		position: absolute;
+		left: -0.9rem;
+		bottom: 1rem;
+		background: #fff;
+		padding: 1rem;
+		border-radius: 1.8rem;
+		max-width: 13ch;
+		font-size: 1rem;
+		line-height: 1.4;
+	}
+
+	.home__stat-grid {
+		display: grid;
+		gap: 1rem;
+		margin-top: clamp(1.6rem, 3vw, 3rem);
+	}
+
+	.home__stat-number {
+		font-size: clamp(2rem, 3vw, 3rem);
+		font-weight: 700;
+		line-height: 1;
+		color: var(--home-ink);
+		margin-bottom: 0.4rem;
+	}
+
+	.home__testimonial {
+		background: var(--brandNavy);
+		padding: clamp(1.3rem, 3vw, 2.3rem);
+		display: grid;
+		gap: 1.2rem;
+		padding: var(--sectionPadding);
+		border-radius: clamp(8px, 4vw, 77px) clamp(8px, 4vw, 77px) 0px clamp(8px, 4vw, 77px);
+		padding-left: 32px;
+		padding-right: 32px;
+	}
+
+	.home__google-title {
+		font-size: clamp(2.4rem, 6vw, 5rem);
+		line-height: 0.9;
+		margin: 0;
+		color: #fff;
+		font-weight: 700;
+	}
+
+	.home__google-sub {
+		font-size: clamp(1.1rem, 1.6vw, 1.6rem);
+		color: #e7edff;
+		margin-bottom: 0.55rem;
+	}
+
+	.home__google-mark a {
+		color: var(--home-accent);
 		text-decoration: none;
+		font-size: clamp(1rem, 1vw, 1.15rem);
+		font-weight: 600;
 	}
 
-	.text-link:hover {
-		text-decoration: underline;
+	.home__testimonial p,
+	.home__quote-name {
+		color: #ecf0ff;
 	}
 
-	.micro-copy {
-		font-size: 0.95rem;
+	.home__quote-name {
+		font-weight: 600;
 	}
 
-	.section-head {
-		max-width: 52rem;
+	.home__logo-grid {
+		display: grid;
+		gap: 0.8rem;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		margin-top: 1.2rem;
+	}
+
+	.home__logo-item {
+		color: var(--home-ink);
+		font-weight: 700;
+		text-align: center;
+		padding: 1rem 0.8rem;
+		border-radius: 0.9rem;
+		border: 1px solid #d7deef;
+		background: #fff;
+	}
+
+	.home__plans-head {
+		margin-bottom: 1.4rem;
+	}
+
+	.home__center-text {
+		max-width: 72ch;
+		margin-inline: auto;
+		text-align: center;
+	}
+
+	.home__plan-grid {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.home__plan-level {
+		font-size: var(--home-fs-eyebrow);
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+		color: #5b6698;
+		font-weight: 600;
+	}
+
+	.home__plan-next {
+		font-size: clamp(0.98rem, 1vw, 1.1rem);
+		margin-bottom: 1rem;
+	}
+
+	.home__plan-next::first-letter {
+		color: var(--home-accent);
+		font-weight: 700;
+	}
+
+	.home__quiz-cta {
+		margin-top: 1.5rem;
+		text-align: center;
+	}
+
+	.home__section--darkband {
+		background: var(--home-dark);
+	}
+
+	.home__inner-cta {
+		background: #f4f6fb;
+		border-radius: var(--home-radius-lg);
+		padding: clamp(1.3rem, 3vw, 2.5rem);
+	}
+
+	.home__inner-cta h2 span {
+		color: var(--home-accent);
+	}
+
+	.home__blog-head {
 		margin-bottom: 1.5rem;
 	}
 
-	.card-grid {
+	.home__blog-grid {
 		display: grid;
 		gap: 1rem;
 	}
 
-	.card {
-		background: #fff;
-		border: 1px solid #e3e8f5;
-		border-radius: 0.9rem;
-		padding: 1.1rem;
-		box-shadow: 0 8px 24px -22px rgba(0, 31, 63, 0.55);
-	}
-
-	.two-col {
+	.home__blog-card {
 		display: grid;
-		gap: 1rem;
+		gap: 0.5rem;
 	}
 
-	.value-box ul,
-	.plan-card ul {
-		padding-left: 1.2rem;
-	}
-
-	.value-box li,
-	.plan-card li {
-		margin-bottom: 0.5rem;
-	}
-
-	.stat {
-		font-size: 2rem;
-		font-weight: 900;
-		color: var(--secondary);
-		margin-bottom: 0.25rem;
-	}
-
-	.quote-author {
-		font-weight: 700;
-		margin-bottom: 0;
-	}
-
-	.cta-band {
-		display: grid;
-		gap: 1rem;
-	}
-
-	.contact-grid {
-		display: grid;
-		gap: 1rem;
-	}
-
-	.contact-form label {
+	.home__blog-image-link {
 		display: block;
-		font-size: 0.95rem;
-		font-weight: 700;
-		margin-bottom: 0.8rem;
+		border-radius: 1.1rem;
+		overflow: hidden;
+		border: 1px solid var(--home-border);
+		background: #fff;
 	}
 
-	.contact-form input,
-	.contact-form textarea {
+	.home__blog-image-link :global(img) {
 		width: 100%;
-		border: 1px solid #c6d1eb;
-		border-radius: 0.4rem;
-		padding: 0.65rem 0.7rem;
-		margin-top: 0.25rem;
+		height: clamp(12rem, 20vw, 17rem);
+		object-fit: cover;
 	}
 
-	.contact-form button {
+	.home__blog-card h3 {
+		font-size: clamp(1.5rem, 2.4vw, 2rem);
+		line-height: 1.2;
+		margin: 0;
+	}
+
+	.home__blog-card h3 a {
+		text-decoration: none;
+		color: var(--home-ink);
+	}
+
+	.home__blog-meta {
+		font-size: clamp(0.96rem, 1vw, 1.06rem);
+		line-height: 1.45;
+		color: #4d5a88;
+		margin: 0;
+	}
+
+	.home__blog-footer-link {
+		margin-top: 1.4rem;
+		text-align: center;
+	}
+
+	.home__contact-grid {
+		display: grid;
+		gap: 1rem;
+		align-items: start;
+	}
+
+	.home__contact-form {
+		padding: clamp(1.3rem, 2.5vw, 2rem);
+	}
+
+	.home__contact-form label {
+		display: grid;
+		gap: 0.36rem;
+		font-size: clamp(0.94rem, 0.95vw, 1.04rem);
+		color: #2f3b5f;
+		margin-bottom: 0.65rem;
+	}
+
+	.home__contact-form input,
+	.home__contact-form textarea {
+		width: 100%;
+		padding: 0.68rem 0.78rem;
+		border: 1px solid #d0d8ee;
+		border-radius: 999px;
+		background: #fff;
+		font: inherit;
+	}
+
+	.home__contact-form textarea {
+		border-radius: 1.6rem;
+		resize: vertical;
+		min-height: 8rem;
+	}
+
+	.home__contact-form button {
 		border: 0;
 	}
 
 	@media only screen and (min-width: 48rem) {
-		.hero-grid {
-			grid-template-columns: 1.25fr 0.75fr;
+		.home__hero-grid,
+		.home__split,
+		.home__contact-grid {
+			grid-template-columns: 1fr 1fr;
 		}
 
-		.service-grid,
-		.plan-grid {
+		.home__cards,
+		.home__blog-grid {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 
-		.two-col {
-			grid-template-columns: 1.2fr 0.8fr;
-		}
-
-		.stat-grid,
-		.quote-grid,
-		.blog-grid {
-			grid-template-columns: repeat(3, minmax(0, 1fr));
-		}
-
-		.cta-band {
+		.home__stat-grid,
+		.home__plan-grid {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 
-		.contact-grid {
-			grid-template-columns: 0.95fr 1.05fr;
+		.home__values {
+			grid-template-columns: 1fr 1fr;
+			align-items: center;
+		}
+
+		.home__testimonial {
+			grid-template-columns: 0.8fr 1.2fr;
+		}
+
+		.home__logo-grid {
+			grid-template-columns: repeat(4, minmax(0, 1fr));
 		}
 	}
 
-	@media only screen and (min-width: 70rem) {
-		.service-grid,
-		.plan-grid {
+	@media only screen and (min-width: 75rem) {
+		.home__cards,
+		.home__plan-grid,
+		.home__blog-grid {
 			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+
+		.home__stat-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.home__split {
+			grid-template-columns: 1.05fr 0.95fr;
+		}
+
+		.home__hero-grid {
+			grid-template-columns: 1fr 0.95fr;
 		}
 	}
 </style>

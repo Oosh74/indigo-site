@@ -8,4 +8,18 @@ imageAlt: Indigo USA blog placeholder image
 isFeatured: false
 ---
 
-This is a migration placeholder for the original WordPress article.
+## NSNCW is Cultivating Kindness!
+
+This year’s NSNCW theme; Cultivating Kindness, is inspired by the daily acts of kindness in skilled nursing care centers. In the weeks leading up to NSNCW, centers are encouraged to plan special events for staff, residents, and families. Make sure to share your NSNCW activity ideas, photos, videos, and messages on social media with #NSNCW.
+
+Once you have the details of your event, contact your rep to create stationary and plan other ways to promote it!
+
+## Personalized Promo Items You May Want to Consider:
+
+- Hand Sanitizers
+- Tote Bags
+- T-Shirts
+- Stress Balls
+- Pens
+- And More!
+

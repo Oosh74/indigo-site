@@ -10,7 +10,7 @@ const placeholderOptimizedImage = await getImage({ src: placeholderImage, format
 
 const posts = await getCollection("blog");
 posts.sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf());
-const recentPosts = posts.slice(0, 6);
+const recentPosts = posts;
 const categories = [
 	"Digital Marketing Articles",
 	"SEO Articles",
