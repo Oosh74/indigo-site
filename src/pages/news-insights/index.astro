@@ -1,19 +1,221 @@
 ---
 import { getCollection } from "astro:content";
-import { getImage } from "astro:assets";
-import "@styles/sidebar.less";
+import { Picture, getImage } from "astro:assets";
+import { formatDate } from "@js/utils";
 
 import BaseLayout from "@layouts/BaseLayout.astro";
-import BlogRecentArticlesWithSidebar from "@layouts/BlogRecentArticlesWithSidebar.astro";
-
 import placeholderImage from "@assets/images/placeholder.jpg";
 
 const placeholderOptimizedImage = await getImage({ src: placeholderImage, format: "webp" });
 
 const posts = await getCollection("blog");
 posts.sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf());
+const recentPosts = posts.slice(0, 6);
+const categories = [
+	"Digital Marketing Articles",
+	"SEO Articles",
+	"SMM (Social Media Management) Articles",
+	"Web Design and Development",
+	"Creative Design & Collateral Articles",
+];
 ---
 
-<BaseLayout title="News & Insights" description="Latest news and insights from Indigo USA." heroImage={placeholderOptimizedImage}>
-	<BlogRecentArticlesWithSidebar posts={posts} postUrlPrefix="/" />
+<BaseLayout
+	title="News & Insights | Indigo Business Solutions"
+	description="Google, social media, and web trends change fast. We track it, test it, and share what matters so your marketing stays ahead."
+	heroImage={placeholderOptimizedImage}
+>
+	<section class="hero">
+		<div class="shell">
+			<p class="crumb">Home Page / News & Resources</p>
+			<h1>News & insights</h1>
+			<p>
+				Google, social media, and web trends change fast. We track it, test it, and share what matters so you can stay ahead.
+			</p>
+			<p>Check out our blog for updates and ideas to keep your marketing moving forward.</p>
+			<a href="/contact-us/" class="cta">Free evaluation</a>
+		</div>
+	</section>
+
+	<section class="listing shell">
+		<div class="listing-main">
+			<h2>Recent Articles</h2>
+			<div class="card-grid">
+				{
+					recentPosts.map((post) => (
+						<article class="post-card">
+							<a href={`/${post.id}/`} class="image-wrap" aria-label={`Read ${post.data.title}`}>
+								<Picture src={post.data.image} alt={post.data.imageAlt} formats={["avif", "webp"]} quality={"mid"} />
+							</a>
+							<p class="meta">{formatDate(post.data.date)}</p>
+							<p class="author">{post.data.author}</p>
+							<h3>
+								<a href={`/${post.id}/`}>{post.data.title}</a>
+							</h3>
+							<a class="read-more" href={`/${post.id}/`}>Read more</a>
+						</article>
+					))
+				}
+			</div>
+		</div>
+
+		<aside class="categories" aria-label="Blog categories">
+			<h2>Categories</h2>
+			<ul>
+				{categories.map((category) => <li>{category}</li>)}
+			</ul>
+		</aside>
+	</section>
 </BaseLayout>
+
+<style lang="less">
+	.shell {
+		width: min(1120px, 94%);
+		margin: 0 auto;
+	}
+
+	.hero {
+		padding: clamp(5.6rem, 8vw, 8rem) 0 2.4rem;
+		background: linear-gradient(160deg, #12183f 0%, #1e2868 56%, #344494 100%);
+		border-bottom-left-radius: 3rem;
+		border-bottom-right-radius: 3rem;
+		color: #fff;
+	}
+
+	.crumb {
+		font-size: 0.86rem;
+		color: #c8cfee;
+		margin-bottom: 0.6rem;
+	}
+
+	.hero h1 {
+		color: #fff;
+		font-size: clamp(2rem, 4.8vw, 3.2rem);
+		line-height: 1.1;
+		margin-bottom: 0.8rem;
+	}
+
+	.hero p {
+		max-width: 68ch;
+		color: #d6dcf6;
+	}
+
+	.cta {
+		display: inline-block;
+		margin-top: 0.8rem;
+		padding: 0.58rem 1.04rem;
+		background: #fff;
+		color: #1b245d;
+		font-weight: 700;
+		text-decoration: none;
+		border-radius: 999px;
+	}
+
+	.listing {
+		padding: clamp(2.3rem, 6vw, 4rem) 0 clamp(3rem, 8vw, 5rem);
+		display: grid;
+		gap: 1.4rem;
+	}
+
+	.listing-main h2,
+	.categories h2 {
+		font-size: clamp(1.45rem, 2.6vw, 2rem);
+		margin-bottom: 0.9rem;
+		color: #223164;
+	}
+
+	.card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 1rem;
+	}
+
+	.post-card {
+		background: #fff;
+		border: 1px solid #dfe5f3;
+		border-radius: 0.9rem;
+		padding: 0.78rem;
+	}
+
+	.image-wrap {
+		display: block;
+		border-radius: 0.7rem;
+		overflow: hidden;
+		background: #e8ecf8;
+		aspect-ratio: 16 / 10;
+		margin-bottom: 0.7rem;
+	}
+
+	.image-wrap :global(img) {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.meta,
+	.author {
+		font-size: 0.78rem;
+		color: #59679a;
+		margin: 0 0 0.25rem;
+	}
+
+	.author {
+		margin-bottom: 0.4rem;
+	}
+
+	.post-card h3 {
+		font-size: 1rem;
+		line-height: 1.35;
+		margin-bottom: 0.55rem;
+	}
+
+	.post-card h3 a {
+		color: #223164;
+		text-decoration: none;
+	}
+
+	.post-card h3 a:hover,
+	.read-more:hover {
+		text-decoration: underline;
+	}
+
+	.read-more {
+		font-size: 0.84rem;
+		font-weight: 700;
+		color: #3855ad;
+		text-decoration: none;
+	}
+
+	.categories {
+		display: none;
+	}
+
+	.categories ul {
+		margin: 0;
+		padding-left: 1.1rem;
+	}
+
+	.categories li {
+		margin-bottom: 0.45rem;
+		color: #344483;
+	}
+
+	@media only screen and (min-width: 64rem) {
+		.listing {
+			grid-template-columns: minmax(0, 1fr) 280px;
+			align-items: start;
+			gap: 1.8rem;
+		}
+
+		.categories {
+			display: block;
+			position: sticky;
+			top: 8.8rem;
+			padding-top: 0.2rem;
+		}
+
+		.card-grid {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+</style>
