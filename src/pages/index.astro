@@ -4,27 +4,101 @@ import { getImage } from "astro:assets";
 
 // Components
 import BaseLayout from "@layouts/BaseLayout.astro";
-import Hero from "@components/Hero/Hero.astro";
-import Services from "@components/Services/Services.astro";
-import SideBySide from "@components/SideBySide/SideBySide.astro";
-import SideBySideReverse from "@components/SideBySideReverse/SideBySideReverse.astro";
-import Gallery from "@components/Gallery/Gallery.astro";
-import Testimonials from "@components/Testimonials/Testimonials.astro";
-import FAQ from "@components/FAQ/FAQ.astro";
-import CTASimple from "@components/CTA/CTASimple.astro";
 
-// Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Banner (for rendering)
-import heroImage from "@assets/images/hero/hero.jpg";
-const optimizedHeroImage = await getImage({ src: heroImage, format: "webp" });
+// Images
+import placeholderImg from "@assets/images/placeholder.jpg";
+
+const optimizedPlaceholder = await getImage({ src: placeholderImg, format: "webp" });
 ---
 
-<BaseLayout title="Pixel Perfect Websites" description="Meta description for the page" heroImage={optimizedHeroImage}>
-	<Hero image={optimizedHeroImage} />
-	<Services />
-	<SideBySide />
-	<SideBySideReverse />
-	<Gallery />
-	<Testimonials />
-	<FAQ />
-	<CTASimple />
+<BaseLayout
+	title="Welcome"
+	description="Your new Astro site"
+	heroImage={optimizedPlaceholder}
+>
+	<main id="main">
+		<section id="welcome">
+			<div class="cs-container">
+				<div class="cs-content">
+					<h1>Welcome to Your Astro Site</h1>
+					<p>
+						This template has been stripped to bare minimum. All demo content has been
+						moved to <code>scripts/deleted/</code> and can be safely deleted.
+					</p>
+					<p>
+						Get started by reading the
+						<a href="https://github.com/yourusername/yourrepo#getting-started">
+							Getting Started
+						</a>
+						section in the README.
+					</p>
+				</div>
+			</div>
+		</section>
+	</main>
 </BaseLayout>
+
+<style lang="less">
+	#welcome {
+		padding: 100px 16px;
+
+		.cs-container {
+			max-width: 1280px;
+			margin: 0 auto;
+		}
+
+		.cs-content {
+			max-width: 800px;
+			margin: 0 auto;
+			text-align: center;
+
+			h1 {
+				margin-bottom: 24px;
+				font-size: clamp(2rem, 5vw, 3rem);
+			}
+
+			p {
+				margin-bottom: 16px;
+				font-size: 1.125rem;
+				line-height: 1.6;
+			}
+
+			code {
+				padding: 2px 8px;
+				background: #f4f4f4;
+				border-radius: 4px;
+				font-family: monospace;
+			}
+
+			a {
+				color: var(--primary);
+				text-decoration: underline;
+
+				&:hover {
+					opacity: 0.8;
+				}
+			}
+		}
+	}
+
+	/* Dark mode */
+	@media only screen and (prefers-color-scheme: dark) {
+		#welcome {
+			.cs-content {
+				code {
+					background: #2a2a2a;
+				}
+			}
+		}
+	}
+
+	body.dark-mode {
+		#welcome {
+			.cs-content {
+				code {
+					background: #2a2a2a;
+				}
+			}
+		}
+	}
+</style>

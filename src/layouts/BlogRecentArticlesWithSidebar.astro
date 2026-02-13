@@ -9,12 +9,23 @@
 // Utils
 import { Picture } from "astro:assets";
 import { Icon } from "astro-icon/components";
+import type { CollectionEntry } from "astro:content";
 import { formatDate } from "@js/utils";
 
 // Components
 import FeaturedPost from "@components/FeaturedPost/FeaturedPost.astro";
 
-const { posts } = Astro.props;
+interface Props {
+	posts: CollectionEntry<"blog">[];
+	postUrlPrefix?: string;
+}
+
+const { posts, postUrlPrefix = "/" } = Astro.props as Props;
+
+function buildPostUrl(postId: string) {
+	const normalizedPrefix = postUrlPrefix.endsWith("/") ? postUrlPrefix : `${postUrlPrefix}/`;
+	return `${normalizedPrefix}${postId}`;
+}
 ---
 
 <section class="blog-container">
@@ -46,7 +57,7 @@ const { posts } = Astro.props;
 							</div>
 							<h2 class="blog-h1">{post.data.title}</h2>
 							<p class="blog-desc">{post.data.description}</p>
-							<a href={post.id} class="blog-link">
+							<a href={buildPostUrl(post.id)} class="blog-link">
 								Continue Reading
 							</a>
 						</div>
@@ -56,7 +67,7 @@ const { posts } = Astro.props;
 	</section>
 	<aside class="blog-sidebar">
 		<div class="blog-sidebar_widget-wrapper">
-			<FeaturedPost />
+			<FeaturedPost postUrlPrefix={postUrlPrefix} />
 		</div>
 	</aside>
 </section>
