@@ -3,6 +3,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import { Picture } from "astro:assets";
 import { formatDate } from "@js/utils";
+import heroImg from '../assets/images/indigo-office-background-1.webp'
 
 const services = [
 	{
@@ -133,8 +134,17 @@ const featuredPosts = posts.slice(0, 3);
 					</div>
 				</div>
 				<div class="home__hero-media" aria-hidden="true">
-					<div class="home__hero-photo"></div>
-					<div class="home__hero-badge">Trusted by nearly 200 clients in 30+ states backed by 50+ five-star reviews.</div>
+					<Picture 
+						src={heroImg}
+    					widths={[240, 540, 720, heroImg.width]} 
+						height="100"						
+						sizes={`(max-width: 100%) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${heroImg.width}px`}
+  						alt="A descriptive description"
+   						formats={['avif', 'webp']}
+						alt="Indigo Business Solutions Office"
+					 	class="home__hero-photo">
+					 </Picture>
+					<div class="imgBadge">Trusted by nearly 200 clients in 30+ states backed by 50+ five-star reviews.</div>
 				</div>
 			</div>
 		</section>
@@ -469,9 +479,10 @@ const featuredPosts = posts.slice(0, 3);
 	}
 
 	.home__hero {
-		background:
-			radial-gradient(120% 120% at 95% 95%, rgba(148, 207, 61, 0.12) 0%, rgba(148, 207, 61, 0) 45%),
-			linear-gradient(180deg, #181f4b 0%, #181f4b 100%);
+		background-color: var(--brandNavy);
+		background-image: url("/src/assets/images/Indigo-Right-Bottom-Corner.svg");
+		background-size: cover, cover;
+		background-repeat: no-repeat;
 		padding: clamp(2.8rem, 6.2vw, 5.2rem) 0;
 		border-bottom-left-radius: clamp(3rem, 14vw, 13rem);
 	}
@@ -511,13 +522,12 @@ const featuredPosts = posts.slice(0, 3);
 
 	.home__hero-media {
 		position: relative;
-		min-height: clamp(19rem, 32vw, 38rem);
 	}
 
 	.home__hero-photo {
-		height: 100%;
-		border-top-right-radius: clamp(5rem, 18vw, 11rem);
-		border-bottom-left-radius: 0.9rem;
+		width: 100%;
+		height: auto;
+		border-radius: 0px clamp(16px, 10vw, 192px) 0px clamp(16px, 10vw, 192px);
 		background: linear-gradient(140deg, #a8d0ff 0%, #56628c 55%, #1f2744 100%);
 		box-shadow: var(--home-shadow);
 	}
