@@ -8,12 +8,18 @@ import "@styles/sidebar.less";
 // Data
 const posts = await getCollection("blog");
 const featuredPosts = posts.filter((post) => post.data.isFeatured === true);
+const { postUrlPrefix = "/" } = Astro.props;
+
+function buildPostUrl(postId: string) {
+	const normalizedPrefix = postUrlPrefix.endsWith("/") ? postUrlPrefix : `${postUrlPrefix}/`;
+	return `${normalizedPrefix}${postId}`;
+}
 ---
 
 <h3 class="blog-sidebar_widget-header">Featured Posts</h3>
 {
 	featuredPosts.map((post) => (
-		<a class="blog-sidebar_widget-link" href={`/blog/${post.id}`}>
+		<a class="blog-sidebar_widget-link" href={buildPostUrl(post.id)}>
 			<picture class="blog-sidebar_widget-image">
 				<Image src={post.data.image} alt={post.data.imageAlt} width="60" height="60" decoding="async" />
 			</picture>

@@ -1,36 +1,57 @@
 [
-  {
-    "key": "Home",
-    "url": "/",
-    "children": []
-  },
-  {
-    "key": "About Us",
-    "url": "/about/",
-    "children": []
-  },
-  {
-    "key": "Projects",
-    "url": "/projects/",
-    "children": [
-      {
-        "key": "Project 1",
-        "url": "/projects/project-1/"
-      },
-      {
-        "key": "Project 2",
-        "url": "/projects/project-2/"
-      }
-    ]
-  },
-  {
-    "key": "Reviews",
-    "url": "/reviews/",
-    "children": []
-  },
-  {
-    "key": "Blog",
-    "url": "/blog/",
-    "children": []     
-  }
+	{
+		"key": "Home",
+		"url": "/",
+		"children": []
+	},
+	{
+		"key": "Our Services",
+		"url": "/our-services/",
+		"children": [
+			{
+				"key": "Creative Design & Branding",
+				"url": "/our-services/creative-design-branding/"
+			},
+			{
+				"key": "Print & Promotional Products",
+				"url": "/our-services/print-promotional-products/"
+			},
+			{
+				"key": "Digital Marketing",
+				"url": "/our-services/digital-marketing/"
+			},
+			{
+				"key": "Social Media Management",
+				"url": "/our-services/social-media-management/"
+			},
+			{
+				"key": "Search Engine Optimization",
+				"url": "/our-services/search-engine-optimization/"
+			},
+			{
+				"key": "Website Design & Development",
+				"url": "/our-services/website-design-development/"
+			}
+		]
+	},
+	{
+		"key": "About Us",
+		"url": "/about-us/",
+		"children": []
+	},
+	{
+		"key": "News & Insights",
+		"url": "/news-insights/",
+		"children": []
+	},
+	{
+		"key": "Marketing Quiz",
+		"url": "/marketing-quiz/",
+		"children": []
+	},
+	{
+		"key": "Contact Us",
+		"url": "/contact-us/",
+		"children": []
+	}
 ]
