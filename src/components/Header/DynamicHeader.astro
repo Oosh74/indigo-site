@@ -45,11 +45,14 @@ import navData from "@data/navData.json";
 						navData.map((entry) => (
 							<li class:list={["cs-li", { "cs-dropdown": entry.children?.length > 0 }]}>
 								{entry.children?.length > 0 ? (
-									// If entry has children in navData.json, create a button and a dropdown icon
-									<button id={getDropdownId(entry.key)} aria-expanded="false" aria-haspopup="menu" class:list={["cs-li-link cs-dropdown-toggle", { "cs-active": Astro.url.pathname.includes(entry.url) }]}>
-										{entry.key}
-										<Icon name="mdi--caret" class="cs-drop-icon" />
-									</button>
+									<>
+										<a href={entry.url} class:list={["cs-li-link", { "cs-active": Astro.url.pathname.includes(entry.url) }]} aria-current={isCurrentPage(Astro.url.pathname, entry.url)}>
+											{entry.key}
+										</a>
+										<button id={getDropdownId(entry.key)} aria-expanded="false" aria-haspopup="menu" class="cs-dropdown-toggle" aria-label={`Toggle ${entry.key} submenu`}>
+											<Icon name="mdi--caret" class="cs-drop-icon" />
+										</button>
+									</>
 								) : (
 									// If entry does not have children in navData.json, create an anchor
 									<a href={entry.url} class:list={["cs-li-link", { "cs-active": Astro.url.pathname === entry.url }]} aria-current={isCurrentPage(Astro.url.pathname, entry.url)}>
@@ -408,6 +411,10 @@ import navData from "@data/navData.json";
 				color: var(--headerColor);
 
 				position: relative;
+				display: flex;
+				align-items: center;
+				justify-content: flex-end;
+				gap: (6/16rem);
 
 				&.cs-active {
 					.cs-drop-ul {
@@ -486,6 +493,8 @@ import navData from "@data/navData.json";
 				background-color: transparent;
 				border: none;
 				appearance: none;
+				padding: 0;
+				line-height: 0;
 			}
 		}
 	}
@@ -495,6 +504,9 @@ import navData from "@data/navData.json";
 		#cs-navigation {
 			.cs-dropdown {
 				position: relative;
+				display: flex;
+				align-items: center;
+				gap: (6/16rem);
 				&:hover,
 				&.cs-active {
 					cursor: pointer;
@@ -643,6 +655,8 @@ import navData from "@data/navData.json";
 				background-color: transparent;
 				border: none;
 				appearance: none;
+				padding: 0;
+				line-height: 0;
 			}
 		}
 	}
