@@ -1,23 +1,406 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+
+const values = [
+	{
+		title: "Super-Service",
+		text: "Most agencies take weeks to respond. We respond in hours, sometimes minutes, and build extra value into every project.",
+	},
+	{
+		title: "Integrity",
+		text: "Consistent follow-through, honest conversations, and clear reporting without jargon or inflated promises.",
+	},
+	{
+		title: "Quality",
+		text: "From strategy decks to final designs, we deliver work that respects your investment and your business goals.",
+	},
+	{
+		title: "Relationships First",
+		text: "We adapt to what you need, not what makes us the most money. Long-term partnerships are the point.",
+	},
+];
+
+const industries = [
+	"Accounting and Financial Services",
+	"Auto Repair and Body Shops",
+	"Chiropractors and Physical Therapists",
+	"Cleaning Services",
+	"Contractors and Construction Companies",
+	"E-commerce Stores and Local Retailers",
+	"Event Planners and Venues",
+	"Gyms and Fitness Studios",
+	"Home Services",
+	"Insurance Agencies",
+	"Law Firms",
+	"Medical and Dental Practices",
+	"Nursing Homes and Elder Care Services",
+	"Nonprofits and Community Organizations",
+	"Real Estate Agencies and Brokerages",
+	"Restaurants and Catering Services",
+	"Salons and Wellness Centers",
+	"Tech Startups and SaaS Providers",
+	"Veterinary Clinics and Pet Services",
+];
+
+const reasons = [
+	"20-40% of most marketing budgets are wasted. We make every dollar count.",
+	"Trusted since 2006 with long-term client partnerships.",
+	"Rooted in community support through sponsorships and local involvement.",
+	"Flexible budgets and strategies tailored to what you can afford.",
+	"Fast, responsive communication and clear progress updates.",
+];
+
+const processSteps = [
+	{
+		step: "Step One",
+		title: "Free marketing evaluation",
+		text: "We discuss your goals and challenges, then share honest feedback and practical next steps.",
+	},
+	{
+		step: "Step Two",
+		title: "Planning and onboarding",
+		text: "We build a roadmap around your goals, budget, and timeline with clear direction across channels.",
+	},
+	{
+		step: "Step Three",
+		title: "Execution",
+		text: "We design, develop, optimize, and launch while keeping communication clear and proactive.",
+	},
+	{
+		step: "Step Four",
+		title: "Reporting and refinement",
+		text: "You get transparent updates and actionable insights so performance keeps improving.",
+	},
+];
 ---
 
-<BaseLayout title="About Us" description="About Indigo USA.">
-	<section class="page-shell">
-		<div class="cs-container">
+<BaseLayout title="About Us | Indigo Business Solutions" description="Digital marketing professionals rooted in integrity since 2006. Built on trust, driven by relationships, and focused on measurable growth.">
+	<section class="hero">
+		<div class="shell">
 			<h1>About Us</h1>
-			<p>Migration placeholder. Replace with cleaned content and design blocks from the current site.</p>
+			<p>
+				We have helped hundreds of businesses across 30+ states grow with confidence through efficient, transparent digital marketing tailored to real goals and real budgets.
+			</p>
+			<a href="/contact-us/" class="cta">Free evaluation</a>
+		</div>
+	</section>
+
+	<section class="shell section">
+		<div class="two-col">
+			<div class="card">
+				<p class="eyebrow">Our History</p>
+				<h2>Digital marketing professionals rooted in integrity</h2>
+				<p>
+					Anthony Parenti founded Indigo Business Solutions in 2006 after seeing too many agencies overpromise and underdeliver. What started as a small radio advertising company evolved into a full-service digital marketing agency serving businesses of all sizes.
+				</p>
+				<p>
+					Most growth has come from referrals and long-term clients. Marketing tools change constantly, but our approach stays the same: relationships before revenue and honest work every time.
+				</p>
+				<a href="/our-services/">See our digital marketing services</a>
+			</div>
+			<div class="card">
+				<p class="eyebrow">Mission and values</p>
+				<h2>Built on trust, driven by relationships</h2>
+				<p>Four principles guide every decision, every campaign, and every client relationship.</p>
+				<div class="value-grid">
+					{
+						values.map((value) => (
+							<article>
+								<h3>{value.title}</h3>
+								<p>{value.text}</p>
+							</article>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="mission">
+		<div class="shell">
+			<h2>Our Mission</h2>
+			<p class="quote">
+				"We exist to be the marketing partner you wish you found sooner, delivering honest guidance and exceptional service to businesses of any size or budget."
+			</p>
+			<p>
+				The marketing world is full of empty promises. Indigo was built differently, with values that keep our work transparent, practical, and focused on long-term growth.
+			</p>
+			<a href="/contact-us/" class="cta">Talk to our team</a>
+		</div>
+	</section>
+
+	<section class="shell section">
+		<div class="two-col">
+			<div class="card">
+				<h2>The people who make it happen</h2>
+				<p>
+					Behind every campaign and website are marketers, designers, developers, and strategists who care deeply about your results and your experience.
+				</p>
+			</div>
+			<div class="card">
+				<h2>We work with any business, proven in over thirty states</h2>
+				<p>
+					Local startup, regional chain, or national brand, each strategy is customized to industry, goals, and challenges.
+				</p>
+				<ul class="industry-list">
+					{industries.map((industry) => <li>{industry}</li>)}
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="proof">
+		<div class="shell">
+			<h2>Your business deserves better marketing</h2>
+			<p>
+				Indigo has spent nearly two decades helping businesses grow through relationships, not one-off tactics. Many clients have stayed with us from the start.
+			</p>
+			<ul>
+				{reasons.map((reason) => <li>{reason}</li>)}
+			</ul>
+			<a href="/contact-us/" class="cta">Free evaluation</a>
+		</div>
+	</section>
+
+	<section class="shell section">
+		<h2>How we will work together</h2>
+		<p class="intro">
+			New brand, strategy refresh, or full marketing overhaul, our process stays collaborative, clear, and customized to your needs.
+		</p>
+		<div class="process-grid">
+			{
+				processSteps.map((item) => (
+					<article>
+						<p class="step">{item.step}</p>
+						<h3>{item.title}</h3>
+						<p>{item.text}</p>
+					</article>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="contact">
+		<div class="shell">
+			<h2>Let&apos;s Chat</h2>
+			<p>Give us a call. We will listen, share how we would help, and let you know if we are the right fit.</p>
+			<ul>
+				<li><strong>Location:</strong> 2150 Joshuas Path Suite 201, Hauppauge, NY 11788</li>
+				<li><strong>Phone:</strong> <a href="tel:+16316309845">(631) 630-9845</a></li>
+				<li><strong>Business Hours:</strong> Monday-Friday: 8:30 AM-6 PM, Saturday-Sunday: Closed</li>
+			</ul>
+			<a href="/contact-us/" class="cta">Contact us</a>
 		</div>
 	</section>
 </BaseLayout>
 
 <style lang="less">
-	.page-shell {
-		padding: 8rem 1rem 4rem;
+	.shell {
+		width: min(1120px, 94%);
+		margin: 0 auto;
 	}
 
-	.cs-container {
-		max-width: 64rem;
-		margin: 0 auto;
+	.section {
+		padding: clamp(2.5rem, 6vw, 5rem) 0;
+	}
+
+	.hero {
+		padding: clamp(5.5rem, 8vw, 8rem) 0 2.8rem;
+		background: linear-gradient(160deg, #12183f 0%, #1e2868 56%, #344494 100%);
+		border-bottom-left-radius: 3rem;
+		border-bottom-right-radius: 3rem;
+		color: #fff;
+	}
+
+	.hero h1 {
+		color: #fff;
+		font-size: clamp(2rem, 4.8vw, 3.3rem);
+		line-height: 1.1;
+		margin-bottom: 1rem;
+	}
+
+	.hero p {
+		color: #d8ddf7;
+		max-width: 68ch;
+		margin-bottom: 1rem;
+	}
+
+	.cta {
+		display: inline-block;
+		background: var(--secondary);
+		color: #fff;
+		padding: 0.58rem 1.05rem;
+		border-radius: 999px;
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	.cta:hover {
+		filter: brightness(0.95);
+	}
+
+	.two-col {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.card {
+		background: #f4f6fb;
+		border: 1px solid #dce3f4;
+		border-radius: 1rem;
+		padding: 1.1rem;
+	}
+
+	.eyebrow {
+		font-size: 0.85rem;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: #526097;
+		margin-bottom: 0.5rem;
+	}
+
+	h2 {
+		font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+		margin-bottom: 0.75rem;
+	}
+
+	h3 {
+		font-size: 1.08rem;
+		margin: 0.65rem 0 0.4rem;
+	}
+
+	.card a {
+		color: var(--secondary);
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	.card a:hover {
+		text-decoration: underline;
+	}
+
+	.value-grid {
+		display: grid;
+		gap: 0.75rem;
+	}
+
+	.value-grid article {
+		background: #fff;
+		border: 1px solid #dce3f4;
+		border-radius: 0.8rem;
+		padding: 0.85rem;
+	}
+
+	.mission {
+		background: #eff2f9;
+		padding: clamp(2.4rem, 6vw, 4rem) 0;
+		border-top-left-radius: 2.6rem;
+		border-top-right-radius: 2.6rem;
+	}
+
+	.quote {
+		font-weight: 700;
+		max-width: 72ch;
+	}
+
+	.industry-list {
+		column-gap: 1.4rem;
+	}
+
+	.proof {
+		background: #131a45;
+		color: #fff;
+		padding: clamp(2.4rem, 6vw, 4rem) 0;
+		border-top-left-radius: 2.6rem;
+		border-top-right-radius: 2.6rem;
+	}
+
+	.proof h2 {
+		color: #fff;
+	}
+
+	.proof p,
+	.proof li {
+		color: #d2d8f7;
+	}
+
+	.proof ul {
+		padding-left: 1.2rem;
+		margin-bottom: 1rem;
+	}
+
+	.intro {
+		max-width: 75ch;
+	}
+
+	.process-grid {
+		display: grid;
+		gap: 0.9rem;
+		margin-top: 1rem;
+	}
+
+	.process-grid article {
+		border: 1px solid #dce3f4;
+		background: #f4f6fb;
+		border-radius: 0.8rem;
+		padding: 0.9rem;
+	}
+
+	.step {
+		font-size: 0.85rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.07em;
+		color: #526097;
+		margin-bottom: 0.35rem;
+	}
+
+	.contact {
+		background: #0f1538;
+		color: #fff;
+		padding: clamp(2.6rem, 6vw, 4rem) 0;
+		border-top-left-radius: 2.5rem;
+		border-top-right-radius: 2.5rem;
+	}
+
+	.contact h2 {
+		color: #fff;
+	}
+
+	.contact p,
+	.contact li {
+		color: #d2d8f7;
+	}
+
+	.contact ul {
+		padding-left: 1.2rem;
+		margin-bottom: 1rem;
+	}
+
+	.contact a {
+		color: #fff;
+		text-decoration: none;
+	}
+
+	.contact a:hover {
+		text-decoration: underline;
+	}
+
+	@media only screen and (min-width: 64rem) {
+		.two-col {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.process-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.industry-list {
+			columns: 2;
+		}
+
+		.card {
+			padding: 1.45rem 1.65rem;
+		}
 	}
 </style>
