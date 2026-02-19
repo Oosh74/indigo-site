@@ -87,10 +87,11 @@ h6 {
 @media only screen and (min-width: 0em) {
   :root {
     // Website colors
-    --primary: #aff425;
-    --primaryLight: #7aa329;
-    --secondary: #001f3f;
+    --primary: #1b1f3a;
+    --primaryLight: #f5f7fa;
+    --secondary: #96c846;
     --secondaryLight: #39426f;
+    --border-color: #dde2eb;
     --color-heading-light: #07124a;
     --color-heading-dark: #ffffff;
     --color-text-light: #1e2430;
@@ -103,6 +104,8 @@ h6 {
     --radius-image: clamp(16px, 7vw, 150px);
     --radius-badge: clamp(10px, 3vw, 56px);
     --radius-card: clamp(10px, 2.5vw, 28px);
+    --section-dark-bg: #1b1f3a;
+    --soft-shadow: 0px 24px 32px -38px rgba(27, 31, 58, 0.3);
 
     --step--2: clamp(0.6076rem, 0.5041rem + 0.3819vw, 0.8rem);
     --step--1: clamp(0.7292rem, 0.5833rem + 0.5376vw, 1rem);
@@ -127,7 +130,7 @@ h6 {
     --topperLineHeight: 1.2;
     --topperLetterSpacing: 2.5px;
     --topperTextTransform: uppercase;
-    --topperColor: var(--secondary);
+    --topperColor: #39426f;
     --topperMarginBottom: 0;
     --topperFontFamily: "Inter", Arial, sans-serif;
     --topperFontStyle: normal;
@@ -249,6 +252,54 @@ button {
   &:hover {
     cursor: pointer;
   }
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--bodyFontSize);
+  font-weight: 400;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.text-link__content {
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    text-decoration 1.3s ease;
+}
+
+.text-link__content:hover,
+.text-link__content:focus {
+  text-decoration: underline;
+  text-decoration-color: inherit;
+}
+
+.text-link::after {
+  content: "›";
+  display: inline-block; /* prevents underline */
+  text-decoration: none;
+}
+
+.text-link--light {
+  color: var(--primary);
+}
+
+.text-link--light .text-link__content:hover,
+.text-link--light .text-link__content:focus {
+  color: var(--primaryLight);
+}
+
+/* Dark variant */
+.text-link--dark {
+  color: var(--secondary);
+}
+
+.text-link--dark .text-link__content:hover,
+.text-link--dark .text-link__content:focus {
+  color: #c7d2fe;
 }
 
 /*-- -------------------------- -->

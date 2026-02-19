@@ -4,9 +4,16 @@ import { getCollection } from "astro:content";
 import { Picture } from "astro:assets";
 import { formatDate } from "@js/utils";
 import heroImg from "../assets/images/indigo-office-background-1.webp";
+import layoutIcon from "../icons/layout.svg";
+import atIcon from "../icons/at-sign.svg";
+import penIcon from "../icons/pen-tool.svg";
+import searchIcon from "../icons/search.svg";
+import trendingIcon from "../icons/trending-up.svg";
+import shoppingIcon from "../icons/shopping-bag.svg";
 
 const services = [
   {
+    icon: layoutIcon,
     title: "Web Design & Development",
     text: "Your site should work as hard as you do. We build websites that look sharp, load fast, and turn visitors into customers.",
     link: "/our-services/website-design-development/",
@@ -19,6 +26,7 @@ const services = [
     ],
   },
   {
+    icon: penIcon,
     title: "Creative & Branding",
     text: "Good design gets attention. Great design drives growth. We create logos, materials, and videos that tell your story clearly.",
     link: "/our-services/creative-design-branding/",
@@ -30,6 +38,7 @@ const services = [
     ],
   },
   {
+    icon: searchIcon,
     title: "Search Engine Optimization",
     text: "SEO changes constantly. We focus on what works: technical fixes, strong content, and trusted links that deliver steady growth.",
     link: "/our-services/search-engine-optimization/",
@@ -39,6 +48,45 @@ const services = [
       "Content Strategy",
       "Google Business Profile Optimization",
       "Offsite SEO & Backlinks",
+    ],
+  },
+  {
+    icon: trendingIcon,
+    title: "Digital Marketing",
+    text: "Ads only work if they reach the right people. We run campaigns on Google, Facebook, and Instagram that track every dollar and improve over time.",
+    link: "/our-services/digital-marketing/",
+    points: [
+      "Paid Search & Social Media Campaigns",
+      "Programmatic Display Advertising",
+      "Re-targeting & Re-marketing",
+      "Lead Generation Campaigns",
+      "Geofencing Ads",
+      "Conversion Rate Optimization (CRO)",
+      "OTT Ads",
+    ],
+  },
+  {
+    icon: shoppingIcon,
+    title: "Promo & Print Products",
+    text: "Print still makes an impact. We design cards, brochures, and branded items that keep your business top of mind.",
+    link: "/our-services/print-promotional-products/",
+    points: [
+      "Branded Print Materials",
+      "Custom Promo Products",
+      "Employee & Client Kits",
+      "Event & Trade Show Materials",
+      "On-Dmeand & Bulk Printing",
+      "Conversion Rate Optimization (CRO)",
+    ],
+  },
+  {
+    icon: atIcon,
+    title: "Social Media",
+    text: "Your audience is online every day. We help you stay visible with purposeful posts, real engagement, and a strong community.",
+    link: "/our-services/print-promotional-products/",
+    points: [
+      "Organic Social Media Management",
+      "Community Engagement & Management",
     ],
   },
 ];
@@ -152,7 +200,9 @@ const featuredPosts = posts.slice(0, 3);
             <a class="home__btn home__btn--ghost" href="/contact-us/"
               >Free evaluation</a
             >
-            <a class="home__text-link" href="/our-services/">Our services</a>
+            <a class="text-link text-link--dark" href="/our-services/"
+              ><span class="text-link__content">Our services</span></a
+            >
           </div>
         </div>
         <div class="home__hero-media" aria-hidden="true">
@@ -223,14 +273,23 @@ const featuredPosts = posts.slice(0, 3);
         {
           services.map((service) => (
             <article class="home__service-card">
-              <h3>{service.title}</h3>
+              <div>
+                {service.icon && (
+                  <service.icon
+                    aria-label={service.title}
+                    class="home__service-icon"
+                    role="img"
+                  />
+                )}
+                <h3>{service.title}</h3>
+              </div>
               <p>{service.text}</p>
               <ul>
                 {service.points.map((point) => (
                   <li>{point}</li>
                 ))}
               </ul>
-              <a class="home__text-link" href={service.link}>
+              <a class="text-link" href={service.link}>
                 Learn more
               </a>
             </article>
@@ -453,7 +512,7 @@ const featuredPosts = posts.slice(0, 3);
               <h3>
                 <a href={`/${post.id}/`}>{post.data.title}</a>
               </h3>
-              <a class="home__text-link" href={`/${post.id}/`}>
+              <a class="text-link" href={`/${post.id}/`}>
                 Read more
               </a>
             </article>
@@ -515,12 +574,7 @@ const featuredPosts = posts.slice(0, 3);
 
 <style lang="less">
   .home {
-    --home-surface: #ffffff;
-    --home-surface-soft: #f5f7fc;
-    --home-dark: #171f4c;
     --home-accent: #94cf3d;
-    --home-border: #d7deef;
-    --home-shadow: 0 24px 38px -32px rgba(11, 27, 74, 0.34);
     --home-space-section: var(--space-3xl);
     --home-space-stack: var(--space-s);
 
@@ -602,20 +656,6 @@ const featuredPosts = posts.slice(0, 3);
     border-color: #d8dcf0;
   }
 
-  .home__text-link {
-    font-size: clamp(1rem, 1vw, 1.15rem);
-    font-weight: 600;
-    text-decoration: none;
-    color: var(--home-accent);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .home__text-link::after {
-    content: "›";
-  }
-
   .home__hero {
     background-color: var(--brandNavy);
     background-image: url("/src/assets/images/Indigo-Right-Bottom-Corner.svg");
@@ -668,7 +708,7 @@ const featuredPosts = posts.slice(0, 3);
     height: auto;
     border-radius: 0 var(--radius-image) 0 var(--radius-image);
     background: linear-gradient(140deg, #a8d0ff 0%, #56628c 55%, #1f2744 100%);
-    box-shadow: var(--home-shadow);
+    box-shadow: var(--soft-shadow);
   }
 
   .home__split {
@@ -721,22 +761,28 @@ const featuredPosts = posts.slice(0, 3);
 
   .home__cards {
     display: grid;
-    gap: var(--space-s);
-  }
-
-  .home__service-card {
-    display: flex;
-    flex-direction: column;
+    gap: var(--space-m);
   }
 
   .home__service-card,
   .home__stat-card,
   .home__plan-card,
   .home__contact-form {
-    background: var(--home-surface-soft);
-    border: 1px solid var(--home-border);
-    padding: clamp(1.2rem, 2.4vw, 2.1rem);
-    box-shadow: var(--home-shadow);
+    background: var(--primaryLight);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-card);
+    padding: var(--space-m);
+    box-shadow: var(--soft-shadow);
+  }
+
+  .home__service-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+  }
+
+  .home__service-card svg {
+    margin-bottom: var(--space-xs);
   }
 
   .home__stat-card {
@@ -773,12 +819,12 @@ const featuredPosts = posts.slice(0, 3);
   .home__plan-card li,
   .home__checklist li,
   .home__contact-info li {
-    padding-left: 1.2rem;
+    padding-left: var(--space-xs);
     position: relative;
-    margin-bottom: 0.45rem;
-    font-size: clamp(0.96rem, 0.95vw, 1.1rem);
-    line-height: 1.45;
-    color: #2c3858;
+    margin-bottom: var(--space-3xs);
+    font-size: var(--step--1);
+    color: var(--primary);
+    line-height: 1.2;
   }
 
   .home__service-card li::before,
@@ -787,7 +833,7 @@ const featuredPosts = posts.slice(0, 3);
     content: "›";
     position: absolute;
     left: 0;
-    color: #729a2e;
+    color: var(--secondary);
   }
 
   .home__service-card a {
@@ -808,7 +854,7 @@ const featuredPosts = posts.slice(0, 3);
 
   .home__values {
     background: #f6f8fc;
-    border: 1px solid var(--home-border);
+    border: 1px solid var(--border-color);
     border-radius: var(--radius-card);
     padding: var(--space-m);
     display: grid;
@@ -959,7 +1005,7 @@ const featuredPosts = posts.slice(0, 3);
   }
 
   .home__section--darkband {
-    background: var(--home-dark);
+    background: var(--section-dark-bg);
   }
 
   .home__inner-cta {
@@ -990,7 +1036,7 @@ const featuredPosts = posts.slice(0, 3);
     display: block;
     border-radius: var(--radius-card);
     overflow: hidden;
-    border: 1px solid var(--home-border);
+    border: 1px solid var(--border-color);
     background: #fff;
   }
 
