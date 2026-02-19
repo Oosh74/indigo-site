@@ -280,7 +280,7 @@ button {
 
 .text-link::after {
   content: "›";
-  display: inline-block; /* prevents underline */
+  display: inline-block;
   text-decoration: none;
 }
 
@@ -293,7 +293,6 @@ button {
   color: var(--primaryLight);
 }
 
-/* Dark variant */
 .text-link--dark {
   color: var(--secondary);
 }
@@ -301,6 +300,14 @@ button {
 .text-link--dark .text-link__content:hover,
 .text-link--dark .text-link__content:focus {
   color: #c7d2fe;
+}
+
+.section-color__soft {
+  background-color: var(--section-light-bg);
+}
+
+.section-color__dark {
+  background: var(--section-dark-bg);
 }
 
 /*-- -------------------------- -->
