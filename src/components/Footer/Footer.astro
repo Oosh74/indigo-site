@@ -3,187 +3,216 @@ import { FOOTER } from "@data/footer";
 ---
 
 <footer id="site-footer">
-	<div class="shell">
-		<section class="brand-block">
-	<a href="/" class="footer-logo" aria-label="Return to [Company Name] Home page">
-			<img src="src/icons/logo-white.svg" alt="Indigo Business Solutions" decoding="async" />
-		</a>
-			<h2>
-				{FOOTER.brand.headingPrefix} <span>{FOOTER.brand.headingAccent}</span> {FOOTER.brand.headingSuffix}
-			</h2>
-			<p>{FOOTER.brand.description}</p>
-		</section>
+  <div class="shell">
+    <section class="brand-block">
+      <a
+        href="/"
+        class="footer-logo"
+        aria-label="Return to [Company Name] Home page"
+      >
+        <img
+          src="src/icons/logo-white.svg"
+          alt="Indigo Business Solutions"
+          decoding="async"
+        />
+      </a>
+      <h2>
+        {FOOTER.brand.headingPrefix}
+        <span>{FOOTER.brand.headingAccent}</span>
+        {FOOTER.brand.headingSuffix}
+      </h2>
+      <p>{FOOTER.brand.description}</p>
+    </section>
 
-		<section class="link-grid" aria-label="Footer navigation">
-			{
-				FOOTER.columns.map((column) => (
-					<div>
-						<h3>{column.title}</h3>
-						{"links" in column && (
-							<ul>
-								{column.links.map((link) => (
-									<li>
-										<a href={link.href}>{link.label}</a>
-									</li>
-								))}
-							</ul>
-						)}
-						{"lines" in column && (
-							<ul>
-								{column.lines.map((line) => (
-									<li>
-										{line.href ? (
-											<a href={line.href} target={line.href.startsWith("http") ? "_blank" : undefined} rel={line.href.startsWith("http") ? "noopener noreferrer" : undefined}>{line.label}</a>
-										) : (
-											line.label
-										)}
-									</li>
-								))}
-							</ul>
-						)}
-					</div>
-				))
-			}
-		</section>
+    <section class="link-grid" aria-label="Footer navigation">
+      {
+        FOOTER.columns.map((column) => (
+          <div>
+            <h3>{column.title}</h3>
+            {"links" in column && (
+              <ul>
+                {column.links.map((link) => (
+                  <li>
+                    <a href={link.href}>{link.label}</a>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {"lines" in column && (
+              <ul>
+                {column.lines.map((line) => (
+                  <li>
+                    {line.href ? (
+                      <a
+                        href={line.href}
+                        target={
+                          line.href.startsWith("http") ? "_blank" : undefined
+                        }
+                        rel={
+                          line.href.startsWith("http")
+                            ? "noopener noreferrer"
+                            : undefined
+                        }
+                      >
+                        {line.label}
+                      </a>
+                    ) : (
+                      line.label
+                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))
+      }
+    </section>
 
-		<section class="bottom-row">
-			<p class="legal">{FOOTER.legal}</p>
-			<nav class="socials" aria-label="Social links">
-				{
-					FOOTER.socials.map((social) => (
-						<a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}>{social.label}</a>
-					))
-				}
-			</nav>
-		</section>
-	</div>
+    <section class="bottom-row">
+      <p class="legal">{FOOTER.legal}</p>
+      <nav class="socials" aria-label="Social links">
+        {
+          FOOTER.socials.map((social) => (
+            <a
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.label}
+            >
+              {social.label}
+            </a>
+          ))
+        }
+      </nav>
+    </section>
+  </div>
 </footer>
 
 <style lang="less">
-	#site-footer {
-		background: #181e4a;
-		border-top-right-radius: clamp(24px, 12vw, 220px);
-		color: #e5e9f7;
-		padding: clamp(2.6rem, 7vw, 4.4rem) 1rem;
-	}
+  #site-footer {
+    background: #181e4a;
+    border-top-right-radius: clamp(24px, 12vw, 220px);
+    color: #e5e9f7;
+    padding: clamp(2.6rem, 7vw, 4.4rem) 1rem;
+  }
 
-	p {
-		color: white;
-	}
+  p {
+    color: white;
+  }
 
-	.shell {
-		width: min(1200px, 94%);
-		margin: 0 auto;
-	}
+  .shell {
+    width: min(1200px, 94%);
+    margin: 0 auto;
+  }
 
-	.brand-block {
-		max-width: 72ch;
-	}
+  .brand-block {
+    max-width: 72ch;
+  }
 
-	.footer-logo img {
-		max-width: 250px;
-		height: auto;
-	}
+  .footer-logo img {
+    max-width: 250px;
+    height: auto;
+  }
 
-	h2 {
-		font-size: clamp(2rem, 4.4vw, 3.5rem);
-		line-height: 1.15;
-		color: #fff;
-		margin-bottom: 0.8rem;
-	}
+  h2 {
+    font-size: clamp(2rem, 4.4vw, 3.5rem);
+    line-height: 1.15;
+    color: #fff;
+    margin-bottom: 0.8rem;
+  }
 
-	h2 span {
-		color: #9fe233;
-	}
+  h2 span {
+    color: #9fe233;
+  }
 
-	.brand-block p {
-		max-width: 64ch;
-		margin-bottom: clamp(1.5rem, 4vw, 2.6rem);
-	}
+  .brand-block p {
+    max-width: 64ch;
+    margin-bottom: clamp(1.5rem, 4vw, 2.6rem);
+  }
 
-	.link-grid {
-		display: grid;
-		gap: 1.2rem;
-		margin-bottom: clamp(1.4rem, 4vw, 2.5rem);
-	}
+  .link-grid {
+    display: grid;
+    gap: 1.2rem;
+    margin-bottom: clamp(1.4rem, 4vw, 2.5rem);
+  }
 
-	h3 {
-		font-size: clamp(1.65rem, 3vw, 2.1rem);
-		color: #fff;
-		margin-bottom: 0.8rem;
-	}
+  h3 {
+    font-size: clamp(1.65rem, 3vw, 2.1rem);
+    color: #fff;
+    margin-bottom: 0.8rem;
+  }
 
-	ul {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-	}
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
 
-	li {
-		margin-bottom: 0.5rem;
-		color: #e0e5f6;
-	}
+  li {
+    margin-bottom: 0.5rem;
+    color: #e0e5f6;
+  }
 
-	a {
-		color: #e0e5f6;
-		text-decoration: none;
-	}
+  a {
+    color: #e0e5f6;
+    text-decoration: none;
+  }
 
-	a:hover {
-		color: #9fe233;
-	}
+  a:hover {
+    color: #9fe233;
+  }
 
-	.bottom-row {
-		display: grid;
-		gap: 1rem;
-		align-items: end;
-	}
+  .bottom-row {
+    display: grid;
+    gap: 1rem;
+    align-items: end;
+  }
 
-	.legal {
-		max-width: 72ch;
-		margin: 0;
-		font-size: 0.92rem;
-	}
+  .legal {
+    max-width: 72ch;
+    margin: 0;
+    font-size: 0.92rem;
+  }
 
-	.socials {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.75rem;
-	}
+  .socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
 
-	.socials a {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		min-width: 2.1rem;
-		height: 2.1rem;
-		border: 1px solid #3a4475;
-		border-radius: 999px;
-		padding: 0 0.55rem;
-		font-size: 0.76rem;
-		font-weight: 700;
-		text-transform: uppercase;
-	}
+  .socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.1rem;
+    height: 2.1rem;
+    border: 1px solid #3a4475;
+    border-radius: 999px;
+    padding: 0 0.55rem;
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
 
-	@media only screen and (min-width: 48rem) {
-		.link-grid {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
-	}
+  @media only screen and (min-width: 48rem) {
+    .link-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
 
-	@media only screen and (min-width: 64rem) {
-		.link-grid {
-			grid-template-columns: 1.2fr 1fr 1fr 1fr 0.9fr;
-			gap: 1.35rem;
-		}
+  @media only screen and (min-width: 64rem) {
+    .link-grid {
+      grid-template-columns: 1.2fr 1fr 1fr 1fr 0.9fr;
+      gap: 1.35rem;
+    }
 
-		.bottom-row {
-			grid-template-columns: minmax(0, 1fr) auto;
-			gap: 1.5rem;
-		}
+    .bottom-row {
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 1.5rem;
+    }
 
-		.socials {
-			justify-content: flex-end;
-		}
-	}
+    .socials {
+      justify-content: flex-end;
+    }
+  }
 </style>

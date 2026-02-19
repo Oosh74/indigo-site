@@ -51,4 +51,3 @@ Smart businesses are preparing now. They’re creating content that answers real
 The businesses ignoring this shift? They’ll wonder why their phone stopped ringing while competitors stay busy. Don’t be one of them.
 
 Want to know if your business shows up in ChatGPT searches? Give us a call. We’ll run a quick audit and show you exactly where you stand. It takes about 15 minutes, but might just be the most important 15 minutes for your business this year.
-

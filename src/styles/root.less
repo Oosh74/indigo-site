@@ -7,26 +7,26 @@
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* 2. Remove default margin */
 * {
-	margin: 0;
+  margin: 0;
 }
 
 /* 3. Enable keyword animations */
 @media (prefers-reduced-motion: no-preference) {
-	html {
-		interpolate-size: allow-keywords;
-	}
+  html {
+    interpolate-size: allow-keywords;
+  }
 }
 
 body {
-	/* 4. Add accessible line-height */
-	line-height: 1.5;
-	/* 5. Improve text rendering */
-	-webkit-font-smoothing: antialiased;
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
 }
 
 /* 6. Improve media defaults */
@@ -35,8 +35,8 @@ picture,
 video,
 canvas,
 svg {
-	display: block;
-	max-width: 100%;
+  display: block;
+  max-width: 100%;
 }
 
 /* 7. Inherit fonts for form controls */
@@ -44,7 +44,7 @@ input,
 button,
 textarea,
 select {
-	font: inherit;
+  font: inherit;
 }
 
 /* 8. Avoid text overflows */
@@ -55,20 +55,21 @@ h3,
 h4,
 h5,
 h6 {
-	overflow-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* 9. Improve line wrapping */
 p {
-	text-wrap: pretty;
+  text-wrap: pretty;
 }
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-	text-wrap: balance;
+  text-wrap: balance;
 }
 
 /*
@@ -76,7 +77,7 @@ h6 {
 */
 #root,
 #__next {
-	isolation: isolate;
+  isolation: isolate;
 }
 
 /*-- -------------------------- -->
@@ -84,26 +85,70 @@ h6 {
 <--- -------------------------- -*/
 
 @media only screen and (min-width: 0em) {
-	:root {
-		// Website colors
-		--primary: #aff425;
-		--primaryLight: #7aa329;
-		--secondary: #001f3f;
-		--secondaryLight: #001f3f;
-		--headerColor: #1a1a1a;
-		--bodyTextColor: #4e4b66;
-		--bodyTextColorWhite: #fafbfc;
-		--brandNavy: #1b1f3a;
+  :root {
+    // Website colors
+    --primary: #aff425;
+    --primaryLight: #7aa329;
+    --secondary: #001f3f;
+    --secondaryLight: #39426f;
+    --color-heading-light: #07124a;
+    --color-heading-dark: #ffffff;
+    --color-text-light: #1e2430;
+    --color-text-dark: #f0f2f6;
+    --headerColor: var(--color-heading-light);
+    --bodyTextColor: var(--color-text-light);
+    --bodyTextColorWhite: var(--color-text-dark);
+    --brandNavy: #1b1f3a;
+    --radius-section: clamp(20px, 10vw, 230px);
+    --radius-image: clamp(16px, 7vw, 150px);
+    --radius-badge: clamp(10px, 3vw, 56px);
+    --radius-card: clamp(10px, 2.5vw, 28px);
 
-		/* 13px - 16px */
-		--topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
-		/* 31px - 49px */
-		--headerFontSize: clamp(1.9375rem, 3.9vw, 3.0625rem);
-		--bodyFontSize: 1rem;
+    --step--2: clamp(0.6076rem, 0.5041rem + 0.3819vw, 0.8rem);
+    --step--1: clamp(0.7292rem, 0.5833rem + 0.5376vw, 1rem);
+    --step-0: clamp(0.875rem, 0.6731rem + 0.7444vw, 1.25rem);
+    --step-1: clamp(1.05rem, 0.774rem + 1.0174vw, 1.5625rem);
+    --step-2: clamp(1.26rem, 0.8868rem + 1.3759vw, 1.9531rem);
+    --step-3: clamp(1.512rem, 1.0116rem + 1.845vw, 2.4414rem);
+    --step-4: clamp(1.8144rem, 1.1481rem + 2.4563vw, 3.0518rem);
+    --step-5: clamp(2.1773rem, 1.2956rem + 3.2505vw, 3.8147rem);
 
-		/* 60px - 100px top and bottom */
-		--sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
-	}
+    --space-3xs: clamp(0.25rem, 0.2163rem + 0.1241vw, 0.3125rem);
+    --space-2xs: clamp(0.4375rem, 0.3365rem + 0.3722vw, 0.625rem);
+    --space-xs: clamp(0.6875rem, 0.5529rem + 0.4963vw, 0.9375rem);
+    --space-s: clamp(0.875rem, 0.6731rem + 0.7444vw, 1.25rem);
+    --space-m: clamp(1.3125rem, 1.0096rem + 1.1166vw, 1.875rem);
+    --space-l: clamp(1.75rem, 1.3462rem + 1.4888vw, 2.5rem);
+    --space-xl: clamp(2.625rem, 2.0192rem + 2.2333vw, 3.75rem);
+    --space-2xl: clamp(3.5rem, 2.6923rem + 2.9777vw, 5rem);
+    --space-3xl: clamp(5.25rem, 4.0385rem + 4.4665vw, 7.5rem);
+
+    --topperFontSize: var(--step--2);
+    --topperLineHeight: 1.2;
+    --topperLetterSpacing: 2.5px;
+    --topperTextTransform: uppercase;
+    --topperColor: var(--secondary);
+    --topperMarginBottom: 0;
+    --topperFontFamily: "Inter", Arial, sans-serif;
+    --topperFontStyle: normal;
+    --topperFontWeight: 400;
+    --headerFontSize: var(--step-4);
+    --bodyFontSize: var(--step--1);
+    --font-size-body: var(--step--1);
+    --font-size-small: var(--step--1);
+    --font-size-h6: var(--step-0);
+    --font-size-h5: var(--step-1);
+    --font-size-h4: var(--step-2);
+    --font-size-h3: var(--step-3);
+    --font-size-h2: var(--step-4);
+    --font-size-h1: var(--step-5);
+    --line-height-body: 1.5;
+    --line-height-heading: 1.15;
+    --measure-heading: 30ch;
+    --measure-body: 70ch;
+
+    --sectionPadding: var(--space-2xl) var(--space-s);
+  }
 }
 
 /*-- -------------------------- -->
@@ -114,20 +159,20 @@ h6 {
 
 /* inter-regular - latin */
 @font-face {
-  font-display: swap; 
-  font-family: 'Inter';
+  font-display: swap;
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  src: url('/assets/fonts/inter-v20-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("/assets/fonts/inter-v20-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* inter-500 - latin */
 @font-face {
-  font-display: swap; 
-  font-family: 'Inter';
+  font-display: swap;
+  font-family: "Inter";
   font-style: normal;
   font-weight: 500;
-  src: url('/assets/fonts/inter-v20-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("/assets/fonts/inter-v20-latin-500.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /*-- -------------------------- -->
@@ -136,13 +181,13 @@ h6 {
 
 body,
 html {
-	font-family: "Inter", Arial, sans-serif;
-	font-size: 100%;
-	color: var(--bodyTextColor);
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 100%;
+  color: var(--bodyTextColor);
 }
 
 body {
-	transition: background-color 0.3s;
+  transition: background-color 0.3s;
 }
 
 h1,
@@ -151,27 +196,63 @@ h3,
 h4,
 h5,
 h6 {
-	color: var(--headerColor);
-	font-weight: 500;
-}
-
-p,
-li,
-a {
-	font-size: (16/16rem);
-	line-height: 1.5em;
+  color: var(--headerColor);
+  font-weight: 500;
+  line-height: var(--line-height-heading);
 }
 
 p,
 li {
-	color: var(--bodyTextColor);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+}
+
+p,
+li {
+  color: var(--bodyTextColor);
+}
+
+main :where(h1, h2, h3, h4, h5, h6, .cs-topper) {
+  max-inline-size: var(--measure-heading);
+}
+
+main :where(p, li, .cs-text) {
+  max-inline-size: var(--measure-body);
+}
+
+small {
+  font-size: var(--font-size-small);
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+}
+
+h4 {
+  font-size: var(--font-size-h4);
+}
+
+h5 {
+  font-size: var(--font-size-h5);
+}
+
+h6 {
+  font-size: var(--font-size-h6);
 }
 
 a,
 button {
-	&:hover {
-		cursor: pointer;
-	}
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 /*-- -------------------------- -->
@@ -180,30 +261,33 @@ button {
 
 // Text styles - can be replaced using CodeStitch's "Content Flair" Stitches
 .cs-topper {
-	font-size: var(--topperFontSize);
-	font-weight: 700;
-	line-height: 1.2em;
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
-	color: var(--secondary);
-	display: block;
+  font-size: var(--topperFontSize);
+  line-height: var(--topperLineHeight);
+  letter-spacing: var(--topperLetterSpacing);
+  text-transform: var(--topperTextTransform);
+  color: var(--topperColor);
+  margin-bottom: var(--topperMarginBottom);
+  font-family: var(--topperFontFamily);
+  font-style: var(--topperFontStyle);
+  font-weight: var(--topperFontWeight);
+  display: block;
 }
 
 .cs-title {
-	font-size: var(--headerFontSize);
-	font-weight: 900;
-	line-height: 1.2em;
-	margin: 0 auto (16/16rem);
-	color: var(--headerColor);
-	position: relative;
+  font-size: var(--headerFontSize);
+  font-weight: 900;
+  line-height: 1.2em;
+  margin: 0 auto (16/16rem);
+  color: var(--headerColor);
+  position: relative;
 }
 
 .cs-text {
-	font-size: var(--bodyFontSize);
-	line-height: 1.5em;
-	width: 100%;
-	margin: 0 auto;
-	color: var(--bodyTextColor);
+  font-size: var(--bodyFontSize);
+  line-height: 1.5em;
+  width: 100%;
+  margin: 0 auto;
+  color: var(--bodyTextColor);
 }
 
 /*-- -------------------------- -->
@@ -211,93 +295,113 @@ button {
 <--- -------------------------- -*/
 
 .imgBadge {
-	position: absolute;
-	left: -1rem;
-	bottom: 0.7rem;
-	background: #fff;
-	border-radius: clamp(8px, 4vw, 77px) 0px clamp(8px, 4vw, 77px) 0px;
-	padding: clamp(1rem, 1.7vw, 1.5rem);
-	width: min(250px, 60%);
-	font-size: clamp(1rem, 1vw, 1.15rem);
-	line-height: 1.4;
-	color: #1f2f55;
+  --imgBadgePadBlock: clamp(0.95rem, 1.4vw, 1.25rem);
+  --imgBadgePadInline: clamp(1rem, 1.5vw, 1.3rem);
+  --imgBadgeCurveInset: calc(var(--radius-badge) * 0.16);
+
+  position: absolute;
+  inset-block-end: 0.7rem;
+  background: #fff;
+  border: 1px solid #e3e8f7;
+  border-radius: var(--radius-badge);
+  padding: var(--imgBadgePadBlock) var(--imgBadgePadInline);
+  width: min(280px, 72%);
+  font-size: clamp(1rem, 1vw, 1.15rem);
+  line-height: 1.4;
+  color: #1f2f55;
+  box-shadow: 0 10px 28px -20px rgba(16, 31, 80, 0.45);
+}
+
+.imgBadge--left {
+  inset-inline-start: -1rem;
+  border-radius: var(--radius-badge) 0 var(--radius-badge) 0;
+  padding-inline-start: calc(
+    var(--imgBadgePadInline) + var(--imgBadgeCurveInset)
+  );
+}
+
+.imgBadge--right {
+  inset-inline-end: -1rem;
+  border-radius: 0 var(--radius-badge) 0 var(--radius-badge);
+  padding-inline-end: calc(
+    var(--imgBadgePadInline) + var(--imgBadgeCurveInset)
+  );
+}
+
+@media only screen and (max-width: 47.99rem) {
+  .imgBadge--left {
+    inset-inline-start: 0.5rem;
+  }
+
+  .imgBadge--right {
+    inset-inline-end: 0.5rem;
+  }
 }
 
 @media only screen and (min-width: 0em) {
-	// Button - can be replaced using CodeStitch's "Button" Stitches
-	.cs-button-solid {
-		font-size: (16/16rem);
-		font-weight: bold;
-		line-height: (50/16em);
-		text-align: center;
-		text-transform: uppercase;
-		text-decoration: none;
-		width: auto;
-		height: (50/16rem);
-		padding: 0 (30/16rem);
+  // Button - can be replaced using CodeStitch's "Button" Stitches
+  .cs-button-solid {
+    font-size: var(--font-size-body);
+    font-weight: 400;
+    line-height: var(--line-height-body);
+    text-align: center;
+    text-transform: none;
+    text-decoration: none;
+    width: auto;
+    padding: (12/16rem) (30/16rem);
+    border-radius: 999px;
+    border: none;
 
-		// Transition Properties
-		color: #000;
-		background-color: var(--primary);
-		display: inline-block;
-		position: relative;
-		z-index: 1;
-		transition: color 0.3s;
-		transition-delay: 0.1s;
+    color: var(--color-heading-dark);
+    background-color: var(--color-heading-light);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
 
-		&:hover {
-			color: #fff;
-			&:before {
-				width: 100%;
-			}
-		}
+    &:hover {
+      background-color: var(--secondaryLight);
+    }
+  }
 
-		&:before {
-			content: "";
+  .cs-button-solid--arrow::after {
+    content: "›";
+    margin-left: 0.55rem;
+    line-height: 1;
+    font-size: 1.05em;
+  }
 
-			//Transition properties
-			width: 0;
-			height: 100%;
-			background-color: #000;
-			opacity: 1;
-			display: block;
-			position: absolute;
-			top: 0;
-			left: 0;
-			z-index: -1;
-			transition: width 0.3s;
-		}
-	}
+  .container {
+    width: 92%;
+    margin: auto;
+    position: relative;
+  }
 
-	.container {
-		width: 92%;
-		margin: auto;
-		position: relative;
-	}
+  // Skip to main content link - accessible to keyboard users and screen readers
+  .skip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-100%);
+    z-index: 10001; // Above header (10000)
+    opacity: 0;
+    overflow: hidden;
+    transition:
+      transform 0.3s,
+      opacity 0.3s;
 
-	// Skip to main content link - accessible to keyboard users and screen readers
-	.skip {
-		position: absolute;
-		top: 0;
-		left: 0;
-		transform: translateY(-100%);
-		z-index: 10001; // Above header (10000)
-		opacity: 0;
-		overflow: hidden;
-		transition: transform 0.3s, opacity 0.3s;
-
-		&:focus {
-			transform: translateY(0);
-			opacity: 1;
-			padding: 1rem 1.5rem;
-			background-color: var(--primary);
-			color: var(--headerColor);
-			text-decoration: none;
-			font-weight: 700;
-			outline: 2px solid var(--primary);
-			outline-offset: 2px;
-		}
-	}
+    &:focus {
+      transform: translateY(0);
+      opacity: 1;
+      padding: 1rem 1.5rem;
+      background-color: var(--primary);
+      color: var(--headerColor);
+      text-decoration: none;
+      font-weight: 700;
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+  }
 }
 
 /*-- -------------------------- -->
@@ -306,15 +410,15 @@ button {
 
 // prevents icons from shrinking in flex containers
 [data-icon] {
-	flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 .cs-hide-on-mobile {
-	display: none;
+  display: none;
 }
 
 .cs-hide-on-desktop {
-	display: block;
+  display: block;
 }
 
 /*-- -------------------------- -->
@@ -323,19 +427,19 @@ button {
 
 /* Desktop - 1024px */
 @media only screen and (min-width: 64rem) {
-	.cs-hide-on-mobile {
-		display: block;
-	}
+  .cs-hide-on-mobile {
+    display: block;
+  }
 
-	.cs-hide-on-desktop {
-		display: none;
-	}
+  .cs-hide-on-desktop {
+    display: none;
+  }
 }
 
 /* Scale full website with the viewport width */
 @media only screen and (min-width: 2000px) {
-	body,
-	html {
-		font-size: 0.85vw;
-	}
+  body,
+  html {
+    font-size: 0.85vw;
+  }
 }

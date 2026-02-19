@@ -23,4 +23,3 @@ We want your site ranking on page 1 just as much as you do! The reality is, this
 ## Indigo Can Help!
 
 If you’re ready to take your web presence to another leve, contact Indigo Business Solutions for a Free Marketing Evaluation today!
-

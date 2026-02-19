@@ -29,4 +29,3 @@ Did you know? NEARLY NINE OUT OF TEN CONSUMERS READ REVIEWS before making a purc
 ## Don’t just take our word for it, take it from the source; your customers!
 
 Need assistance gathering those reviews? To find out what works best for you and your business, request a Free Marketing Evaluation today from Indigo Business Solutions!
-

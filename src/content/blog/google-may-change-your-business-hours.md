@@ -23,4 +23,3 @@ Google claims they are on pace to update the business hours of “over 20 millio
 ## What we’re doing
 
 In an effort to ensure your business hours remain accurate, we help our clients monitor and update their Google My Business page to keep things accurate. If you’re not a client of Indigo Business Solutions, please request a Free Marketing Evaluation and we will help you take care of your online presence.
-

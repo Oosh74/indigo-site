@@ -2,270 +2,291 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 const impactPoints = [
-	"Look established: Professional design creates instant credibility",
-	"Stay consistent: One system that works across every channel",
-	"Focus on your audience: Design choices built around customer behavior",
-	"Built to last: Branding that will not feel outdated in two years",
+  "Look established: Professional design creates instant credibility",
+  "Stay consistent: One system that works across every channel",
+  "Focus on your audience: Design choices built around customer behavior",
+  "Built to last: Branding that will not feel outdated in two years",
 ];
 
 const differencePoints = [
-	"Quick turnaround",
-	"Transparent process",
-	"Custom to you",
-	"Consistency across all materials",
-	"Extra value added in our packages",
-	"Production and print ready",
+  "Quick turnaround",
+  "Transparent process",
+  "Custom to you",
+  "Consistency across all materials",
+  "Extra value added in our packages",
+  "Production and print ready",
 ];
 
 const processSteps = [
-	"Discovery and needs assessment",
-	"Brand alignment and design brief",
-	"Concept development and creative direction",
-	"Feedback and revision rounds",
-	"Final delivery in all needed formats",
-	"Optional print or digital rollout support",
+  "Discovery and needs assessment",
+  "Brand alignment and design brief",
+  "Concept development and creative direction",
+  "Feedback and revision rounds",
+  "Final delivery in all needed formats",
+  "Optional print or digital rollout support",
 ];
 
 const outcomes = [
-	"Makes your business memorable",
-	"Communicates your message clearly",
-	"Builds strong first impressions",
-	"Improves marketing performance",
-	"Inspires people to take action",
+  "Makes your business memorable",
+  "Communicates your message clearly",
+  "Builds strong first impressions",
+  "Improves marketing performance",
+  "Inspires people to take action",
 ];
 ---
 
 <BaseLayout
-	title="Creative Design & Branding | Indigo Business Solutions"
-	description="Professional branding and design services that build trust and make your business stand out. Logos, packaging, and collateral designed to last and connect."
+  title="Creative Design & Branding | Indigo Business Solutions"
+  description="Professional branding and design services that build trust and make your business stand out. Logos, packaging, and collateral designed to last and connect."
 >
-	<section class="hero">
-		<div class="shell">
-			<h1>Creative design services that build brands</h1>
-			<p>
-				At Indigo, our design services build trust and make your brand stand out. From logos to collateral to packaging, we combine strategy and style across every medium.
-			</p>
-		</div>
-	</section>
+  <section class="hero">
+    <div class="shell">
+      <h1>Creative design services that build brands</h1>
+      <p>
+        At Indigo, our design services build trust and make your brand stand
+        out. From logos to collateral to packaging, we combine strategy and
+        style across every medium.
+      </p>
+    </div>
+  </section>
 
-	<section class="shell section">
-		<div class="two-col">
-			<div class="card">
-				<h2>Visual branding that builds connection and credibility</h2>
-				<p>
-					People judge your business in seconds. Strong design shows you are serious. Cheap design makes you look cheap. Good design makes you look like someone worth working with.
-				</p>
-				<ul>
-					{impactPoints.map((point) => <li>{point}</li>)}
-				</ul>
-				<p>Starting fresh or refreshing your look, we make sure your brand gets attention for the right reasons.</p>
-			</div>
-			<div class="card">
-				<h2>Design that fits your whole marketing plan</h2>
-				<p>
-					Most designers stop at making things look good. We create design that works across your website, SEO, and advertising, so everything connects as one brand.
-				</p>
-				<h3>What makes our design work different</h3>
-				<ul>
-					{differencePoints.map((point) => <li>{point}</li>)}
-				</ul>
-			</div>
-		</div>
-	</section>
+  <section class="shell section">
+    <div class="two-col">
+      <div class="card">
+        <h2>Visual branding that builds connection and credibility</h2>
+        <p>
+          People judge your business in seconds. Strong design shows you are
+          serious. Cheap design makes you look cheap. Good design makes you look
+          like someone worth working with.
+        </p>
+        <ul>
+          {impactPoints.map((point) => <li>{point}</li>)}
+        </ul>
+        <p>
+          Starting fresh or refreshing your look, we make sure your brand gets
+          attention for the right reasons.
+        </p>
+      </div>
+      <div class="card">
+        <h2>Design that fits your whole marketing plan</h2>
+        <p>
+          Most designers stop at making things look good. We create design that
+          works across your website, SEO, and advertising, so everything
+          connects as one brand.
+        </p>
+        <h3>What makes our design work different</h3>
+        <ul>
+          {differencePoints.map((point) => <li>{point}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
 
-	<section class="process">
-		<div class="shell">
-			<h2>How We Work</h2>
-			<p>Our design process from start to finish:</p>
-			<ol>
-				{processSteps.map((step) => <li>{step}</li>)}
-			</ol>
-		</div>
-	</section>
+  <section class="process">
+    <div class="shell">
+      <h2>How We Work</h2>
+      <p>Our design process from start to finish:</p>
+      <ol>
+        {processSteps.map((step) => <li>{step}</li>)}
+      </ol>
+    </div>
+  </section>
 
-	<section class="shell section">
-		<div class="card results">
-			<h2>Design that gets results, not just compliments</h2>
-			<p>Good design does more than look nice. It drives growth and improves how your business is perceived.</p>
-			<ul>
-				{outcomes.map((outcome) => <li>{outcome}</li>)}
-			</ul>
-			<div class="metrics">
-				<div>
-					<p class="metric">1,500+</p>
-					<p>Creative projects completed annually</p>
-				</div>
-				<div>
-					<p class="metric">3,800+</p>
-					<p>Custom assets delivered</p>
-				</div>
-			</div>
-		</div>
-	</section>
+  <section class="shell section">
+    <div class="card results">
+      <h2>Design that gets results, not just compliments</h2>
+      <p>
+        Good design does more than look nice. It drives growth and improves how
+        your business is perceived.
+      </p>
+      <ul>
+        {outcomes.map((outcome) => <li>{outcome}</li>)}
+      </ul>
+      <div class="metrics">
+        <div>
+          <p class="metric">1,500+</p>
+          <p>Creative projects completed annually</p>
+        </div>
+        <div>
+          <p class="metric">3,800+</p>
+          <p>Custom assets delivered</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	<section class="shell section testimonials">
-		<h2>Hear From Our Clients</h2>
-		<p>
-			"I can’t express enough gratitude to the Indigo team. Great company, great people, great work. I’m a very happy customer."
-		</p>
-		<p class="quote-author">Kristin - Business Owner</p>
-		<a href="/news-insights/">Read more of our 50+ five-star reviews</a>
-	</section>
+  <section class="shell section testimonials">
+    <h2>Hear From Our Clients</h2>
+    <p>
+      "I can’t express enough gratitude to the Indigo team. Great company, great
+      people, great work. I’m a very happy customer."
+    </p>
+    <p class="quote-author">Kristin - Business Owner</p>
+    <a href="/news-insights/">Read more of our 50+ five-star reviews</a>
+  </section>
 
-	<section class="contact">
-		<div class="shell">
-			<h2>Let’s Chat</h2>
-			<p>Call us and we’ll review your marketing, show you what is working, what is not, and how we would move forward.</p>
-			<ul>
-				<li><strong>Location:</strong> 2150 Joshuas Path Suite 201, Hauppauge, NY 11788</li>
-				<li><strong>Phone:</strong> <a href="tel:+16316309845">(631) 630-9845</a></li>
-			</ul>
-			<a href="/contact-us/">Talk to our team</a>
-		</div>
-	</section>
+  <section class="contact">
+    <div class="shell">
+      <h2>Let’s Chat</h2>
+      <p>
+        Call us and we’ll review your marketing, show you what is working, what
+        is not, and how we would move forward.
+      </p>
+      <ul>
+        <li>
+          <strong>Location:</strong> 2150 Joshuas Path Suite 201, Hauppauge, NY 11788
+        </li>
+        <li>
+          <strong>Phone:</strong>
+          <a href="tel:+16316309845">(631) 630-9845</a>
+        </li>
+      </ul>
+      <a href="/contact-us/">Talk to our team</a>
+    </div>
+  </section>
 </BaseLayout>
 
 <style lang="less">
-	.shell {
-		width: min(1120px, 94%);
-		margin: 0 auto;
-	}
+  .shell {
+    width: min(1120px, 94%);
+    margin: 0 auto;
+  }
 
-	.section {
-		padding: clamp(2.5rem, 6vw, 5rem) 0;
-	}
+  .section {
+    padding: clamp(2.5rem, 6vw, 5rem) 0;
+  }
 
-	.hero {
-		padding: clamp(5.5rem, 8vw, 8rem) 0 2.8rem;
-		background: linear-gradient(160deg, #12183f 0%, #1e2868 56%, #344494 100%);
-		border-bottom-left-radius: 3rem;
-		border-bottom-right-radius: 3rem;
-		color: #fff;
-	}
+  .hero {
+    padding: clamp(5.5rem, 8vw, 8rem) 0 2.8rem;
+    background: linear-gradient(160deg, #12183f 0%, #1e2868 56%, #344494 100%);
+    border-bottom-left-radius: 3rem;
+    border-bottom-right-radius: 3rem;
+    color: #fff;
+  }
 
-	.hero h1 {
-		color: #fff;
-		font-size: clamp(2rem, 4.8vw, 3.3rem);
-		line-height: 1.1;
-		margin-bottom: 1rem;
-		max-width: 16ch;
-	}
+  .hero h1 {
+    color: #fff;
+    font-size: clamp(2rem, 4.8vw, 3.3rem);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    max-width: 16ch;
+  }
 
-	.hero p {
-		color: #d8ddf7;
-		max-width: 65ch;
-	}
+  .hero p {
+    color: #d8ddf7;
+    max-width: 65ch;
+  }
 
-	.two-col {
-		display: grid;
-		gap: 1rem;
-	}
+  .two-col {
+    display: grid;
+    gap: 1rem;
+  }
 
-	.card {
-		background: #f4f6fb;
-		border: 1px solid #dce3f4;
-		border-radius: 1rem;
-		padding: 1.1rem;
-	}
+  .card {
+    background: #f4f6fb;
+    border: 1px solid #dce3f4;
+    border-radius: 1rem;
+    padding: 1.1rem;
+  }
 
-	h2 {
-		font-size: clamp(1.5rem, 2.7vw, 2.2rem);
-		margin-bottom: 0.8rem;
-	}
+  h2 {
+    font-size: clamp(1.5rem, 2.7vw, 2.2rem);
+    margin-bottom: 0.8rem;
+  }
 
-	h3 {
-		font-size: 1.1rem;
-		margin: 1rem 0 0.7rem;
-	}
+  h3 {
+    font-size: 1.1rem;
+    margin: 1rem 0 0.7rem;
+  }
 
-	ul,
-	ol {
-		padding-left: 1.2rem;
-	}
+  ul,
+  ol {
+    padding-left: 1.2rem;
+  }
 
-	li {
-		margin-bottom: 0.45rem;
-	}
+  li {
+    margin-bottom: 0.45rem;
+  }
 
-	.process {
-		background: #131a45;
-		color: #fff;
-		padding: clamp(2.5rem, 6vw, 4rem) 0;
-		border-top-left-radius: 2.5rem;
-		border-top-right-radius: 2.5rem;
-	}
+  .process {
+    background: #131a45;
+    color: #fff;
+    padding: clamp(2.5rem, 6vw, 4rem) 0;
+    border-top-left-radius: 2.5rem;
+    border-top-right-radius: 2.5rem;
+  }
 
-	.process h2 {
-		color: #fff;
-	}
+  .process h2 {
+    color: #fff;
+  }
 
-	.process p,
-	.process li {
-		color: #d2d8f7;
-	}
+  .process p,
+  .process li {
+    color: #d2d8f7;
+  }
 
-	.results {
-		background: #fff;
-	}
+  .results {
+    background: #fff;
+  }
 
-	.metrics {
-		display: grid;
-		gap: 0.8rem;
-		margin-top: 1rem;
-	}
+  .metrics {
+    display: grid;
+    gap: 0.8rem;
+    margin-top: 1rem;
+  }
 
-	.metric {
-		font-size: 1.9rem;
-		font-weight: 900;
-		color: var(--secondary);
-		line-height: 1;
-		margin-bottom: 0.3rem;
-	}
+  .metric {
+    font-size: 1.9rem;
+    font-weight: 900;
+    color: var(--secondary);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
 
-	.testimonials a,
-	.contact a {
-		color: var(--secondary);
-		font-weight: 700;
-		text-decoration: none;
-	}
+  .testimonials a,
+  .contact a {
+    color: var(--secondary);
+    font-weight: 700;
+    text-decoration: none;
+  }
 
-	.testimonials a:hover,
-	.contact a:hover {
-		text-decoration: underline;
-	}
+  .testimonials a:hover,
+  .contact a:hover {
+    text-decoration: underline;
+  }
 
-	.quote-author {
-		font-weight: 700;
-	}
+  .quote-author {
+    font-weight: 700;
+  }
 
-	.contact {
-		background: #0f1538;
-		color: #fff;
-		padding: clamp(2.6rem, 6vw, 4rem) 0;
-		border-top-left-radius: 2.5rem;
-		border-top-right-radius: 2.5rem;
-	}
+  .contact {
+    background: #0f1538;
+    color: #fff;
+    padding: clamp(2.6rem, 6vw, 4rem) 0;
+    border-top-left-radius: 2.5rem;
+    border-top-right-radius: 2.5rem;
+  }
 
-	.contact h2 {
-		color: #fff;
-	}
+  .contact h2 {
+    color: #fff;
+  }
 
-	.contact p,
-	.contact li {
-		color: #d2d8f7;
-	}
+  .contact p,
+  .contact li {
+    color: #d2d8f7;
+  }
 
-	@media only screen and (min-width: 64rem) {
-		.two-col {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
+  @media only screen and (min-width: 64rem) {
+    .two-col {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
-		.metrics {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
+    .metrics {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
-		.card {
-			padding: 1.5rem 1.7rem;
-		}
-	}
+    .card {
+      padding: 1.5rem 1.7rem;
+    }
+  }
 </style>

@@ -2,217 +2,248 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 const services = [
-	{
-		title: "Web Design & Development",
-		text: "Most websites look good but do not bring in customers. Yours should do both. We build sites that load fast, work on every device, and guide visitors to take action.",
-		points: [
-			"Built for phones, tablets, and desktop",
-			"Clear user flows and conversion-focused structure",
-			"SEO-friendly technical foundation",
-		],
-		link: "/our-services/website-design-development/",
-	},
-	{
-		title: "Creative & Branding",
-		text: "We create logos and brand systems that make you look established and trustworthy, helping you compete with bigger companies.",
-		points: ["Logo and identity systems", "Marketing collateral and visual assets", "Consistent brand voice and messaging"],
-		link: "/our-services/creative-design-branding/",
-	},
-	{
-		title: "Search Engine Optimization",
-		text: "Your customers are searching for what you sell, but most never look past page one. We fix technical SEO, create useful content, and build trusted backlinks.",
-		points: ["Technical SEO cleanup", "Content strategy and optimization", "Backlink and authority growth"],
-		link: "/our-services/search-engine-optimization/",
-	},
-	{
-		title: "Digital Marketing",
-		text: "Many businesses waste money on ads by targeting the wrong people or sending clicks to weak pages. We build campaigns that track every dollar and improve over time.",
-		points: ["Google and Meta campaigns", "Audience targeting tuned for intent", "Ongoing performance optimization"],
-		link: "/our-services/digital-marketing/",
-	},
-	{
-		title: "Social Media Management",
-		text: "Random posting does not build a following. We create practical social media strategies that grow your business with consistent content and real engagement.",
-		points: ["Content planning and posting", "Community engagement", "Brand consistency across channels"],
-		link: "/our-services/social-media-management/",
-	},
-	{
-		title: "Promotional & Print Products",
-		text: "Digital matters, but print still leaves a lasting impression. We create materials that represent your business long after the first meeting.",
-		points: ["Business cards and brochures", "Branded promo products", "Print design and production support"],
-		link: "/our-services/print-promotional-products/",
-	},
+  {
+    title: "Web Design & Development",
+    text: "Most websites look good but do not bring in customers. Yours should do both. We build sites that load fast, work on every device, and guide visitors to take action.",
+    points: [
+      "Built for phones, tablets, and desktop",
+      "Clear user flows and conversion-focused structure",
+      "SEO-friendly technical foundation",
+    ],
+    link: "/our-services/website-design-development/",
+  },
+  {
+    title: "Creative & Branding",
+    text: "We create logos and brand systems that make you look established and trustworthy, helping you compete with bigger companies.",
+    points: [
+      "Logo and identity systems",
+      "Marketing collateral and visual assets",
+      "Consistent brand voice and messaging",
+    ],
+    link: "/our-services/creative-design-branding/",
+  },
+  {
+    title: "Search Engine Optimization",
+    text: "Your customers are searching for what you sell, but most never look past page one. We fix technical SEO, create useful content, and build trusted backlinks.",
+    points: [
+      "Technical SEO cleanup",
+      "Content strategy and optimization",
+      "Backlink and authority growth",
+    ],
+    link: "/our-services/search-engine-optimization/",
+  },
+  {
+    title: "Digital Marketing",
+    text: "Many businesses waste money on ads by targeting the wrong people or sending clicks to weak pages. We build campaigns that track every dollar and improve over time.",
+    points: [
+      "Google and Meta campaigns",
+      "Audience targeting tuned for intent",
+      "Ongoing performance optimization",
+    ],
+    link: "/our-services/digital-marketing/",
+  },
+  {
+    title: "Social Media Management",
+    text: "Random posting does not build a following. We create practical social media strategies that grow your business with consistent content and real engagement.",
+    points: [
+      "Content planning and posting",
+      "Community engagement",
+      "Brand consistency across channels",
+    ],
+    link: "/our-services/social-media-management/",
+  },
+  {
+    title: "Promotional & Print Products",
+    text: "Digital matters, but print still leaves a lasting impression. We create materials that represent your business long after the first meeting.",
+    points: [
+      "Business cards and brochures",
+      "Branded promo products",
+      "Print design and production support",
+    ],
+    link: "/our-services/print-promotional-products/",
+  },
 ];
 ---
 
 <BaseLayout
-	title="Our Services | Indigo Business Solutions"
-	description="Explore our digital marketing services including SEO, web design, social media, and more to help your business reach your audience and turn them into customers."
+  title="Our Services | Indigo Business Solutions"
+  description="Explore our digital marketing services including SEO, web design, social media, and more to help your business reach your audience and turn them into customers."
 >
-	<section class="hero">
-		<div class="shell">
-			<h1>Marketing services built around your business</h1>
-			<p>
-				Most agencies try to sell you everything at once. We start with what is actually broken, then build the right mix of SEO, web, brand, and strategy support for your current stage.
-			</p>
-		</div>
-	</section>
+  <section class="hero">
+    <div class="shell">
+      <h1>Marketing services built around your business</h1>
+      <p>
+        Most agencies try to sell you everything at once. We start with what is
+        actually broken, then build the right mix of SEO, web, brand, and
+        strategy support for your current stage.
+      </p>
+    </div>
+  </section>
 
-	<section class="services shell">
-		{
-			services.map((service, index) => (
-				<article class:list={["service-card", { reverse: index % 2 === 1 }]}>
-					<div class="service-content">
-						<h2>{service.title}</h2>
-						<p>{service.text}</p>
-						<ul>
-							{service.points.map((point) => <li>{point}</li>)}
-						</ul>
-						<a href={service.link}>Learn more</a>
-					</div>
-				</article>
-			))
-		}
-	</section>
+  <section class="services shell">
+    {
+      services.map((service, index) => (
+        <article class:list={["service-card", { reverse: index % 2 === 1 }]}>
+          <div class="service-content">
+            <h2>{service.title}</h2>
+            <p>{service.text}</p>
+            <ul>
+              {service.points.map((point) => (
+                <li>{point}</li>
+              ))}
+            </ul>
+            <a href={service.link}>Learn more</a>
+          </div>
+        </article>
+      ))
+    }
+  </section>
 
-	<section class="testimonials shell">
-		<h2>Hear From Our Clients</h2>
-		<p>
-			"I can’t express enough gratitude to the Indigo team. Great company, great people, great work. I’m a very happy customer."
-		</p>
-		<p class="quote-author">Kristin - Business Owner</p>
-		<a href="/news-insights/">Read more of our 50+ five-star reviews</a>
-	</section>
+  <section class="testimonials shell">
+    <h2>Hear From Our Clients</h2>
+    <p>
+      "I can’t express enough gratitude to the Indigo team. Great company, great
+      people, great work. I’m a very happy customer."
+    </p>
+    <p class="quote-author">Kristin - Business Owner</p>
+    <a href="/news-insights/">Read more of our 50+ five-star reviews</a>
+  </section>
 
-	<section class="contact">
-		<div class="shell contact-inner">
-			<div>
-				<h2>Let’s Chat</h2>
-				<p>Give us a call. We’ll listen, share how we’d help, and let you know if we’re the right fit.</p>
-				<ul>
-					<li><strong>Location:</strong> 2150 Joshuas Path Suite 201, Hauppauge, NY 11788</li>
-					<li><strong>Phone:</strong> (631) 630-9845</li>
-				</ul>
-				<a href="/contact-us/">Talk to our team</a>
-			</div>
-		</div>
-	</section>
+  <section class="contact">
+    <div class="shell contact-inner">
+      <div>
+        <h2>Let’s Chat</h2>
+        <p>
+          Give us a call. We’ll listen, share how we’d help, and let you know if
+          we’re the right fit.
+        </p>
+        <ul>
+          <li>
+            <strong>Location:</strong> 2150 Joshuas Path Suite 201, Hauppauge, NY
+            11788
+          </li>
+          <li><strong>Phone:</strong> (631) 630-9845</li>
+        </ul>
+        <a href="/contact-us/">Talk to our team</a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
 
 <style lang="less">
-	.shell {
-		width: min(1120px, 94%);
-		margin: 0 auto;
-	}
+  .shell {
+    width: min(1120px, 94%);
+    margin: 0 auto;
+  }
 
-	.hero {
-		padding: clamp(5.5rem, 8vw, 8rem) 0 3rem;
-		background: linear-gradient(160deg, #0f1538 0%, #1b2664 56%, #2f3b86 100%);
-		border-bottom-left-radius: 3rem;
-		border-bottom-right-radius: 3rem;
-		color: #fff;
-	}
+  .hero {
+    padding: clamp(5.5rem, 8vw, 8rem) 0 3rem;
+    background: linear-gradient(160deg, #0f1538 0%, #1b2664 56%, #2f3b86 100%);
+    border-bottom-left-radius: 3rem;
+    border-bottom-right-radius: 3rem;
+    color: #fff;
+  }
 
-	.hero h1 {
-		font-size: clamp(2rem, 5.1vw, 3.5rem);
-		line-height: 1.1;
-		color: #fff;
-		max-width: 16ch;
-		margin-bottom: 1rem;
-	}
+  .hero h1 {
+    font-size: clamp(2rem, 5.1vw, 3.5rem);
+    line-height: 1.1;
+    color: #fff;
+    max-width: 16ch;
+    margin-bottom: 1rem;
+  }
 
-	.hero p {
-		color: #d8ddf9;
-		max-width: 65ch;
-	}
+  .hero p {
+    color: #d8ddf9;
+    max-width: 65ch;
+  }
 
-	.services {
-		padding: clamp(2.5rem, 6vw, 5rem) 0;
-		display: grid;
-		gap: 1rem;
-	}
+  .services {
+    padding: clamp(2.5rem, 6vw, 5rem) 0;
+    display: grid;
+    gap: 1rem;
+  }
 
-	.service-card {
-		background: #f4f6fb;
-		border: 1px solid #e1e8f6;
-		border-radius: 1rem;
-		padding: 1rem;
-	}
+  .service-card {
+    background: #f4f6fb;
+    border: 1px solid #e1e8f6;
+    border-radius: 1rem;
+    padding: 1rem;
+  }
 
-	.service-content h2 {
-		font-size: clamp(1.4rem, 2.5vw, 2rem);
-		margin-bottom: 0.8rem;
-	}
+  .service-content h2 {
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    margin-bottom: 0.8rem;
+  }
 
-	.service-content p {
-		margin-bottom: 0.8rem;
-	}
+  .service-content p {
+    margin-bottom: 0.8rem;
+  }
 
-	.service-content ul {
-		padding-left: 1.2rem;
-		margin-bottom: 0.9rem;
-	}
+  .service-content ul {
+    padding-left: 1.2rem;
+    margin-bottom: 0.9rem;
+  }
 
-	.service-content li {
-		margin-bottom: 0.4rem;
-	}
+  .service-content li {
+    margin-bottom: 0.4rem;
+  }
 
-	.service-content a,
-	.testimonials a,
-	.contact a {
-		color: var(--secondary);
-		font-weight: 700;
-		text-decoration: none;
-	}
+  .service-content a,
+  .testimonials a,
+  .contact a {
+    color: var(--secondary);
+    font-weight: 700;
+    text-decoration: none;
+  }
 
-	.service-content a:hover,
-	.testimonials a:hover,
-	.contact a:hover {
-		text-decoration: underline;
-	}
+  .service-content a:hover,
+  .testimonials a:hover,
+  .contact a:hover {
+    text-decoration: underline;
+  }
 
-	.testimonials {
-		padding: 0 0 clamp(3rem, 6vw, 5rem);
-	}
+  .testimonials {
+    padding: 0 0 clamp(3rem, 6vw, 5rem);
+  }
 
-	.testimonials h2 {
-		font-size: clamp(1.6rem, 2.8vw, 2.25rem);
-		margin-bottom: 0.8rem;
-	}
+  .testimonials h2 {
+    font-size: clamp(1.6rem, 2.8vw, 2.25rem);
+    margin-bottom: 0.8rem;
+  }
 
-	.quote-author {
-		font-weight: 700;
-	}
+  .quote-author {
+    font-weight: 700;
+  }
 
-	.contact {
-		background: #0f1538;
-		color: #fff;
-		padding: clamp(2.6rem, 6vw, 4rem) 0;
-		border-top-left-radius: 2.5rem;
-		border-top-right-radius: 2.5rem;
-	}
+  .contact {
+    background: #0f1538;
+    color: #fff;
+    padding: clamp(2.6rem, 6vw, 4rem) 0;
+    border-top-left-radius: 2.5rem;
+    border-top-right-radius: 2.5rem;
+  }
 
-	.contact h2 {
-		color: #fff;
-	}
+  .contact h2 {
+    color: #fff;
+  }
 
-	.contact p,
-	.contact li {
-		color: #d2d8f7;
-	}
+  .contact p,
+  .contact li {
+    color: #d2d8f7;
+  }
 
-	.contact ul {
-		padding-left: 1.2rem;
-		margin-bottom: 1rem;
-	}
+  .contact ul {
+    padding-left: 1.2rem;
+    margin-bottom: 1rem;
+  }
 
-	@media only screen and (min-width: 64rem) {
-		.service-card {
-			padding: 1.5rem 1.75rem;
-		}
+  @media only screen and (min-width: 64rem) {
+    .service-card {
+      padding: 1.5rem 1.75rem;
+    }
 
-		.services {
-			gap: 1.25rem;
-		}
-	}
+    .services {
+      gap: 1.25rem;
+    }
+  }
 </style>

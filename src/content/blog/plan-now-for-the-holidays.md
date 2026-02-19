@@ -25,4 +25,3 @@ Come together and celebrate the most wonderful time of the year with your team! 
 If you don’t have the details of your event just yet, we can work together to create a design you’re happy with and then quickly update the information once available.
 
 Contact your account manager to start the process and for more information
-

@@ -2,191 +2,239 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Contact Us | Indigo Business Solutions" description="Talk with Indigo Business Solutions. Share your goals and we will provide honest guidance and practical next steps.">
-	<section class="hero">
-		<div class="shell">
-			<p class="crumb">Home Page / Contact Us</p>
-			<h1>Contact Us</h1>
-			<a href="/contact-us/" class="cta">Free evaluation</a>
-		</div>
-	</section>
+<BaseLayout
+  title="Contact Us | Indigo Business Solutions"
+  description="Talk with Indigo Business Solutions. Share your goals and we will provide honest guidance and practical next steps."
+>
+  <section class="hero">
+    <div class="shell">
+      <p class="crumb">Home Page / Contact Us</p>
+      <h1>Contact Us</h1>
+      <a href="/contact-us/" class="cta">Free evaluation</a>
+    </div>
+  </section>
 
-	<section class="shell section contact-grid">
-		<div class="contact-info">
-			<p class="eyebrow">Contact Us</p>
-			<h2>Let&apos;s Chat</h2>
-			<p>Give us a call. We&apos;ll listen, share how we&apos;d help, and let you know if we&apos;re the right fit.</p>
-			<ul>
-				<li><strong>Location</strong><br />2150 Joshuas Path Suite 201, Hauppauge, NY 11788</li>
-				<li><strong>Phone</strong><br /><a href="tel:+16316309845">(631) 630-9845</a></li>
-				<li><strong>Business Hours</strong><br />Monday-Friday: 8:30 AM-6 PM<br />Saturday-Sunday: Closed</li>
-			</ul>
-		</div>
+  <section class="shell section contact-grid">
+    <div class="contact-info">
+      <p class="eyebrow">Contact Us</p>
+      <h2>Let&apos;s Chat</h2>
+      <p>
+        Give us a call. We&apos;ll listen, share how we&apos;d help, and let you
+        know if we&apos;re the right fit.
+      </p>
+      <ul>
+        <li>
+          <strong>Location</strong><br />2150 Joshuas Path Suite 201, Hauppauge,
+          NY 11788
+        </li>
+        <li>
+          <strong>Phone</strong><br /><a href="tel:+16316309845"
+            >(631) 630-9845</a>
+        </li>
+        <li>
+          <strong>Business Hours</strong><br />Monday-Friday: 8:30 AM-6 PM<br
+          />Saturday-Sunday: Closed
+        </li>
+      </ul>
+    </div>
 
-		<form class="contact-form" action="/contact-us/" method="get">
-			<h2>Contact Form</h2>
-			<label>Full Name*<input type="text" name="name" autocomplete="name" required /></label>
-			<label>Email*<input type="email" name="email" autocomplete="email" required /></label>
-			<label>Phone Number*<input type="tel" name="phone" autocomplete="tel" required /></label>
-			<label>Business Name*<input type="text" name="business" autocomplete="organization" required /></label>
-			<label>How can we help you?<textarea name="message" rows="4"></textarea></label>
-			<div class="captcha-placeholder" aria-hidden="true">reCAPTCHA placeholder</div>
-			<button type="submit">Send Message</button>
-		</form>
-	</section>
+    <form class="contact-form" action="/contact-us/" method="get">
+      <h2>Contact Form</h2>
+      <label
+        >Full Name*<input
+          type="text"
+          name="name"
+          autocomplete="name"
+          required
+        /></label
+      >
+      <label
+        >Email*<input
+          type="email"
+          name="email"
+          autocomplete="email"
+          required
+        /></label
+      >
+      <label
+        >Phone Number*<input
+          type="tel"
+          name="phone"
+          autocomplete="tel"
+          required
+        /></label
+      >
+      <label
+        >Business Name*<input
+          type="text"
+          name="business"
+          autocomplete="organization"
+          required
+        /></label
+      >
+      <label
+        >How can we help you?<textarea name="message" rows="4"
+        ></textarea></label
+      >
+      <div class="captcha-placeholder" aria-hidden="true">
+        reCAPTCHA placeholder
+      </div>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
 </BaseLayout>
 
 <style lang="less">
-	.shell {
-		width: min(1120px, 94%);
-		margin: 0 auto;
-	}
+  .shell {
+    width: min(1120px, 94%);
+    margin: 0 auto;
+  }
 
-	.section {
-		padding: clamp(2.5rem, 6vw, 5rem) 0;
-	}
+  .section {
+    padding: clamp(2.5rem, 6vw, 5rem) 0;
+  }
 
-	.hero {
-		padding: clamp(5.6rem, 8vw, 8rem) 0 2.4rem;
-		background: linear-gradient(160deg, #12183f 0%, #1e2868 56%, #344494 100%);
-		border-bottom-left-radius: 3rem;
-		border-bottom-right-radius: 3rem;
-		color: #fff;
-	}
+  .hero {
+    padding: clamp(5.6rem, 8vw, 8rem) 0 2.4rem;
+    background: linear-gradient(160deg, #12183f 0%, #1e2868 56%, #344494 100%);
+    border-bottom-left-radius: 3rem;
+    border-bottom-right-radius: 3rem;
+    color: #fff;
+  }
 
-	.crumb {
-		font-size: 0.86rem;
-		color: #c8cfee;
-		margin-bottom: 0.6rem;
-	}
+  .crumb {
+    font-size: 0.86rem;
+    color: #c8cfee;
+    margin-bottom: 0.6rem;
+  }
 
-	.hero h1 {
-		color: #fff;
-		font-size: clamp(2rem, 4.8vw, 3.2rem);
-		line-height: 1.1;
-		margin-bottom: 0.9rem;
-	}
+  .hero h1 {
+    color: #fff;
+    font-size: clamp(2rem, 4.8vw, 3.2rem);
+    line-height: 1.1;
+    margin-bottom: 0.9rem;
+  }
 
-	.cta {
-		display: inline-block;
-		padding: 0.58rem 1.04rem;
-		background: #fff;
-		color: #1b245d;
-		font-weight: 700;
-		text-decoration: none;
-		border-radius: 999px;
-	}
+  .cta {
+    display: inline-block;
+    padding: 0.58rem 1.04rem;
+    background: #fff;
+    color: #1b245d;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 999px;
+  }
 
-	.contact-grid {
-		display: grid;
-		gap: 1.2rem;
-		align-items: start;
-	}
+  .contact-grid {
+    display: grid;
+    gap: 1.2rem;
+    align-items: start;
+  }
 
-	.contact-info {
-		padding-top: 0.35rem;
-	}
+  .contact-info {
+    padding-top: 0.35rem;
+  }
 
-	.eyebrow {
-		font-size: 0.83rem;
-		text-transform: uppercase;
-		letter-spacing: 0.08em;
-		color: #6070a9;
-		margin-bottom: 0.4rem;
-	}
+  .eyebrow {
+    font-size: 0.83rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6070a9;
+    margin-bottom: 0.4rem;
+  }
 
-	.contact-info h2,
-	.contact-form h2 {
-		font-size: clamp(1.5rem, 2.8vw, 2.2rem);
-		color: #223164;
-		margin-bottom: 0.65rem;
-	}
+  .contact-info h2,
+  .contact-form h2 {
+    font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+    color: #223164;
+    margin-bottom: 0.65rem;
+  }
 
-	.contact-info p {
-		max-width: 52ch;
-	}
+  .contact-info p {
+    max-width: 52ch;
+  }
 
-	.contact-info ul {
-		margin-top: 1rem;
-		padding-left: 1.1rem;
-	}
+  .contact-info ul {
+    margin-top: 1rem;
+    padding-left: 1.1rem;
+  }
 
-	.contact-info li {
-		margin-bottom: 0.62rem;
-		color: #3e4a7f;
-	}
+  .contact-info li {
+    margin-bottom: 0.62rem;
+    color: #3e4a7f;
+  }
 
-	.contact-info a {
-		color: #223164;
-		text-decoration: none;
-		font-weight: 700;
-	}
+  .contact-info a {
+    color: #223164;
+    text-decoration: none;
+    font-weight: 700;
+  }
 
-	.contact-form {
-		background: #f4f6fb;
-		border: 1px solid #dce3f4;
-		border-radius: 1.4rem;
-		padding: 1.2rem;
-	}
+  .contact-form {
+    background: #f4f6fb;
+    border: 1px solid #dce3f4;
+    border-radius: 1.4rem;
+    padding: 1.2rem;
+  }
 
-	.contact-form label {
-		display: grid;
-		gap: 0.33rem;
-		font-size: 0.84rem;
-		color: #42518c;
-		margin-bottom: 0.65rem;
-	}
+  .contact-form label {
+    display: grid;
+    gap: 0.33rem;
+    font-size: 0.84rem;
+    color: #42518c;
+    margin-bottom: 0.65rem;
+  }
 
-	.contact-form input,
-	.contact-form textarea {
-		width: 100%;
-		border: 1px solid #d6def1;
-		border-radius: 0.7rem;
-		padding: 0.62rem 0.75rem;
-		font: inherit;
-		background: #fff;
-	}
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    border: 1px solid #d6def1;
+    border-radius: 0.7rem;
+    padding: 0.62rem 0.75rem;
+    font: inherit;
+    background: #fff;
+  }
 
-	.contact-form textarea {
-		resize: vertical;
-		min-height: 5.2rem;
-	}
+  .contact-form textarea {
+    resize: vertical;
+    min-height: 5.2rem;
+  }
 
-	.captcha-placeholder {
-		height: 2rem;
-		border: 1px solid #ccd6ee;
-		border-radius: 0.5rem;
-		display: flex;
-		align-items: center;
-		padding: 0 0.6rem;
-		font-size: 0.78rem;
-		color: #556495;
-		background: #fff;
-		margin: 0.25rem 0 0.7rem;
-	}
+  .captcha-placeholder {
+    height: 2rem;
+    border: 1px solid #ccd6ee;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    padding: 0 0.6rem;
+    font-size: 0.78rem;
+    color: #556495;
+    background: #fff;
+    margin: 0.25rem 0 0.7rem;
+  }
 
-	.contact-form button {
-		border: 0;
-		background: #1d2a65;
-		color: #fff;
-		font-weight: 700;
-		border-radius: 999px;
-		padding: 0.58rem 1rem;
-		cursor: pointer;
-	}
+  .contact-form button {
+    border: 0;
+    background: #1d2a65;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 0.58rem 1rem;
+    cursor: pointer;
+  }
 
-	.contact-form button:hover {
-		filter: brightness(1.06);
-	}
+  .contact-form button:hover {
+    filter: brightness(1.06);
+  }
 
-	@media only screen and (min-width: 64rem) {
-		.contact-grid {
-			grid-template-columns: minmax(0, 1fr) 460px;
-			gap: 1.8rem;
-		}
+  @media only screen and (min-width: 64rem) {
+    .contact-grid {
+      grid-template-columns: minmax(0, 1fr) 460px;
+      gap: 1.8rem;
+    }
 
-		.contact-form {
-			padding: 1.55rem;
-		}
-	}
+    .contact-form {
+      padding: 1.55rem;
+    }
+  }
 </style>

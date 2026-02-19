@@ -86,4 +86,3 @@ Typography is more than just choosing which font the majority of content uses on
 If you’re considering a new website or redesign, keep these factors in mind to create the best user experience possible and give your visitors what they need. Easy navigation, fast loading times, and relevant content are essential for any site wishing to draw traffic and keep users engaged. Creating a well-rounded digital strategy that takes into account all aspects of design is crucial for success in the online arena— Indigo Business Solutions can help get you there.
 
 Are you looking for ways to improve your website? We can help you create a user-friendly experience, meet ADA compliance, and optimize for SEO. Reach out today for a Free Marketing Evaluation!
-

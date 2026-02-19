@@ -2,296 +2,326 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 const valueProps = [
-	"Omnichannel expertise",
-	"Ongoing testing and improvement",
-	"Creative that converts",
-	"Built around your specific goals",
-	"Quick launch times",
-	"Transparent process",
+  "Omnichannel expertise",
+  "Ongoing testing and improvement",
+  "Creative that converts",
+  "Built around your specific goals",
+  "Quick launch times",
+  "Transparent process",
 ];
 
 const processSteps = [
-	"Discovery and goal setting",
-	"Platform and audience strategy",
-	"Creative development",
-	"Campaign setup and launch",
-	"Performance tracking and reporting",
-	"Ongoing optimization",
+  "Discovery and goal setting",
+  "Platform and audience strategy",
+  "Creative development",
+  "Campaign setup and launch",
+  "Performance tracking and reporting",
+  "Ongoing optimization",
 ];
 
 const outcomes = [
-	"More qualified leads",
-	"Increased traffic from ready-to-buy customers",
-	"Higher conversion rates",
-	"Stronger brand recognition",
-	"Better ROI on ad spend",
+  "More qualified leads",
+  "Increased traffic from ready-to-buy customers",
+  "Higher conversion rates",
+  "Stronger brand recognition",
+  "Better ROI on ad spend",
 ];
 
 const caseStudies = [
-	{
-		stat: "$30K+",
-		title: "Sales from re-targeting",
-		text: "A Glen Cove fashion boutique launched seasonal retargeting campaigns and generated $30K in 6 weeks.",
-	},
-	{
-		stat: "180%",
-		title: "Increase in leads",
-		text: "A Ronkonkoma roofing company used landing pages and mobile-first Google Ads to nearly triple leads in 90 days.",
-	},
-	{
-		stat: "350+",
-		title: "Qualified leads in 3 months",
-		text: "A Holbrook medspa launched search and social campaigns to drive over 350 qualified leads in one quarter.",
-	},
-	{
-		stat: "22x",
-		title: "Return on ad spend",
-		text: "A Jericho luxury furniture retailer targeted affluent ZIP codes and drove a 22x ROAS for showroom events.",
-	},
+  {
+    stat: "$30K+",
+    title: "Sales from re-targeting",
+    text: "A Glen Cove fashion boutique launched seasonal retargeting campaigns and generated $30K in 6 weeks.",
+  },
+  {
+    stat: "180%",
+    title: "Increase in leads",
+    text: "A Ronkonkoma roofing company used landing pages and mobile-first Google Ads to nearly triple leads in 90 days.",
+  },
+  {
+    stat: "350+",
+    title: "Qualified leads in 3 months",
+    text: "A Holbrook medspa launched search and social campaigns to drive over 350 qualified leads in one quarter.",
+  },
+  {
+    stat: "22x",
+    title: "Return on ad spend",
+    text: "A Jericho luxury furniture retailer targeted affluent ZIP codes and drove a 22x ROAS for showroom events.",
+  },
 ];
 ---
 
 <BaseLayout
-	title="Digital Marketing | Indigo Business Solutions"
-	description="Targeted ad campaigns on Google, Facebook, and more that drive leads, sales, and ROI. Custom strategies built around your business goals and budget."
+  title="Digital Marketing | Indigo Business Solutions"
+  description="Targeted ad campaigns on Google, Facebook, and more that drive leads, sales, and ROI. Custom strategies built around your business goals and budget."
 >
-	<section class="hero">
-		<div class="shell">
-			<h1>Advertising campaigns for your business</h1>
-			<p>We run ad campaigns that drive leads, traffic, and revenue. Every campaign is tailored to your goals and budget.</p>
-		</div>
-	</section>
+  <section class="hero">
+    <div class="shell">
+      <h1>Advertising campaigns for your business</h1>
+      <p>
+        We run ad campaigns that drive leads, traffic, and revenue. Every
+        campaign is tailored to your goals and budget.
+      </p>
+    </div>
+  </section>
 
-	<section class="shell section">
-		<div class="two-col">
-			<div class="card">
-				<h2>Modern Ad Strategies for Leads and Real Returns</h2>
-				<p>
-					Most ads get ignored. We put the right message on the right platform in front of the right people at the right time.
-				</p>
-				<ul>
-					<li><strong>Strategy:</strong> Audience research and campaign planning around your goals and budget.</li>
-					<li><strong>Performance:</strong> Ongoing testing and optimization for clicks and conversions.</li>
-					<li><strong>Creative:</strong> Strong visuals and copy that grab attention and drive action.</li>
-				</ul>
-				<p>From single ads to multi-platform campaigns, we make every dollar work harder.</p>
-			</div>
-			<div class="card">
-				<h2>Complete Strategy, Clear Reporting, Measurable Results</h2>
-				<p>
-					Most agencies chase views. We focus on customers and manage your campaigns like it is our own budget, guided by performance data and outcomes.
-				</p>
-				<ul>
-					{valueProps.map((point) => <li>{point}</li>)}
-				</ul>
-			</div>
-		</div>
-	</section>
+  <section class="shell section">
+    <div class="two-col">
+      <div class="card">
+        <h2>Modern Ad Strategies for Leads and Real Returns</h2>
+        <p>
+          Most ads get ignored. We put the right message on the right platform
+          in front of the right people at the right time.
+        </p>
+        <ul>
+          <li>
+            <strong>Strategy:</strong> Audience research and campaign planning around
+            your goals and budget.
+          </li>
+          <li>
+            <strong>Performance:</strong> Ongoing testing and optimization for clicks
+            and conversions.
+          </li>
+          <li>
+            <strong>Creative:</strong> Strong visuals and copy that grab attention
+            and drive action.
+          </li>
+        </ul>
+        <p>
+          From single ads to multi-platform campaigns, we make every dollar work
+          harder.
+        </p>
+      </div>
+      <div class="card">
+        <h2>Complete Strategy, Clear Reporting, Measurable Results</h2>
+        <p>
+          Most agencies chase views. We focus on customers and manage your
+          campaigns like it is our own budget, guided by performance data and
+          outcomes.
+        </p>
+        <ul>
+          {valueProps.map((point) => <li>{point}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
 
-	<section class="process">
-		<div class="shell">
-			<h2>Your path to better advertising</h2>
-			<p>How we work:</p>
-			<ol>
-				{processSteps.map((step) => <li>{step}</li>)}
-			</ol>
-			<p class="subtle">Real-time analytics and transparent reporting with every campaign.</p>
-		</div>
-	</section>
+  <section class="process">
+    <div class="shell">
+      <h2>Your path to better advertising</h2>
+      <p>How we work:</p>
+      <ol>
+        {processSteps.map((step) => <li>{step}</li>)}
+      </ol>
+      <p class="subtle">
+        Real-time analytics and transparent reporting with every campaign.
+      </p>
+    </div>
+  </section>
 
-	<section class="shell section">
-		<div class="card results">
-			<h2>Measurable Outcomes From Ads That Convert</h2>
-			<p>
-				Advertising is not just buying space. It is about growing your business with campaigns tied directly to revenue and lead quality.
-			</p>
-			<ul>
-				{outcomes.map((outcome) => <li>{outcome}</li>)}
-			</ul>
-			<div class="case-grid">
-				{
-					caseStudies.map((study) => (
-						<article>
-							<p class="metric">{study.stat}</p>
-							<h3>{study.title}</h3>
-							<p>{study.text}</p>
-						</article>
-					))
-				}
-			</div>
-		</div>
-	</section>
+  <section class="shell section">
+    <div class="card results">
+      <h2>Measurable Outcomes From Ads That Convert</h2>
+      <p>
+        Advertising is not just buying space. It is about growing your business
+        with campaigns tied directly to revenue and lead quality.
+      </p>
+      <ul>
+        {outcomes.map((outcome) => <li>{outcome}</li>)}
+      </ul>
+      <div class="case-grid">
+        {
+          caseStudies.map((study) => (
+            <article>
+              <p class="metric">{study.stat}</p>
+              <h3>{study.title}</h3>
+              <p>{study.text}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 
-	<section class="shell section testimonials">
-		<h2>Hear From Our Clients</h2>
-		<p>
-			"I can’t express enough gratitude to the Indigo team. Great company, great people, great work. I’m a very happy customer."
-		</p>
-		<p class="quote-author">Kristin - Business Owner</p>
-		<a href="/news-insights/">Read more of our 50+ five-star reviews</a>
-	</section>
+  <section class="shell section testimonials">
+    <h2>Hear From Our Clients</h2>
+    <p>
+      "I can’t express enough gratitude to the Indigo team. Great company, great
+      people, great work. I’m a very happy customer."
+    </p>
+    <p class="quote-author">Kristin - Business Owner</p>
+    <a href="/news-insights/">Read more of our 50+ five-star reviews</a>
+  </section>
 
-	<section class="contact">
-		<div class="shell">
-			<h2>Let’s Chat</h2>
-			<p>Call us and we’ll review your marketing, show what is working, what is not, and how we would move forward.</p>
-			<ul>
-				<li><strong>Location:</strong> 2150 Joshuas Path Suite 201, Hauppauge, NY 11788</li>
-				<li><strong>Phone:</strong> <a href="tel:+16316309845">(631) 630-9845</a></li>
-			</ul>
-			<a href="/contact-us/">Talk to our team</a>
-		</div>
-	</section>
+  <section class="contact">
+    <div class="shell">
+      <h2>Let’s Chat</h2>
+      <p>
+        Call us and we’ll review your marketing, show what is working, what is
+        not, and how we would move forward.
+      </p>
+      <ul>
+        <li>
+          <strong>Location:</strong> 2150 Joshuas Path Suite 201, Hauppauge, NY 11788
+        </li>
+        <li>
+          <strong>Phone:</strong>
+          <a href="tel:+16316309845">(631) 630-9845</a>
+        </li>
+      </ul>
+      <a href="/contact-us/">Talk to our team</a>
+    </div>
+  </section>
 </BaseLayout>
 
 <style lang="less">
-	.shell {
-		width: min(1120px, 94%);
-		margin: 0 auto;
-	}
+  .shell {
+    width: min(1120px, 94%);
+    margin: 0 auto;
+  }
 
-	.section {
-		padding: clamp(2.5rem, 6vw, 5rem) 0;
-	}
+  .section {
+    padding: clamp(2.5rem, 6vw, 5rem) 0;
+  }
 
-	.hero {
-		padding: clamp(5.5rem, 8vw, 8rem) 0 2.8rem;
-		background: linear-gradient(160deg, #12183f 0%, #1e2868 56%, #344494 100%);
-		border-bottom-left-radius: 3rem;
-		border-bottom-right-radius: 3rem;
-		color: #fff;
-	}
+  .hero {
+    padding: clamp(5.5rem, 8vw, 8rem) 0 2.8rem;
+    background: linear-gradient(160deg, #12183f 0%, #1e2868 56%, #344494 100%);
+    border-bottom-left-radius: 3rem;
+    border-bottom-right-radius: 3rem;
+    color: #fff;
+  }
 
-	.hero h1 {
-		color: #fff;
-		font-size: clamp(2rem, 4.8vw, 3.3rem);
-		line-height: 1.1;
-		margin-bottom: 1rem;
-		max-width: 16ch;
-	}
+  .hero h1 {
+    color: #fff;
+    font-size: clamp(2rem, 4.8vw, 3.3rem);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    max-width: 16ch;
+  }
 
-	.hero p {
-		color: #d8ddf7;
-		max-width: 65ch;
-	}
+  .hero p {
+    color: #d8ddf7;
+    max-width: 65ch;
+  }
 
-	.two-col {
-		display: grid;
-		gap: 1rem;
-	}
+  .two-col {
+    display: grid;
+    gap: 1rem;
+  }
 
-	.card {
-		background: #f4f6fb;
-		border: 1px solid #dce3f4;
-		border-radius: 1rem;
-		padding: 1.1rem;
-	}
+  .card {
+    background: #f4f6fb;
+    border: 1px solid #dce3f4;
+    border-radius: 1rem;
+    padding: 1.1rem;
+  }
 
-	h2 {
-		font-size: clamp(1.5rem, 2.7vw, 2.2rem);
-		margin-bottom: 0.8rem;
-	}
+  h2 {
+    font-size: clamp(1.5rem, 2.7vw, 2.2rem);
+    margin-bottom: 0.8rem;
+  }
 
-	h3 {
-		font-size: 1.1rem;
-		margin: 0.8rem 0 0.4rem;
-	}
+  h3 {
+    font-size: 1.1rem;
+    margin: 0.8rem 0 0.4rem;
+  }
 
-	ul,
-	ol {
-		padding-left: 1.2rem;
-	}
+  ul,
+  ol {
+    padding-left: 1.2rem;
+  }
 
-	li {
-		margin-bottom: 0.45rem;
-	}
+  li {
+    margin-bottom: 0.45rem;
+  }
 
-	.process {
-		background: #131a45;
-		color: #fff;
-		padding: clamp(2.5rem, 6vw, 4rem) 0;
-		border-top-left-radius: 2.5rem;
-		border-top-right-radius: 2.5rem;
-	}
+  .process {
+    background: #131a45;
+    color: #fff;
+    padding: clamp(2.5rem, 6vw, 4rem) 0;
+    border-top-left-radius: 2.5rem;
+    border-top-right-radius: 2.5rem;
+  }
 
-	.process h2 {
-		color: #fff;
-	}
+  .process h2 {
+    color: #fff;
+  }
 
-	.process p,
-	.process li {
-		color: #d2d8f7;
-	}
+  .process p,
+  .process li {
+    color: #d2d8f7;
+  }
 
-	.subtle {
-		margin-top: 0.8rem;
-	}
+  .subtle {
+    margin-top: 0.8rem;
+  }
 
-	.case-grid {
-		display: grid;
-		gap: 0.9rem;
-		margin-top: 1rem;
-	}
+  .case-grid {
+    display: grid;
+    gap: 0.9rem;
+    margin-top: 1rem;
+  }
 
-	.case-grid article {
-		background: #fff;
-		border: 1px solid #dce3f4;
-		border-radius: 0.8rem;
-		padding: 0.9rem;
-	}
+  .case-grid article {
+    background: #fff;
+    border: 1px solid #dce3f4;
+    border-radius: 0.8rem;
+    padding: 0.9rem;
+  }
 
-	.metric {
-		font-size: 1.8rem;
-		font-weight: 900;
-		color: var(--secondary);
-		line-height: 1;
-		margin-bottom: 0.3rem;
-	}
+  .metric {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--secondary);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
 
-	.testimonials a,
-	.contact a {
-		color: var(--secondary);
-		font-weight: 700;
-		text-decoration: none;
-	}
+  .testimonials a,
+  .contact a {
+    color: var(--secondary);
+    font-weight: 700;
+    text-decoration: none;
+  }
 
-	.testimonials a:hover,
-	.contact a:hover {
-		text-decoration: underline;
-	}
+  .testimonials a:hover,
+  .contact a:hover {
+    text-decoration: underline;
+  }
 
-	.quote-author {
-		font-weight: 700;
-	}
+  .quote-author {
+    font-weight: 700;
+  }
 
-	.contact {
-		background: #0f1538;
-		color: #fff;
-		padding: clamp(2.6rem, 6vw, 4rem) 0;
-		border-top-left-radius: 2.5rem;
-		border-top-right-radius: 2.5rem;
-	}
+  .contact {
+    background: #0f1538;
+    color: #fff;
+    padding: clamp(2.6rem, 6vw, 4rem) 0;
+    border-top-left-radius: 2.5rem;
+    border-top-right-radius: 2.5rem;
+  }
 
-	.contact h2 {
-		color: #fff;
-	}
+  .contact h2 {
+    color: #fff;
+  }
 
-	.contact p,
-	.contact li {
-		color: #d2d8f7;
-	}
+  .contact p,
+  .contact li {
+    color: #d2d8f7;
+  }
 
-	@media only screen and (min-width: 64rem) {
-		.two-col {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
+  @media only screen and (min-width: 64rem) {
+    .two-col {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
-		.case-grid {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
+    .case-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
-		.card {
-			padding: 1.5rem 1.7rem;
-		}
-	}
+    .card {
+      padding: 1.5rem 1.7rem;
+    }
+  }
 </style>

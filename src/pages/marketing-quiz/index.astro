@@ -2,392 +2,416 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 const serviceOptions = [
-	"Creative & Branding",
-	"Paid Advertising / Paid Search / Paid Social",
-	"Web Design & Development",
-	"Search Engine Optimization (SEO & AEO)",
-	"Social Media Management (SMM)",
-	"Print & Promo Products",
-	"Other",
+  "Creative & Branding",
+  "Paid Advertising / Paid Search / Paid Social",
+  "Web Design & Development",
+  "Search Engine Optimization (SEO & AEO)",
+  "Social Media Management (SMM)",
+  "Print & Promo Products",
+  "Other",
 ];
 
 const goalOptions = [
-	"Raise Brand Awareness",
-	"Increase Revenue",
-	"Generate New Leads",
-	"Increase Service/Product Sales",
-	"Grow Customer Loyalty",
-	"Build a Social Media Presence",
-	"Improve Local Reputation",
-	"Other",
+  "Raise Brand Awareness",
+  "Increase Revenue",
+  "Generate New Leads",
+  "Increase Service/Product Sales",
+  "Grow Customer Loyalty",
+  "Build a Social Media Presence",
+  "Improve Local Reputation",
+  "Other",
 ];
 
-const budgetOptions = ["$0-$1,000", "$1,000-$5,000", "$5,000-$10,000", "$10,000-$25,000", "$25,000-$50,000", "$50,000-$100,000", "$100,000+"];
+const budgetOptions = [
+  "$0-$1,000",
+  "$1,000-$5,000",
+  "$5,000-$10,000",
+  "$10,000-$25,000",
+  "$25,000-$50,000",
+  "$50,000-$100,000",
+  "$100,000+",
+];
 
-const clientNames = ["Ocean Electric", "Irrigation Solutions", "Interstate", "City Swiggers", "Encore", "Aviva", "Amandola's Fence", "Hunter Business School"];
+const clientNames = [
+  "Ocean Electric",
+  "Irrigation Solutions",
+  "Interstate",
+  "City Swiggers",
+  "Encore",
+  "Aviva",
+  "Amandola's Fence",
+  "Hunter Business School",
+];
 ---
 
 <BaseLayout
-	title="Marketing Quiz | Indigo Business Solutions"
-	description="Discover the right marketing plan for your business. This short quiz helps match your priorities, budget, and goals with practical next steps."
+  title="Marketing Quiz | Indigo Business Solutions"
+  description="Discover the right marketing plan for your business. This short quiz helps match your priorities, budget, and goals with practical next steps."
 >
-	<section class="hero">
-		<div class="shell">
-			<h1>Discover the Right Marketing Plan for Your Business</h1>
-			<p>
-				Not sure where to start with digital marketing? This short quiz walks through your priorities, budget, and business objectives so we can match you with a plan that makes sense.
-			</p>
+  <section class="hero">
+    <div class="shell">
+      <h1>Discover the Right Marketing Plan for Your Business</h1>
+      <p>
+        Not sure where to start with digital marketing? This short quiz walks
+        through your priorities, budget, and business objectives so we can match
+        you with a plan that makes sense.
+      </p>
 
-			<div class="quiz-shell">
-				<p class="progress">Step 1 of 5</p>
-				<form class="quiz-form" action="/contact-us/" method="get">
-					<section class="step-card">
-						<h2>Step 1: Services</h2>
-						<p>What services are you interested in?</p>
-						<div class="chip-grid">
-							{
-								serviceOptions.map((option) => (
-									<label class="chip">
-										<input type="checkbox" name="services" value={option} />
-										<span>{option}</span>
-									</label>
-								))
-							}
-						</div>
-					</section>
+      <div class="quiz-shell">
+        <p class="progress">Step 1 of 5</p>
+        <form class="quiz-form" action="/contact-us/" method="get">
+          <section class="step-card">
+            <h2>Step 1: Services</h2>
+            <p>What services are you interested in?</p>
+            <div class="chip-grid">
+              {
+                serviceOptions.map((option) => (
+                  <label class="chip">
+                    <input type="checkbox" name="services" value={option} />
+                    <span>{option}</span>
+                  </label>
+                ))
+              }
+            </div>
+          </section>
 
-					<section class="step-card">
-						<h2>Step 2: Goals</h2>
-						<p>What are your digital marketing goals?</p>
-						<div class="chip-grid">
-							{
-								goalOptions.map((option) => (
-									<label class="chip">
-										<input type="checkbox" name="goals" value={option} />
-										<span>{option}</span>
-									</label>
-								))
-							}
-						</div>
-					</section>
+          <section class="step-card">
+            <h2>Step 2: Goals</h2>
+            <p>What are your digital marketing goals?</p>
+            <div class="chip-grid">
+              {
+                goalOptions.map((option) => (
+                  <label class="chip">
+                    <input type="checkbox" name="goals" value={option} />
+                    <span>{option}</span>
+                  </label>
+                ))
+              }
+            </div>
+          </section>
 
-					<section class="step-card">
-						<h2>Step 3: Budget</h2>
-						<p>What is your budget?</p>
-						<div class="chip-grid">
-							{
-								budgetOptions.map((option) => (
-									<label class="chip">
-										<input type="radio" name="budget" value={option} />
-										<span>{option}</span>
-									</label>
-								))
-							}
-						</div>
-					</section>
+          <section class="step-card">
+            <h2>Step 3: Budget</h2>
+            <p>What is your budget?</p>
+            <div class="chip-grid">
+              {
+                budgetOptions.map((option) => (
+                  <label class="chip">
+                    <input type="radio" name="budget" value={option} />
+                    <span>{option}</span>
+                  </label>
+                ))
+              }
+            </div>
+          </section>
 
-					<section class="step-card">
-						<h2>Step 4: Website</h2>
-						<label class="inline-field">
-							<span>What is your company website?</span>
-							<input type="url" name="website" placeholder="https://example.com" />
-						</label>
-					</section>
+          <section class="step-card">
+            <h2>Step 4: Website</h2>
+            <label class="inline-field">
+              <span>What is your company website?</span>
+              <input
+                type="url"
+                name="website"
+                placeholder="https://example.com"
+              />
+            </label>
+          </section>
 
-					<section class="step-card">
-						<h2>Step 5: Contact Details</h2>
-						<p>We are putting your marketing plan and pricing options together. Who can we send them to?</p>
-						<div class="contact-fields">
-							<label>
-								<span>Your Name (required)</span>
-								<input type="text" name="name" required />
-							</label>
-							<label>
-								<span>Your Business Email (required)</span>
-								<input type="email" name="email" required />
-							</label>
-							<label>
-								<span>Your Phone Number (required)</span>
-								<input type="tel" name="phone" required />
-							</label>
-						</div>
-					</section>
+          <section class="step-card">
+            <h2>Step 5: Contact Details</h2>
+            <p>
+              We are putting your marketing plan and pricing options together.
+              Who can we send them to?
+            </p>
+            <div class="contact-fields">
+              <label>
+                <span>Your Name (required)</span>
+                <input type="text" name="name" required />
+              </label>
+              <label>
+                <span>Your Business Email (required)</span>
+                <input type="email" name="email" required />
+              </label>
+              <label>
+                <span>Your Phone Number (required)</span>
+                <input type="tel" name="phone" required />
+              </label>
+            </div>
+          </section>
 
-					<div class="actions">
-						<button type="submit">Submit Quiz</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</section>
+          <div class="actions">
+            <button type="submit">Submit Quiz</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
 
-	<section class="reviews">
-		<div class="shell review-card">
-			<div class="google-mark">
-				<p class="google-title">Google</p>
-				<p>Reviews</p>
-				<a href="/news-insights/">Read more of our 50+ five-star reviews</a>
-			</div>
-			<div>
-				<p class="eyebrow">Testimonials</p>
-				<h2>Hear From Our Clients</h2>
-				<p>
-					I can&apos;t express enough gratitude to the Indigo team. Every person I&apos;ve interacted with has been top-notch. Great company, great people, great work. I&apos;m a very happy customer.
-				</p>
-				<p class="quote-author">Kristin - Business Owner</p>
-			</div>
-		</div>
-	</section>
+  <section class="reviews">
+    <div class="shell review-card">
+      <div class="google-mark">
+        <p class="google-title">Google</p>
+        <p>Reviews</p>
+        <a href="/news-insights/">Read more of our 50+ five-star reviews</a>
+      </div>
+      <div>
+        <p class="eyebrow">Testimonials</p>
+        <h2>Hear From Our Clients</h2>
+        <p>
+          I can&apos;t express enough gratitude to the Indigo team. Every person
+          I&apos;ve interacted with has been top-notch. Great company, great
+          people, great work. I&apos;m a very happy customer.
+        </p>
+        <p class="quote-author">Kristin - Business Owner</p>
+      </div>
+    </div>
+  </section>
 
-	<section class="shell client-section">
-		<h2>Meet Some of Our Clients</h2>
-		<div class="client-grid">
-			{
-				clientNames.map((client) => (
-					<p class="client-pill">{client}</p>
-				))
-			}
-		</div>
-	</section>
+  <section class="shell client-section">
+    <h2>Meet Some of Our Clients</h2>
+    <div class="client-grid">
+      {clientNames.map((client) => <p class="client-pill">{client}</p>)}
+    </div>
+  </section>
 </BaseLayout>
 
 <style lang="less">
-	.shell {
-		width: min(1120px, 94%);
-		margin: 0 auto;
-	}
+  .shell {
+    width: min(1120px, 94%);
+    margin: 0 auto;
+  }
 
-	.hero {
-		padding: clamp(5.5rem, 8vw, 8rem) 0 3.2rem;
-		background: linear-gradient(160deg, #12183f 0%, #1e2868 56%, #344494 100%);
-		color: #fff;
-	}
+  .hero {
+    padding: clamp(5.5rem, 8vw, 8rem) 0 3.2rem;
+    background: linear-gradient(160deg, #12183f 0%, #1e2868 56%, #344494 100%);
+    color: #fff;
+  }
 
-	.hero h1 {
-		color: #fff;
-		font-size: clamp(1.8rem, 5vw, 3.2rem);
-		line-height: 1.12;
-		text-align: center;
-		max-width: 18ch;
-		margin: 0 auto 0.8rem;
-	}
+  .hero h1 {
+    color: #fff;
+    font-size: clamp(1.8rem, 5vw, 3.2rem);
+    line-height: 1.12;
+    text-align: center;
+    max-width: 18ch;
+    margin: 0 auto 0.8rem;
+  }
 
-	.hero > .shell > p {
-		text-align: center;
-		max-width: 70ch;
-		margin: 0 auto 1.2rem;
-		color: #d8ddf7;
-	}
+  .hero > .shell > p {
+    text-align: center;
+    max-width: 70ch;
+    margin: 0 auto 1.2rem;
+    color: #d8ddf7;
+  }
 
-	.quiz-shell {
-		background: #fff;
-		border-radius: 1.2rem;
-		border: 1px solid #cfd8f1;
-		padding: 0.9rem;
-		color: #1f2d66;
-	}
+  .quiz-shell {
+    background: #fff;
+    border-radius: 1.2rem;
+    border: 1px solid #cfd8f1;
+    padding: 0.9rem;
+    color: #1f2d66;
+  }
 
-	.progress {
-		font-weight: 700;
-		color: #6e7fb6;
-		margin-bottom: 0.5rem;
-	}
+  .progress {
+    font-weight: 700;
+    color: #6e7fb6;
+    margin-bottom: 0.5rem;
+  }
 
-	.quiz-form {
-		display: grid;
-		gap: 0.75rem;
-	}
+  .quiz-form {
+    display: grid;
+    gap: 0.75rem;
+  }
 
-	.step-card {
-		background: #f4f6fb;
-		border: 1px solid #dce3f4;
-		border-radius: 0.85rem;
-		padding: 0.8rem;
-	}
+  .step-card {
+    background: #f4f6fb;
+    border: 1px solid #dce3f4;
+    border-radius: 0.85rem;
+    padding: 0.8rem;
+  }
 
-	.step-card h2 {
-		font-size: 1.05rem;
-		margin-bottom: 0.3rem;
-		color: #223164;
-	}
+  .step-card h2 {
+    font-size: 1.05rem;
+    margin-bottom: 0.3rem;
+    color: #223164;
+  }
 
-	.step-card p {
-		margin-bottom: 0.6rem;
-		color: #4d5a8e;
-	}
+  .step-card p {
+    margin-bottom: 0.6rem;
+    color: #4d5a8e;
+  }
 
-	.chip-grid {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.42rem;
-	}
+  .chip-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.42rem;
+  }
 
-	.chip input {
-		position: absolute;
-		opacity: 0;
-		pointer-events: none;
-	}
+  .chip input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
 
-	.chip span {
-		display: inline-flex;
-		align-items: center;
-		padding: 0.36rem 0.62rem;
-		border: 1px solid #ccd6ee;
-		background: #fff;
-		border-radius: 999px;
-		font-size: 0.78rem;
-		color: #3a4a83;
-		cursor: pointer;
-	}
+  .chip span {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.36rem 0.62rem;
+    border: 1px solid #ccd6ee;
+    background: #fff;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    color: #3a4a83;
+    cursor: pointer;
+  }
 
-	.chip input:checked + span {
-		background: #223164;
-		color: #fff;
-		border-color: #223164;
-	}
+  .chip input:checked + span {
+    background: #223164;
+    color: #fff;
+    border-color: #223164;
+  }
 
-	.inline-field,
-	.contact-fields label {
-		display: grid;
-		gap: 0.32rem;
-	}
+  .inline-field,
+  .contact-fields label {
+    display: grid;
+    gap: 0.32rem;
+  }
 
-	.inline-field span,
-	.contact-fields span {
-		font-size: 0.82rem;
-		color: #4f5e93;
-	}
+  .inline-field span,
+  .contact-fields span {
+    font-size: 0.82rem;
+    color: #4f5e93;
+  }
 
-	input {
-		width: 100%;
-		border: 1px solid #d4dcf1;
-		border-radius: 0.6rem;
-		padding: 0.58rem 0.68rem;
-		font: inherit;
-		background: #fff;
-	}
+  input {
+    width: 100%;
+    border: 1px solid #d4dcf1;
+    border-radius: 0.6rem;
+    padding: 0.58rem 0.68rem;
+    font: inherit;
+    background: #fff;
+  }
 
-	.contact-fields {
-		display: grid;
-		gap: 0.55rem;
-	}
+  .contact-fields {
+    display: grid;
+    gap: 0.55rem;
+  }
 
-	.actions {
-		display: flex;
-		justify-content: flex-start;
-	}
+  .actions {
+    display: flex;
+    justify-content: flex-start;
+  }
 
-	.actions button {
-		border: 0;
-		background: #1d2a65;
-		color: #fff;
-		font-weight: 700;
-		border-radius: 999px;
-		padding: 0.58rem 1rem;
-		cursor: pointer;
-	}
+  .actions button {
+    border: 0;
+    background: #1d2a65;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 0.58rem 1rem;
+    cursor: pointer;
+  }
 
-	.reviews {
-		padding: clamp(2.5rem, 6vw, 4.2rem) 0;
-	}
+  .reviews {
+    padding: clamp(2.5rem, 6vw, 4.2rem) 0;
+  }
 
-	.review-card {
-		background: #131a45;
-		color: #fff;
-		border-radius: 1.9rem;
-		padding: 1.2rem;
-		display: grid;
-		gap: 1.1rem;
-	}
+  .review-card {
+    background: #131a45;
+    color: #fff;
+    border-radius: 1.9rem;
+    padding: 1.2rem;
+    display: grid;
+    gap: 1.1rem;
+  }
 
-	.google-mark {
-		border: 1px solid #2f3b7d;
-		background: #0f1538;
-		border-radius: 1rem;
-		padding: 0.9rem;
-	}
+  .google-mark {
+    border: 1px solid #2f3b7d;
+    background: #0f1538;
+    border-radius: 1rem;
+    padding: 0.9rem;
+  }
 
-	.google-title {
-		font-size: 2rem;
-		font-weight: 800;
-		line-height: 1;
-		margin: 0;
-	}
+  .google-title {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+    margin: 0;
+  }
 
-	.google-mark p {
-		color: #d3dbfb;
-		margin-bottom: 0.45rem;
-	}
+  .google-mark p {
+    color: #d3dbfb;
+    margin-bottom: 0.45rem;
+  }
 
-	.google-mark a {
-		color: #8fb1ff;
-		font-size: 0.85rem;
-		text-decoration: none;
-		font-weight: 700;
-	}
+  .google-mark a {
+    color: #8fb1ff;
+    font-size: 0.85rem;
+    text-decoration: none;
+    font-weight: 700;
+  }
 
-	.eyebrow {
-		font-size: 0.78rem;
-		text-transform: uppercase;
-		letter-spacing: 0.08em;
-		color: #90a2dd;
-		margin-bottom: 0.45rem;
-	}
+  .eyebrow {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #90a2dd;
+    margin-bottom: 0.45rem;
+  }
 
-	.review-card h2 {
-		color: #fff;
-		font-size: clamp(1.5rem, 3vw, 2.2rem);
-		margin-bottom: 0.6rem;
-	}
+  .review-card h2 {
+    color: #fff;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    margin-bottom: 0.6rem;
+  }
 
-	.review-card p {
-		color: #d3dbfb;
-	}
+  .review-card p {
+    color: #d3dbfb;
+  }
 
-	.quote-author {
-		font-weight: 700;
-	}
+  .quote-author {
+    font-weight: 700;
+  }
 
-	.client-section {
-		padding: 0 0 clamp(2.7rem, 7vw, 4.5rem);
-	}
+  .client-section {
+    padding: 0 0 clamp(2.7rem, 7vw, 4.5rem);
+  }
 
-	.client-section h2 {
-		font-size: clamp(1.45rem, 2.8vw, 2rem);
-		text-align: center;
-		margin-bottom: 1rem;
-		color: #223164;
-	}
+  .client-section h2 {
+    font-size: clamp(1.45rem, 2.8vw, 2rem);
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #223164;
+  }
 
-	.client-grid {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 0.6rem;
-	}
+  .client-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+  }
 
-	.client-pill {
-		border: 1px solid #dce3f4;
-		background: #fff;
-		border-radius: 0.7rem;
-		padding: 0.62rem 0.55rem;
-		text-align: center;
-		color: #3d4c84;
-		font-weight: 700;
-	}
+  .client-pill {
+    border: 1px solid #dce3f4;
+    background: #fff;
+    border-radius: 0.7rem;
+    padding: 0.62rem 0.55rem;
+    text-align: center;
+    color: #3d4c84;
+    font-weight: 700;
+  }
 
-	@media only screen and (min-width: 64rem) {
-		.quiz-shell {
-			padding: 1.1rem 1.15rem;
-		}
+  @media only screen and (min-width: 64rem) {
+    .quiz-shell {
+      padding: 1.1rem 1.15rem;
+    }
 
-		.review-card {
-			grid-template-columns: 280px minmax(0, 1fr);
-			padding: 1.4rem 1.55rem;
-			align-items: center;
-		}
+    .review-card {
+      grid-template-columns: 280px minmax(0, 1fr);
+      padding: 1.4rem 1.55rem;
+      align-items: center;
+    }
 
-		.client-grid {
-			grid-template-columns: repeat(4, minmax(0, 1fr));
-		}
-	}
+    .client-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
 </style>

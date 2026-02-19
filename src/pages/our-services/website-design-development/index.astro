@@ -2,306 +2,323 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 const principles = [
-	"Purpose: Designed for your goals, whether calls, sales, or credibility",
-	"Performance: Fast loading, mobile-friendly, and easy to navigate",
-	"Personalization: A design that reflects your business, not a generic template",
+  "Purpose: Designed for your goals, whether calls, sales, or credibility",
+  "Performance: Fast loading, mobile-friendly, and easy to navigate",
+  "Personalization: A design that reflects your business, not a generic template",
 ];
 
 const differentiators = [
-	"Fast turnaround",
-	"Transparent process",
-	"Custom to you",
-	"WordPress and beyond",
-	"Ongoing support",
-	"Built for growth",
+  "Fast turnaround",
+  "Transparent process",
+  "Custom to you",
+  "WordPress and beyond",
+  "Ongoing support",
+  "Built for growth",
 ];
 
 const processSteps = [
-	"Discovery and needs assessment",
-	"Solutions proposal and partnership",
-	"Strategic planning and research",
-	"Content creation and approval",
-	"Design and development",
-	"Quality assurance and launch",
-	"Ongoing support and optimization",
+  "Discovery and needs assessment",
+  "Solutions proposal and partnership",
+  "Strategic planning and research",
+  "Content creation and approval",
+  "Design and development",
+  "Quality assurance and launch",
+  "Ongoing support and optimization",
 ];
 
 const benefits = [
-	"Designed for conversions",
-	"Better user experience",
-	"Stronger online presence",
-	"Solid SEO foundation",
-	"Improved brand credibility",
+  "Designed for conversions",
+  "Better user experience",
+  "Stronger online presence",
+  "Solid SEO foundation",
+  "Improved brand credibility",
 ];
 
 const outcomes = [
-	{
-		stat: "92%",
-		title: "Occupancy rate",
-		text: "A senior living community reached its highest occupancy in 20 years after a full web and marketing rebuild.",
-	},
-	{
-		stat: "$200K+",
-		title: "Increase in revenue",
-		text: "A dessert shop launched a separate B2B site and generated $200K in new revenue in year one.",
-	},
-	{
-		stat: "29%",
-		title: "Organic traffic growth in 2 months",
-		text: "A Midwest senior living facility saw fast traffic gains after a website rebuild.",
-	},
-	{
-		stat: "77K+",
-		title: "Organic sessions",
-		text: "An outdoor living company reached 1.8M impressions and 27K tracked calls through long-term web and SEO strategy.",
-	},
+  {
+    stat: "92%",
+    title: "Occupancy rate",
+    text: "A senior living community reached its highest occupancy in 20 years after a full web and marketing rebuild.",
+  },
+  {
+    stat: "$200K+",
+    title: "Increase in revenue",
+    text: "A dessert shop launched a separate B2B site and generated $200K in new revenue in year one.",
+  },
+  {
+    stat: "29%",
+    title: "Organic traffic growth in 2 months",
+    text: "A Midwest senior living facility saw fast traffic gains after a website rebuild.",
+  },
+  {
+    stat: "77K+",
+    title: "Organic sessions",
+    text: "An outdoor living company reached 1.8M impressions and 27K tracked calls through long-term web and SEO strategy.",
+  },
 ];
 ---
 
 <BaseLayout
-	title="Website Design and Development | Indigo Business Solutions"
-	description="Professional web design and development that delivers results. We create websites that load fast, look modern, and convert visitors into customers."
+  title="Website Design and Development | Indigo Business Solutions"
+  description="Professional web design and development that delivers results. We create websites that load fast, look modern, and convert visitors into customers."
 >
-	<section class="hero">
-		<div class="shell">
-			<h1>Websites That Earn Trust and Action</h1>
-			<p>
-				Most websites just sit there. We build sites that drive leads and sales, fast, mobile-friendly, and designed around real conversion goals.
-			</p>
-		</div>
-	</section>
+  <section class="hero">
+    <div class="shell">
+      <h1>Websites That Earn Trust and Action</h1>
+      <p>
+        Most websites just sit there. We build sites that drive leads and sales,
+        fast, mobile-friendly, and designed around real conversion goals.
+      </p>
+    </div>
+  </section>
 
-	<section class="shell section">
-		<div class="two-col">
-			<div class="card">
-				<h2>Web Design & Development Focused on Your Business Goals</h2>
-				<p>
-					People judge your business in seconds. If your site is slow, outdated, or confusing, they leave. We build sites that communicate value clearly and make action easy.
-				</p>
-				<ul>
-					{principles.map((item) => <li>{item}</li>)}
-				</ul>
-				<p><strong>500+ websites designed, developed, and launched.</strong></p>
-			</div>
-			<div class="card">
-				<h2>Speed, Transparency, and Performance</h2>
-				<p>
-					We keep web projects clear and accountable with strategic planning, experienced development, and practical support after launch.
-				</p>
-				<ul>
-					{differentiators.map((item) => <li>{item}</li>)}
-				</ul>
-				<a href="/contact-us/">Talk to our team</a>
-			</div>
-		</div>
-	</section>
+  <section class="shell section">
+    <div class="two-col">
+      <div class="card">
+        <h2>Web Design & Development Focused on Your Business Goals</h2>
+        <p>
+          People judge your business in seconds. If your site is slow, outdated,
+          or confusing, they leave. We build sites that communicate value
+          clearly and make action easy.
+        </p>
+        <ul>
+          {principles.map((item) => <li>{item}</li>)}
+        </ul>
+        <p><strong>500+ websites designed, developed, and launched.</strong></p>
+      </div>
+      <div class="card">
+        <h2>Speed, Transparency, and Performance</h2>
+        <p>
+          We keep web projects clear and accountable with strategic planning,
+          experienced development, and practical support after launch.
+        </p>
+        <ul>
+          {differentiators.map((item) => <li>{item}</li>)}
+        </ul>
+        <a href="/contact-us/">Talk to our team</a>
+      </div>
+    </div>
+  </section>
 
-	<section class="process">
-		<div class="shell">
-			<h2>Your path to a high-performing website</h2>
-			<p>How we work:</p>
-			<ol>
-				{processSteps.map((step) => <li>{step}</li>)}
-			</ol>
-			<p class="subtle">88% of users will not return after a poor website experience.</p>
-		</div>
-	</section>
+  <section class="process">
+    <div class="shell">
+      <h2>Your path to a high-performing website</h2>
+      <p>How we work:</p>
+      <ol>
+        {processSteps.map((step) => <li>{step}</li>)}
+      </ol>
+      <p class="subtle">
+        88% of users will not return after a poor website experience.
+      </p>
+    </div>
+  </section>
 
-	<section class="shell section">
-		<div class="two-col">
-			<div class="card">
-				<h2>Tangible Results From Your Website</h2>
-				<p>A website should pay for itself through leads, sales, and credibility.</p>
-				<ul>
-					{benefits.map((item) => <li>{item}</li>)}
-				</ul>
-			</div>
-			<div class="card">
-				<div class="result-grid">
-					{
-						outcomes.map((result) => (
-							<article>
-								<p class="metric">{result.stat}</p>
-								<h3>{result.title}</h3>
-								<p>{result.text}</p>
-							</article>
-						))
-					}
-				</div>
-			</div>
-		</div>
-	</section>
+  <section class="shell section">
+    <div class="two-col">
+      <div class="card">
+        <h2>Tangible Results From Your Website</h2>
+        <p>
+          A website should pay for itself through leads, sales, and credibility.
+        </p>
+        <ul>
+          {benefits.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+      <div class="card">
+        <div class="result-grid">
+          {
+            outcomes.map((result) => (
+              <article>
+                <p class="metric">{result.stat}</p>
+                <h3>{result.title}</h3>
+                <p>{result.text}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
 
-	<section class="shell section testimonials">
-		<h2>Hear From Our Clients</h2>
-		<p>
-			"I can’t express enough gratitude to the Indigo team. Great company, great people, great work. I’m a very happy customer."
-		</p>
-		<p class="quote-author">Kristin - Business Owner</p>
-		<a href="/news-insights/">Read more of our 50+ five-star reviews</a>
-	</section>
+  <section class="shell section testimonials">
+    <h2>Hear From Our Clients</h2>
+    <p>
+      "I can’t express enough gratitude to the Indigo team. Great company, great
+      people, great work. I’m a very happy customer."
+    </p>
+    <p class="quote-author">Kristin - Business Owner</p>
+    <a href="/news-insights/">Read more of our 50+ five-star reviews</a>
+  </section>
 
-	<section class="contact">
-		<div class="shell">
-			<h2>Let’s Chat</h2>
-			<p>Call us and we’ll review your marketing, show what is working, what is not, and how we would move forward.</p>
-			<ul>
-				<li><strong>Location:</strong> 2150 Joshuas Path Suite 201, Hauppauge, NY 11788</li>
-				<li><strong>Phone:</strong> <a href="tel:+16316309845">(631) 630-9845</a></li>
-			</ul>
-			<a href="/contact-us/">Talk to our team</a>
-		</div>
-	</section>
+  <section class="contact">
+    <div class="shell">
+      <h2>Let’s Chat</h2>
+      <p>
+        Call us and we’ll review your marketing, show what is working, what is
+        not, and how we would move forward.
+      </p>
+      <ul>
+        <li>
+          <strong>Location:</strong> 2150 Joshuas Path Suite 201, Hauppauge, NY 11788
+        </li>
+        <li>
+          <strong>Phone:</strong>
+          <a href="tel:+16316309845">(631) 630-9845</a>
+        </li>
+      </ul>
+      <a href="/contact-us/">Talk to our team</a>
+    </div>
+  </section>
 </BaseLayout>
 
 <style lang="less">
-	.shell {
-		width: min(1120px, 94%);
-		margin: 0 auto;
-	}
+  .shell {
+    width: min(1120px, 94%);
+    margin: 0 auto;
+  }
 
-	.section {
-		padding: clamp(2.5rem, 6vw, 5rem) 0;
-	}
+  .section {
+    padding: clamp(2.5rem, 6vw, 5rem) 0;
+  }
 
-	.hero {
-		padding: clamp(5.5rem, 8vw, 8rem) 0 2.8rem;
-		background: linear-gradient(160deg, #12183f 0%, #1e2868 56%, #344494 100%);
-		border-bottom-left-radius: 3rem;
-		border-bottom-right-radius: 3rem;
-		color: #fff;
-	}
+  .hero {
+    padding: clamp(5.5rem, 8vw, 8rem) 0 2.8rem;
+    background: linear-gradient(160deg, #12183f 0%, #1e2868 56%, #344494 100%);
+    border-bottom-left-radius: 3rem;
+    border-bottom-right-radius: 3rem;
+    color: #fff;
+  }
 
-	.hero h1 {
-		color: #fff;
-		font-size: clamp(2rem, 4.8vw, 3.3rem);
-		line-height: 1.1;
-		margin-bottom: 1rem;
-		max-width: 16ch;
-	}
+  .hero h1 {
+    color: #fff;
+    font-size: clamp(2rem, 4.8vw, 3.3rem);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    max-width: 16ch;
+  }
 
-	.hero p {
-		color: #d8ddf7;
-		max-width: 65ch;
-	}
+  .hero p {
+    color: #d8ddf7;
+    max-width: 65ch;
+  }
 
-	.two-col {
-		display: grid;
-		gap: 1rem;
-	}
+  .two-col {
+    display: grid;
+    gap: 1rem;
+  }
 
-	.card {
-		background: #f4f6fb;
-		border: 1px solid #dce3f4;
-		border-radius: 1rem;
-		padding: 1.1rem;
-	}
+  .card {
+    background: #f4f6fb;
+    border: 1px solid #dce3f4;
+    border-radius: 1rem;
+    padding: 1.1rem;
+  }
 
-	h2 {
-		font-size: clamp(1.5rem, 2.7vw, 2.2rem);
-		margin-bottom: 0.8rem;
-	}
+  h2 {
+    font-size: clamp(1.5rem, 2.7vw, 2.2rem);
+    margin-bottom: 0.8rem;
+  }
 
-	h3 {
-		font-size: 1.1rem;
-		margin: 0.6rem 0 0.4rem;
-	}
+  h3 {
+    font-size: 1.1rem;
+    margin: 0.6rem 0 0.4rem;
+  }
 
-	ul,
-	ol {
-		padding-left: 1.2rem;
-	}
+  ul,
+  ol {
+    padding-left: 1.2rem;
+  }
 
-	li {
-		margin-bottom: 0.45rem;
-	}
+  li {
+    margin-bottom: 0.45rem;
+  }
 
-	.process {
-		background: #131a45;
-		color: #fff;
-		padding: clamp(2.5rem, 6vw, 4rem) 0;
-		border-top-left-radius: 2.5rem;
-		border-top-right-radius: 2.5rem;
-	}
+  .process {
+    background: #131a45;
+    color: #fff;
+    padding: clamp(2.5rem, 6vw, 4rem) 0;
+    border-top-left-radius: 2.5rem;
+    border-top-right-radius: 2.5rem;
+  }
 
-	.process h2 {
-		color: #fff;
-	}
+  .process h2 {
+    color: #fff;
+  }
 
-	.process p,
-	.process li {
-		color: #d2d8f7;
-	}
+  .process p,
+  .process li {
+    color: #d2d8f7;
+  }
 
-	.subtle {
-		margin-top: 0.8rem;
-	}
+  .subtle {
+    margin-top: 0.8rem;
+  }
 
-	.result-grid {
-		display: grid;
-		gap: 0.8rem;
-	}
+  .result-grid {
+    display: grid;
+    gap: 0.8rem;
+  }
 
-	.result-grid article {
-		background: #fff;
-		border: 1px solid #dce3f4;
-		border-radius: 0.8rem;
-		padding: 0.85rem;
-	}
+  .result-grid article {
+    background: #fff;
+    border: 1px solid #dce3f4;
+    border-radius: 0.8rem;
+    padding: 0.85rem;
+  }
 
-	.metric {
-		font-size: 1.55rem;
-		font-weight: 900;
-		color: var(--secondary);
-		line-height: 1;
-	}
+  .metric {
+    font-size: 1.55rem;
+    font-weight: 900;
+    color: var(--secondary);
+    line-height: 1;
+  }
 
-	.card a,
-	.testimonials a,
-	.contact a {
-		color: var(--secondary);
-		font-weight: 700;
-		text-decoration: none;
-	}
+  .card a,
+  .testimonials a,
+  .contact a {
+    color: var(--secondary);
+    font-weight: 700;
+    text-decoration: none;
+  }
 
-	.card a:hover,
-	.testimonials a:hover,
-	.contact a:hover {
-		text-decoration: underline;
-	}
+  .card a:hover,
+  .testimonials a:hover,
+  .contact a:hover {
+    text-decoration: underline;
+  }
 
-	.quote-author {
-		font-weight: 700;
-	}
+  .quote-author {
+    font-weight: 700;
+  }
 
-	.contact {
-		background: #0f1538;
-		color: #fff;
-		padding: clamp(2.6rem, 6vw, 4rem) 0;
-		border-top-left-radius: 2.5rem;
-		border-top-right-radius: 2.5rem;
-	}
+  .contact {
+    background: #0f1538;
+    color: #fff;
+    padding: clamp(2.6rem, 6vw, 4rem) 0;
+    border-top-left-radius: 2.5rem;
+    border-top-right-radius: 2.5rem;
+  }
 
-	.contact h2 {
-		color: #fff;
-	}
+  .contact h2 {
+    color: #fff;
+  }
 
-	.contact p,
-	.contact li {
-		color: #d2d8f7;
-	}
+  .contact p,
+  .contact li {
+    color: #d2d8f7;
+  }
 
-	@media only screen and (min-width: 64rem) {
-		.two-col {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
+  @media only screen and (min-width: 64rem) {
+    .two-col {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
-		.result-grid {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
+    .result-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
-		.card {
-			padding: 1.5rem 1.7rem;
-		}
-	}
+    .card {
+      padding: 1.5rem 1.7rem;
+    }
+  }
 </style>

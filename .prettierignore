@@ -1,6 +1,14 @@
+# Ignore artifacts:
 dist
 .astro
-node_modules
-migration-source
-scripts/deleted
-.demo-removed
+
+# Standard
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+
+# lockfiles
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
