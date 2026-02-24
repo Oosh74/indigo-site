@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import StatsGrid from "@components/StatsGrid/StatsGrid.astro";
 
 const principles = [
   "Purpose: Designed for your goals, whether calls, sales, or credibility",
@@ -125,17 +126,15 @@ const outcomes = [
         </ul>
       </div>
       <div class="card">
-        <div class="result-grid">
-          {
-            outcomes.map((result) => (
-              <article>
-                <p class="metric">{result.stat}</p>
-                <h3>{result.title}</h3>
-                <p>{result.text}</p>
-              </article>
-            ))
-          }
-        </div>
+        <StatsGrid
+          items={outcomes.map((result) => ({
+            number: result.stat,
+            title: result.title,
+            text: result.text,
+          }))}
+          containerClass="result-grid"
+          metricClass="metric"
+        />
       </div>
     </div>
   </section>
@@ -254,19 +253,19 @@ const outcomes = [
     margin-top: 0.8rem;
   }
 
-  .result-grid {
+  :global(.result-grid) {
     display: grid;
     gap: 0.8rem;
   }
 
-  .result-grid article {
+  :global(.result-grid article) {
     background: #fff;
     border: 1px solid #dce3f4;
     border-radius: 0.8rem;
     padding: 0.85rem;
   }
 
-  .metric {
+  :global(.metric) {
     font-size: 1.55rem;
     font-weight: 900;
     color: var(--secondary);
@@ -313,7 +312,7 @@ const outcomes = [
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .result-grid {
+    :global(.result-grid) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 

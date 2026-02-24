@@ -1,0 +1,43 @@
+---
+interface StatItem {
+  number: string;
+  title: string;
+  text: string;
+  icon?: any;
+}
+
+interface Props {
+  items: StatItem[];
+  containerClass?: string;
+  metricClass?: string;
+  cardClass?: string;
+  titleTag?: "h2" | "h3" | "h4" | "h5" | "h6";
+}
+
+const {
+  items,
+  containerClass = "stats-grid",
+  metricClass = "stats-number",
+  cardClass = "stats-card",
+  titleTag = "h3",
+} = Astro.props;
+
+const HeadingTag = titleTag;
+---
+
+<div class={containerClass}>
+  {
+    items.map((item) => (
+      <article class={cardClass}>
+        <div>
+          {item.icon && (
+            <item.icon class="stats-icon" aria-hidden="true" role="img" />
+          )}
+          <p class={metricClass}>{item.number}</p>
+          <HeadingTag>{item.title}</HeadingTag>
+        </div>
+        <p>{item.text}</p>
+      </article>
+    ))
+  }
+</div>

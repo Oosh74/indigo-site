@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import StatsGrid from "@components/StatsGrid/StatsGrid.astro";
 import { getCollection } from "astro:content";
 import { Picture } from "astro:assets";
 import { formatDate } from "@js/utils";
@@ -95,21 +96,25 @@ const values = ["Super-service", "Integrity", "Quality", "Relationships"];
 
 const stats = [
   {
+    icon: atIcon,
     number: "≤ 15min",
     title: "Average Response Time",
     text: "Most agencies take a day or more to reply. Even urgent requests can sit for hours. We average 15 minutes so you get quick answers when you need them.",
   },
   {
+    icon: searchIcon,
     number: "120%",
     title: "Increase in Website Traffic",
     text: "A Long Island fence company wasn't showing up when homeowners searched online. We rebuilt their SEO strategy and traffic more than doubled.",
   },
   {
+    icon: layoutIcon,
     number: "150%",
     title: "Increase in Leads from Website",
     text: "An outdoor living company had a great showroom but an outdated site that wasn't converting. Their redesigned website now generates 150% more leads.",
   },
   {
+    icon: trendingIcon,
     number: "233%",
     title: "Increase in Tour Requests",
     text: "A senior living community needed to reach families searching for care. In six months, tour requests rose 233% with web + local SEO improvements.",
@@ -182,7 +187,7 @@ const featuredPosts = posts.slice(0, 3);
 >
   <div class="home">
     <section class="home__hero">
-      <div class="home__shell home__hero-grid">
+      <div class="page-shell home__hero-grid">
         <div class="home__hero-content">
           <h1 class="home__hero-title">
             Your Marketing <span>Partner</span>, Minus the Overhead
@@ -225,8 +230,8 @@ const featuredPosts = posts.slice(0, 3);
       </div>
     </section>
 
-    <section class="home__section home__section--services">
-      <div class="home__shell home__split">
+    <section class="page-section page-section--services">
+      <div class="page-shell home__split">
         <div class="home__content">
           <div>
             <p class="cs-topper">Marketing That Grows With You</p>
@@ -269,7 +274,7 @@ const featuredPosts = posts.slice(0, 3);
         </div>
       </div>
 
-      <div class="home__shell home__cards">
+      <div class="page-shell home__cards">
         {
           services.map((service) => (
             <article class="home__service-card">
@@ -298,8 +303,8 @@ const featuredPosts = posts.slice(0, 3);
       </div>
     </section>
 
-    <section class="home__section section-color__soft home__section--radius">
-      <div class="home__shell home__split home__split--about">
+    <section class="page-section section-color__soft page-section--radius">
+      <div class="page-shell home__split home__split--about">
         <div class="home__content">
           <div>
             <p class="cs-topper">About Us</p>
@@ -323,7 +328,7 @@ const featuredPosts = posts.slice(0, 3);
         </div>
         <div class="home__about-visual" aria-hidden="true"></div>
       </div>
-      <div class="home__shell home__values">
+      <div class="page-shell home__values">
         <div>
           <h3 class="home__h3">What Drives Us Every Day</h3>
           <p>
@@ -338,8 +343,8 @@ const featuredPosts = posts.slice(0, 3);
       </div>
     </section>
 
-    <section class="home__section section-color__soft">
-      <div class="home__shell home__split">
+    <section class="page-section section-color__soft">
+      <div class="page-shell home__split">
         <div class="home__content">
           <div>
             <p class="cs-topper">
@@ -371,23 +376,12 @@ const featuredPosts = posts.slice(0, 3);
           </div>
         </div>
       </div>
-      <div class="home__shell home__stat-grid">
-        {
-          stats.map((stat) => (
-            <article class="home__stat-card">
-              <div>
-                <p class="home__stat-number">{stat.number}</p>
-                <h3>{stat.title}</h3>
-              </div>
-              <p>{stat.text}</p>
-            </article>
-          ))
-        }
-      </div>
+
+      <StatsGrid items={stats} containerClass="page-shell stats-grid" />
     </section>
 
-    <section class="home__section">
-      <div class="home__shell home__testimonial">
+    <section class="page-section">
+      <div class="page-shell home__testimonial">
         <div class="home__google-mark">
           <img
             src="./src/icons/Indigo-Google-Reviews-01.svg"
@@ -409,8 +403,8 @@ const featuredPosts = posts.slice(0, 3);
       </div>
     </section>
 
-    <section class="home__section">
-      <div class="home__shell">
+    <section class="page-section">
+      <div class="page-shell">
         <h2 class="home__h2 home__h2--center">Meet Some of Our Clients</h2>
         <div class="home__logo-grid">
           {clientLogos.map((logo) => <p class="home__logo-item">{logo}</p>)}
@@ -418,8 +412,8 @@ const featuredPosts = posts.slice(0, 3);
       </div>
     </section>
 
-    <section class="home__section section-color__soft home__section--radius">
-      <div class="home__shell home__plans-head">
+    <section class="page-section section-color__soft page-section--radius">
+      <div class="page-shell home__plans-head">
         <p class="cs-topper">Marketing Service Options</p>
         <h2 class="home__h2 home__h2--center">
           Three levels, built for where you are right now
@@ -430,7 +424,7 @@ const featuredPosts = posts.slice(0, 3);
           budget.
         </p>
       </div>
-      <div class="home__shell home__plan-grid">
+      <div class="page-shell home__plan-grid">
         {
           plans.map((plan) => (
             <article class="home__plan-card">
@@ -453,7 +447,7 @@ const featuredPosts = posts.slice(0, 3);
           ))
         }
       </div>
-      <div class="home__shell home__quiz-cta">
+      <div class="page-shell home__quiz-cta">
         <h3>Not sure where to start?</h3>
         <p>
           Take our 2-minute quiz and get a clear recommendation based on your
@@ -466,8 +460,8 @@ const featuredPosts = posts.slice(0, 3);
       </div>
     </section>
 
-    <section class="home__section home__section--darkband">
-      <div class="home__shell home__inner-cta">
+    <section class="page-section section-color__dark">
+      <div class="page-shell home__inner-cta">
         <h2 class="home__h2">
           What's next for your business? Let's find out <span>together.</span>
         </h2>
@@ -481,8 +475,8 @@ const featuredPosts = posts.slice(0, 3);
       </div>
     </section>
 
-    <section class="home__section">
-      <div class="home__shell home__blog-head">
+    <section class="page-section">
+      <div class="page-shell home__blog-head">
         <p class="cs-topper">Insights To Grow Your Business</p>
         <h2 class="home__h2 home__h2--center">
           Marketing tips, strategies, and resources from our blog
@@ -492,7 +486,7 @@ const featuredPosts = posts.slice(0, 3);
           write about both so you don't have to figure it out the hard way.
         </p>
       </div>
-      <div class="home__shell home__blog-grid">
+      <div class="page-shell home__blog-grid">
         {
           featuredPosts.map((post) => (
             <article class="home__blog-card">
@@ -519,15 +513,15 @@ const featuredPosts = posts.slice(0, 3);
           ))
         }
       </div>
-      <div class="home__shell home__blog-footer-link">
+      <div class="page-shell home__blog-footer-link">
         <a class="cs-button-solid cs-button-solid--arrow" href="/news-insights/"
           >See our full blog</a
         >
       </div>
     </section>
 
-    <section class="home__section">
-      <div class="home__shell home__contact-grid">
+    <section class="page-section">
+      <div class="page-shell home__contact-grid">
         <div class="home__contact-info">
           <p class="cs-topper">Contact Us</p>
           <h2 class="home__h2">Let's Chat</h2>
@@ -574,26 +568,13 @@ const featuredPosts = posts.slice(0, 3);
 
 <style lang="less">
   .home {
-    --home-space-section: var(--space-3xl);
+    --page-section-space: var(--space-3xl);
     --home-space-stack: var(--space-s);
 
     background: var(--home-bg);
   }
 
-  .home__shell {
-    width: min(1260px, 92%);
-    margin-inline: auto;
-  }
-
-  .home__section {
-    padding-block: var(--home-space-section);
-  }
-
-  .home__section--radius {
-    border-top-right-radius: var(--radius-section);
-  }
-
-  .home__section--services {
+  .page-section--services {
     display: flex;
     flex-direction: column;
     gap: var(--space-xl);
@@ -760,7 +741,6 @@ const featuredPosts = posts.slice(0, 3);
   }
 
   .home__service-card,
-  .home__stat-card,
   .home__plan-card,
   .home__contact-form {
     background: white;
@@ -780,12 +760,6 @@ const featuredPosts = posts.slice(0, 3);
     margin-bottom: var(--space-xs);
   }
 
-  .home__stat-card {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-s);
-  }
-
   .home__service-card h3,
   .home__plan-card h3,
   .home__contact-form h3,
@@ -795,10 +769,6 @@ const featuredPosts = posts.slice(0, 3);
     line-height: 1.15;
     color: var(--color-heading-light);
     margin-bottom: 0.7rem;
-  }
-
-  .home__stat-card h3 {
-    font-size: var(--font-size-h4);
   }
 
   .home__service-card ul,
@@ -872,36 +842,6 @@ const featuredPosts = posts.slice(0, 3);
 
   .home__why-note {
     max-width: 13ch;
-  }
-
-  .home__stat-grid {
-    display: grid;
-    gap: var(--space-s);
-    margin-top: var(--space-l);
-  }
-
-  .home__stat-grid .home__stat-card:first-child {
-    border-radius: var(--radius-card) var(--radius-card) 0px var(--radius-card);
-  }
-
-  .home__stat-grid .home__stat-card:nth-child(2) {
-    border-radius: var(--radius-card) var(--radius-card) var(--radius-card) 0px;
-  }
-
-  .home__stat-grid .home__stat-card:nth-child(3) {
-    border-radius: var(--radius-card) 0px var(--radius-card) var(--radius-card);
-  }
-
-  .home__stat-grid .home__stat-card:last-child {
-    border-radius: 0px var(--radius-card) var(--radius-card) var(--radius-card);
-  }
-
-  .home__stat-number {
-    font-size: var(--font-size-h2);
-    font-weight: 700;
-    line-height: 1;
-    color: var(--color-heading-light);
-    margin-bottom: 0.4rem;
   }
 
   .home__testimonial {
@@ -997,10 +937,6 @@ const featuredPosts = posts.slice(0, 3);
 
   .home__quiz-cta {
     margin-top: var(--space-m);
-  }
-
-  .home__section--darkband {
-    background: var(--section-dark-bg);
   }
 
   .home__inner-cta {
@@ -1114,7 +1050,6 @@ const featuredPosts = posts.slice(0, 3);
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .home__stat-grid,
     .home__plan-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -1138,10 +1073,6 @@ const featuredPosts = posts.slice(0, 3);
     .home__plan-grid,
     .home__blog-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .home__stat-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .home__split {
