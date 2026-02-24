@@ -152,6 +152,7 @@ const plans = [
       "Foundational SEO",
       "Social profile setup or refresh",
       "1-2 graphics/month",
+      "Streamlined communication and project management",
     ],
     next: "What's next? Look professional. Launch confidently. Get found.",
   },
@@ -161,10 +162,12 @@ const plans = [
     text: "Best for businesses ready to scale and generate leads.",
     points: [
       "All benefits from the previous tier",
-      "Semi-custom website focused on user experience",
+      "Semi-custom website with a focus on user experience, accessibility, and conversions",
       "Full SEO strategy & content creation",
-      "Paid ad management for social + search",
-      "Analytics dashboard with your own account manager",
+      "Monthly branded content (blogs, videos, infographics)",
+      "Social media management (2-3 platforms)",
+      "Paid ad management for social media, SEM, and OTT",
+      "Analytics dashboard & your own personal account manager",
     ],
     next: "What's next? Grow awareness. Build momentum. Lead generation.",
   },
@@ -176,22 +179,13 @@ const plans = [
       "All benefits from the previous tiers",
       "Fully custom website with complex integrations",
       "Enterprise SEO strategy + backlinking",
-      "High-end creative and advanced media",
-      "Priority support with senior strategy leadership",
+      "Brand development and rebranding services",
+      "High-end creative (video, motion graphics)",
+      "Paid media + automation/AI-driven solutions",
+      "Senior strategist with priority support",
     ],
     next: "What's next? Scale intentionally. Convert consistently. Lead your market.",
   },
-];
-
-const clientLogos = [
-  "Ocean Electric",
-  "Irrigation Solutions",
-  "Interstate",
-  "The Hot Tub Factory",
-  "Encore",
-  "Aviva Senior Living",
-  "Amendola's Fence Co.",
-  "Hunter Business School",
 ];
 
 const posts = await getCollection("blog");
@@ -199,6 +193,9 @@ posts.sort(
   (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf(),
 );
 const featuredPosts = posts.slice(0, 3);
+
+const getPlanNextText = (next: string) =>
+  next.startsWith("What's next? ") ? next.slice("What's next? ".length) : next;
 ---
 
 <BaseLayout
@@ -495,15 +492,6 @@ const featuredPosts = posts.slice(0, 3);
 
     <GoogleReviewsSlider />
 
-    <section class="page-section">
-      <div class="page-shell">
-        <h2 class="home__h2 home__h2--center">Meet Some of Our Clients</h2>
-        <div class="home__logo-grid">
-          {clientLogos.map((logo) => <p class="home__logo-item">{logo}</p>)}
-        </div>
-      </div>
-    </section>
-
     <section class="page-section section-color__soft page-section--radius">
       <div class="page-shell home__plans-head">
         <p class="cs-topper">Marketing Service Options</p>
@@ -520,15 +508,20 @@ const featuredPosts = posts.slice(0, 3);
         {
           plans.map((plan) => (
             <article class="home__plan-card">
-              <p class="home__plan-level">{plan.level}</p>
-              <h3>{plan.name}</h3>
-              <p>{plan.text}</p>
+              <div>
+                <p class="home__plan-level">{plan.level}</p>
+                <h3>{plan.name}</h3>
+                <p>{plan.text}</p>
+              </div>
               <ul>
                 {plan.points.map((point) => (
                   <li>{point}</li>
                 ))}
               </ul>
-              <p class="home__plan-next">{plan.next}</p>
+              <p class="home__plan-next">
+                <span class="home__plan-next-label">What's next?</span>{" "}
+                {getPlanNextText(plan.next)}
+              </p>
               <a
                 class="cs-button-solid cs-button-solid--arrow"
                 href="/contact-us/"
@@ -781,7 +774,7 @@ const featuredPosts = posts.slice(0, 3);
   .home__quiz-cta {
     display: flex;
     flex-direction: column;
-    gap: var(--home-space-stack);
+    gap: var(--space-3xs);
   }
 
   .home__content,
@@ -831,7 +824,24 @@ const featuredPosts = posts.slice(0, 3);
     box-shadow: var(--soft-shadow);
   }
 
+  .home__plan-card a {
+    display: flex;
+    margin-top: auto;
+  }
+
+  .home__plan-card ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xs);
+  }
+
   .home__service-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+  }
+
+  .home__plan-card {
     display: flex;
     flex-direction: column;
     gap: var(--space-s);
@@ -844,8 +854,7 @@ const featuredPosts = posts.slice(0, 3);
   .home__service-card h3,
   .home__plan-card h3,
   .home__contact-form h3,
-  .home__values h3,
-  .home__quiz-cta h3 {
+  .home__values h3 {
     font-size: var(--font-size-h3);
     line-height: 1.15;
     color: var(--color-heading-light);
@@ -865,7 +874,7 @@ const featuredPosts = posts.slice(0, 3);
   .home__plan-card li,
   .home__checklist li,
   .home__contact-info li {
-    padding-left: var(--space-xs);
+    padding-left: var(--space-s);
     position: relative;
     margin-bottom: var(--space-3xs);
     font-size: var(--step--1);
@@ -878,7 +887,7 @@ const featuredPosts = posts.slice(0, 3);
   .home__checklist li::before {
     content: "›";
     position: absolute;
-    left: 0;
+    left: var(--space-2xs);
     color: var(--secondary);
   }
 
@@ -888,6 +897,12 @@ const featuredPosts = posts.slice(0, 3);
 
   .home__service-card a {
     margin-top: auto;
+  }
+
+  .home__plan-card .cs-button-solid {
+    margin-top: 0;
+    width: fit-content;
+    align-self: flex-start;
   }
 
   .home__split--about {
@@ -999,23 +1014,6 @@ const featuredPosts = posts.slice(0, 3);
     transform: translateY(0);
   }
 
-  .home__logo-grid {
-    display: grid;
-    gap: var(--space-xs);
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    margin-top: var(--space-s);
-  }
-
-  .home__logo-item {
-    color: var(--color-heading-light);
-    font-weight: 700;
-    text-align: center;
-    padding: 1rem 0.8rem;
-    border-radius: var(--radius-card);
-    border: 1px solid #d7deef;
-    background: #fff;
-  }
-
   .home__plans-head {
     margin-bottom: 1.4rem;
   }
@@ -1029,6 +1027,7 @@ const featuredPosts = posts.slice(0, 3);
   .home__plan-grid {
     display: grid;
     gap: var(--space-s);
+    align-items: start;
   }
 
   .home__plan-level {
@@ -1040,17 +1039,25 @@ const featuredPosts = posts.slice(0, 3);
   }
 
   .home__plan-next {
-    font-size: clamp(0.98rem, 1vw, 1.1rem);
-    margin-bottom: 1rem;
+    margin-top: auto;
+    margin-bottom: var(--space-3xs);
+    font-weight: 400;
+    color: inherit;
   }
 
-  .home__plan-next::first-letter {
-    color: var(--home-accent);
+  .home__plan-next-label {
     font-weight: 700;
+    color: var(--secondary);
   }
 
   .home__quiz-cta {
-    margin-top: var(--space-m);
+    margin-top: var(--space-xl);
+    text-align: center;
+  }
+
+  .home__quiz-cta p {
+    margin-bottom: var(--space-s);
+    max-width: 100%;
   }
 
   .home__inner-cta {
@@ -1171,10 +1178,6 @@ const featuredPosts = posts.slice(0, 3);
       grid-template-columns: 1fr 1fr;
       align-items: center;
     }
-
-    .home__logo-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
   }
 
   @media only screen and (min-width: 75rem) {
@@ -1184,8 +1187,29 @@ const featuredPosts = posts.slice(0, 3);
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
+    .home__plan-grid {
+      align-items: end;
+    }
+
     .home__hero-grid {
       grid-template-columns: 1fr 0.95fr;
+    }
+
+    .home__plan-grid .home__plan-card {
+      margin-top: 0;
+      border-radius: 0;
+    }
+
+    .home__plan-grid .home__plan-card:first-child {
+      border-radius: var(--radius-card) 0 0 var(--radius-card);
+    }
+
+    .home__plan-grid .home__plan-card:nth-child(2) {
+      border-radius: 0;
+    }
+
+    .home__plan-grid .home__plan-card:last-child {
+      border-radius: 0 var(--radius-card) var(--radius-card) 0;
     }
   }
 </style>
