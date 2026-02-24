@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import GoogleReviewsSlider from "@components/GoogleReviewsSlider/GoogleReviewsSlider.astro";
 
 const serviceOptions = [
   "Creative & Branding",
@@ -147,25 +148,7 @@ const clientNames = [
     </div>
   </section>
 
-  <section class="reviews">
-    <div class="shell review-card">
-      <div class="google-mark">
-        <p class="google-title">Google</p>
-        <p>Reviews</p>
-        <a href="/news-insights/">Read more of our 50+ five-star reviews</a>
-      </div>
-      <div>
-        <p class="eyebrow">Testimonials</p>
-        <h2>Hear From Our Clients</h2>
-        <p>
-          I can&apos;t express enough gratitude to the Indigo team. Every person
-          I&apos;ve interacted with has been top-notch. Great company, great
-          people, great work. I&apos;m a very happy customer.
-        </p>
-        <p class="quote-author">Kristin - Business Owner</p>
-      </div>
-    </div>
-  </section>
+  <GoogleReviewsSlider sectionClass="reviews" shellClass="shell" />
 
   <section class="shell client-section">
     <h2>Meet Some of Our Clients</h2>

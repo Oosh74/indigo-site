@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import StatsGrid from "@components/StatsGrid/StatsGrid.astro";
+import GoogleReviewsSlider from "@components/GoogleReviewsSlider/GoogleReviewsSlider.astro";
 
 const searchPlacements = [
   "Google top organic spots",
@@ -150,15 +151,7 @@ const results = [
     </div>
   </section>
 
-  <section class="shell section testimonials">
-    <h2>Hear From Our Clients</h2>
-    <p>
-      "I can’t express enough gratitude to the Indigo team. Great company, great
-      people, great work. I’m a very happy customer."
-    </p>
-    <p class="quote-author">Kristin - Business Owner</p>
-    <a href="/news-insights/">Read more of our 50+ five-star reviews</a>
-  </section>
+  <GoogleReviewsSlider sectionClass="section testimonials" shellClass="shell" />
 
   <section class="contact">
     <div class="shell">

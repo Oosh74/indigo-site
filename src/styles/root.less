@@ -329,6 +329,28 @@ button {
   border-top-right-radius: var(--radius-section);
 }
 
+.page-section--radius-diagonal {
+  border-top-right-radius: var(--radius-section);
+  border-bottom-left-radius: var(--radius-section);
+}
+
+.layout-split {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: center;
+}
+
+.media-corner-curve {
+  border-radius: 0 var(--radius-image) 0 var(--radius-image);
+  overflow: hidden;
+}
+
+.media-corner-curve :is(img, video) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .stats-grid {
   display: grid;
   gap: var(--space-s);
@@ -383,8 +405,18 @@ button {
 }
 
 @media only screen and (min-width: 48rem) {
+  .layout-split {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .stats-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media only screen and (min-width: 75rem) {
+  .layout-split--asymmetric {
+    grid-template-columns: 1.05fr 0.95fr;
   }
 }
 
@@ -404,6 +436,10 @@ button {
   font-style: var(--topperFontStyle);
   font-weight: var(--topperFontWeight);
   display: block;
+}
+
+.cs-topper--dark {
+  color: var(--secondary);
 }
 
 .cs-title {

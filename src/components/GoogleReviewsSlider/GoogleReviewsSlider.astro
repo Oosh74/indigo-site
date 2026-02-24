@@ -1,0 +1,341 @@
+---
+interface Review {
+  quote: string;
+  author: string;
+}
+
+interface Props {
+  sectionClass?: string;
+  shellClass?: string;
+}
+
+const { sectionClass = "page-section", shellClass = "page-shell" } =
+  Astro.props;
+
+const reviews: Review[] = [
+  {
+    quote:
+      "I can’t express enough gratitude to the Indigo team. Every person I’ve interacted with has been top-notch. This is the kind of business you want on your side—no question about it! My experience has been nothing but positive, and Indigo truly makes you feel like family, not just a client. Howard, Matt, Anthony, Trey, and Aneta were incredibly welcoming and professional. Great company, great people, great work. I'm a very happy customer!",
+    author: "Kristin - Business Owner",
+  },
+  {
+    quote:
+      "Working with Matthew and the Indigo team has been an amazing experience! Their creativity and responsiveness make every interaction a pleasure. If you're looking for a marketing firm, I highly recommend Indigo. The time and dedication they pour into each project truly shows their passion and commitment. Keep doing what you do best, thank you!",
+    author: "Avi - Business Owner",
+  },
+  {
+    quote:
+      "Indigo Business Solutions is a fantastic company to work with. Their team is full of talented professionals and has been an incredible resource in my role as Corporate Director of Social Media. They're prompt, reliable, and consistently deliver high-quality work. I highly recommend Indigo for all your marketing needs.",
+    author: "Michelle - Social Media Director",
+  },
+  {
+    quote:
+      "Indigo has taken very good care of our business. Always there to help, always proactive, genuinely concerned with our success. Highly Recommended, capable and efficient company. An excellent partner for your business too.",
+    author: "Carrieann - Business Owner",
+  },
+  {
+    quote:
+      "Matt at Indigo Solutions was an absolute godsend! My Facebook account had been disabled for five years, and despite countless attempts, I couldn't figure out how to reactivate it to run ads for my business. A realtor friend referred me to Matt, and within just one day, he resolved the issue. My account is back up and running, and I'm thrilled to finally be able to use Facebook ads to promote my listings. I'm beyond grateful-thank you so much, Matt!",
+    author: "Dr. Macnalie - Business Owner",
+  },
+];
+---
+
+<section class={sectionClass}>
+  <div class={`${shellClass} grs`}>
+    <div class="grs__mark">
+      <img
+        src="/src/icons/Indigo-Google-Reviews-01.svg"
+        alt="Google Reviews Logo"
+      />
+      <a href="/news-insights/">
+        <span>Read more of our 50+ five-star reviews</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+          ></path>
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <line x1="10" y1="14" x2="21" y2="3"></line>
+        </svg>
+      </a>
+    </div>
+
+    <div class="grs__content">
+      <p class="cs-topper cs-topper--dark">Testimonials</p>
+      <h2 class="grs__title">Hear From Our Clients</h2>
+
+      <div class="grs__viewport">
+        {
+          reviews.map((review, index) => (
+            <article
+              class:list={["grs__slide", { "is-active": index === 0 }]}
+              aria-hidden={index === 0 ? "false" : "true"}
+            >
+              <p class="grs__quote">{review.quote}</p>
+              <div class="grs__meta">
+                <p class="grs__author">{review.author}</p>
+                <p class="grs__source">Google Review</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="grs__controls">
+        <button
+          class="grs__arrow grs__arrow--prev"
+          type="button"
+          aria-label="Previous review"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <div class="grs__dots">
+          {
+            reviews.map((_, index) => (
+              <button
+                class:list={["grs__dot", { "is-active": index === 0 }]}
+                type="button"
+                aria-label={`Go to review ${index + 1}`}
+              />
+            ))
+          }
+        </div>
+
+        <button
+          class="grs__arrow grs__arrow--next"
+          type="button"
+          aria-label="Next review"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="less">
+  .grs {
+    background: var(--brandNavy);
+    border-radius: var(--radius-card) var(--radius-card) 0 var(--radius-card);
+    padding: var(--space-l);
+    display: grid;
+    gap: 1.2rem;
+    justify-content: center;
+  }
+
+  .grs__mark a {
+    color: var(--secondary);
+    text-decoration: none;
+    font-size: clamp(1rem, 1vw, 1.15rem);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.45rem;
+    text-align: left;
+  }
+
+  .grs__mark img {
+    width: clamp(18.25rem, 14vw, 20.5rem);
+    height: auto;
+  }
+
+  .grs__mark {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    gap: 0.65rem;
+    width: fit-content;
+  }
+
+  .grs__title {
+    color: var(--color-heading-dark);
+    margin-bottom: 1rem;
+  }
+
+  .grs__viewport {
+    display: grid;
+    min-height: 13rem;
+  }
+
+  .grs__slide {
+    grid-area: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(8px);
+    transition:
+      opacity 0.22s ease,
+      transform 0.22s ease;
+  }
+
+  .grs__slide.is-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+
+  .grs__slide p {
+    color: var(--color-text-dark);
+  }
+
+  .grs__quote {
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .grs__meta {
+    margin-top: auto;
+    padding-top: 1.15rem;
+  }
+
+  .grs__author {
+    font-weight: 600;
+    margin-top: 0;
+  }
+
+  .grs__source {
+    margin-top: 0.2rem;
+  }
+
+  .grs__controls {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-top: 1.1rem;
+  }
+
+  .grs__arrow {
+    width: 2.15rem;
+    height: 2.15rem;
+    border-radius: 999px;
+    border: 1px solid #5b6698;
+    background: transparent;
+    color: #d5dcef;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .grs__dots {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .grs__dot {
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    border: 0;
+    background: #5b6698;
+  }
+
+  .grs__dot.is-active {
+    background: var(--secondary);
+  }
+
+  @media only screen and (min-width: 48rem) {
+    .grs {
+      grid-template-columns: 0.8fr 1.2fr;
+    }
+
+    .grs__quote {
+      -webkit-line-clamp: 8;
+    }
+  }
+</style>
+
+<script>
+  const initGoogleReviewSliders = () => {
+    const sliders = document.querySelectorAll<HTMLElement>(".grs");
+    sliders.forEach((slider) => {
+      if (slider.dataset.initialized === "true") return;
+      slider.dataset.initialized = "true";
+
+      const slides = Array.from(
+        slider.querySelectorAll<HTMLElement>(".grs__slide"),
+      );
+      const dots = Array.from(
+        slider.querySelectorAll<HTMLButtonElement>(".grs__dot"),
+      );
+      const prev = slider.querySelector<HTMLButtonElement>(".grs__arrow--prev");
+      const next = slider.querySelector<HTMLButtonElement>(".grs__arrow--next");
+
+      if (!slides.length || !prev || !next) return;
+      let index = slides.findIndex((slide) =>
+        slide.classList.contains("is-active"),
+      );
+      if (index < 0) index = 0;
+
+      const show = (nextIndex: number) => {
+        index = (nextIndex + slides.length) % slides.length;
+        slides.forEach((slide, i) => {
+          const active = i === index;
+          slide.classList.toggle("is-active", active);
+          slide.setAttribute("aria-hidden", active ? "false" : "true");
+        });
+        dots.forEach((dot, i) => {
+          dot.classList.toggle("is-active", i === index);
+        });
+      };
+
+      prev.addEventListener("click", () => show(index - 1));
+      next.addEventListener("click", () => show(index + 1));
+      dots.forEach((dot, i) => dot.addEventListener("click", () => show(i)));
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initGoogleReviewSliders, {
+      once: true,
+    });
+  } else {
+    initGoogleReviewSliders();
+  }
+
+  document.addEventListener("astro:page-load", initGoogleReviewSliders);
+</script>
