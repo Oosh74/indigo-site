@@ -155,6 +155,21 @@ h6 {
     --sectionPadding: var(--space-2xl) var(--space-s);
     --layout-shell-max: 1260px;
     --layout-shell-gutter: 92%;
+    --hero-eval-border: #d8dcf0;
+    --hero-eval-hover-bg: rgba(255, 255, 255, 0.08);
+    --button-font-size: var(--font-size-body);
+    --button-line-height: var(--line-height-body);
+    --button-font-weight: 400;
+    --button-pad-block: var(--space-2xs);
+    --button-pad-inline: var(--space-m);
+    --button-gap: var(--space-2xs);
+    --button-radius: 999px;
+    --button-primary-bg: var(--primary);
+    --button-primary-bg-hover: #2b3158;
+    --button-primary-text: #fff;
+    --button-secondary-bg: var(--secondary);
+    --button-secondary-bg-hover: #a8d759;
+    --button-secondary-text: var(--primary);
   }
 }
 
@@ -317,6 +332,66 @@ button {
   color: var(--secondary);
 }
 
+:is(
+  .cs-button-solid,
+  .hero-eval-button,
+  .cta,
+  .blog-link,
+  button[type="submit"]
+) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--button-gap);
+  padding: var(--button-pad-block) var(--button-pad-inline);
+  border-radius: var(--button-radius);
+  font-size: var(--button-font-size);
+  line-height: var(--button-line-height);
+  font-weight: var(--button-font-weight);
+  text-decoration: none;
+  text-transform: none;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+:is(.cs-button-solid, .cta, .blog-link, button[type="submit"]) {
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
+}
+
+:is(.cs-button-solid, .cta, .blog-link, button[type="submit"]):hover {
+  background-color: var(--button-primary-bg-hover);
+}
+
+.hero-eval-button {
+  color: #fff;
+  border: 1px solid var(--hero-eval-border);
+  background-color: transparent;
+}
+
+.hero-eval-button::after {
+  content: "›";
+  font-size: 1.1em;
+  line-height: 1;
+}
+
+.hero-eval-button:hover {
+  background-color: var(--hero-eval-hover-bg);
+  border-color: var(--secondary);
+}
+
+.cs-button-solid.cs-nav-button {
+  background-color: var(--button-secondary-bg);
+  color: var(--button-secondary-text);
+}
+
+.cs-button-solid.cs-nav-button:hover {
+  background-color: var(--button-secondary-bg-hover);
+  color: var(--button-secondary-text);
+}
+
 /*-- -------------------------- -->
 <---   Layout + Stats Helpers   -->
 <--- -------------------------- -*/
@@ -326,8 +401,17 @@ button {
   margin-inline: auto;
 }
 
+.content-shell {
+  width: min(1120px, 94%);
+  margin-inline: auto;
+}
+
 .page-section {
   padding-block: var(--page-section-space, var(--space-3xl));
+}
+
+.content-section {
+  padding-block: clamp(2.5rem, 6vw, 5rem);
 }
 
 .page-section--radius {
@@ -524,27 +608,8 @@ button {
 @media only screen and (min-width: 0em) {
   // Button - can be replaced using CodeStitch's "Button" Stitches
   .cs-button-solid {
-    font-size: var(--font-size-body);
-    font-weight: 400;
-    line-height: var(--line-height-body);
-    text-align: center;
-    text-transform: none;
-    text-decoration: none;
     width: auto;
-    padding: (12/16rem) (30/16rem);
-    border-radius: 999px;
-    border: none;
-
-    color: var(--color-heading-dark);
-    background-color: var(--color-heading-light);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s;
-
-    &:hover {
-      background-color: var(--secondaryLight);
-    }
+    border: 1px solid transparent;
   }
 
   .cs-button-solid--arrow::after {

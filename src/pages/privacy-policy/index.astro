@@ -1,20 +1,21 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import PageHero from "@components/PageHero/PageHero.astro";
 ---
 
 <BaseLayout
   title="Privacy Policy | Indigo Business Solutions"
   description="Our policies and procedures for collection, use, and disclosure of information when using Indigo Business Solutions services."
 >
-  <section class="hero">
-    <div class="shell">
-      <p class="crumb">Home Page / Privacy Policy</p>
-      <h1>Privacy Policy</h1>
-      <a href="/contact-us/" class="cta">Free evaluation</a>
-    </div>
-  </section>
+  <PageHero
+    title="Privacy Policy"
+    breadcrumbs={[
+      { label: "Home Page", href: "/" },
+      { label: "Privacy Policy" },
+    ]}
+  />
 
-  <section class="policy shell">
+  <section class="policy content-shell">
     <p>
       This Privacy Policy describes our policies and procedures on the
       collection, use, and disclosure of your information when you use the
@@ -234,42 +235,6 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 </BaseLayout>
 
 <style lang="less">
-  .shell {
-    width: min(1120px, 94%);
-    margin: 0 auto;
-  }
-
-  .hero {
-    padding: clamp(5.6rem, 8vw, 8rem) 0 2.4rem;
-    background: linear-gradient(160deg, #12183f 0%, #1e2868 56%, #344494 100%);
-    border-bottom-left-radius: 3rem;
-    border-bottom-right-radius: 3rem;
-    color: #fff;
-  }
-
-  .crumb {
-    font-size: 0.86rem;
-    color: #c8cfee;
-    margin-bottom: 0.6rem;
-  }
-
-  .hero h1 {
-    color: #fff;
-    font-size: clamp(2rem, 4.8vw, 3.2rem);
-    line-height: 1.1;
-    margin-bottom: 0.9rem;
-  }
-
-  .cta {
-    display: inline-block;
-    padding: 0.58rem 1.04rem;
-    background: #fff;
-    color: #1b245d;
-    font-weight: 700;
-    text-decoration: none;
-    border-radius: 999px;
-  }
-
   .policy {
     padding: clamp(2.4rem, 6vw, 4.5rem) 0 clamp(3rem, 8vw, 5rem);
     max-width: 88ch;

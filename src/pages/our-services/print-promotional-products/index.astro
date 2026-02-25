@@ -2,6 +2,7 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import GoogleReviewsSlider from "@components/GoogleReviewsSlider/GoogleReviewsSlider.astro";
 import GlobalCta from "@components/GlobalCta/GlobalCta.astro";
+import PageHero from "@components/PageHero/PageHero.astro";
 
 const categories = [
   "Apparel",
@@ -63,18 +64,17 @@ const industries = [
   title="Print & Promotional Products | Indigo Business Solutions"
   description="Branded promo products and custom print materials that keep your business top of mind. From apparel to tech, we handle sourcing, design, and delivery."
 >
-  <section class="hero">
-    <div class="shell">
-      <h1>Print & promotional products that get your brand noticed</h1>
-      <p>
-        From tote bags to client gifts, we turn everyday items into lasting
-        marketing. We find the right products for events, team rewards, and
-        brand buzz without the hassle.
-      </p>
-    </div>
-  </section>
+  <PageHero
+    title="Print & promotional products that get your brand noticed"
+    description="From tote bags to client gifts, we turn everyday items into lasting marketing. We find the right products for events, team rewards, and brand buzz without the hassle."
+    breadcrumbs={[
+      { label: "Home Page", href: "/" },
+      { label: "Our Services", href: "/our-services/" },
+      { label: "Print & Promotional Products" },
+    ]}
+  />
 
-  <section class="shell section">
+  <section class="content-shell content-section">
     <div class="two-col">
       <div class="card">
         <h2>Why promotional products work</h2>
@@ -101,7 +101,7 @@ const industries = [
     </div>
   </section>
 
-  <section class="shell section">
+  <section class="content-shell content-section">
     <div class="card">
       <h2>Promotional product use cases & ideas</h2>
       <p>
@@ -118,7 +118,7 @@ const industries = [
     </div>
   </section>
 
-  <section class="shell section">
+  <section class="content-shell content-section">
     <div class="card">
       <h2>Explore by industry</h2>
       <div class="industry-grid">
@@ -149,36 +149,6 @@ const industries = [
 </BaseLayout>
 
 <style lang="less">
-  .shell {
-    width: min(1120px, 94%);
-    margin: 0 auto;
-  }
-
-  .section {
-    padding: clamp(2.5rem, 6vw, 5rem) 0;
-  }
-
-  .hero {
-    padding: clamp(5.5rem, 8vw, 8rem) 0 2.8rem;
-    background: linear-gradient(160deg, #12183f 0%, #1e2868 56%, #344494 100%);
-    border-bottom-left-radius: 3rem;
-    border-bottom-right-radius: 3rem;
-    color: #fff;
-  }
-
-  .hero h1 {
-    color: #fff;
-    font-size: clamp(2rem, 4.8vw, 3.3rem);
-    line-height: 1.1;
-    margin-bottom: 1rem;
-    max-width: 17ch;
-  }
-
-  .hero p {
-    color: #d8ddf7;
-    max-width: 65ch;
-  }
-
   .two-col {
     display: grid;
     gap: 1rem;

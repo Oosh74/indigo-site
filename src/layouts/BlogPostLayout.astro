@@ -9,6 +9,7 @@ import "@styles/markdown.less";
 
 // Components
 import BaseLayout from "@layouts/BaseLayout.astro";
+import PageHero from "@components/PageHero/PageHero.astro";
 import FeaturedPost from "@components/FeaturedPost/FeaturedPost.astro";
 import TableOfContents from "@components/TableOfContents/TableOfContents.astro";
 
@@ -45,6 +46,16 @@ const blogPostingSchema = getBlogPostingSchema(
     set:html={JSON.stringify(blogPostingSchema)}
   />
 
+  <PageHero
+    title={title}
+    description={description}
+    breadcrumbs={[
+      { label: "Home Page", href: "/" },
+      { label: "News & Insights", href: "/news-insights/" },
+      { label: title },
+    ]}
+  />
+
   <!-- ============================================ -->
   <!--         Blog Article + Sidebar layout        -->
   <!-- ============================================ -->
@@ -55,7 +66,7 @@ const blogPostingSchema = getBlogPostingSchema(
       <article class="blog-article">
         <!--Article Info-->
         <header class="blog-header">
-          <h1 class="blog-h1">{title}</h1>
+          <h2 class="blog-h1">{title}</h2>
           <div class="blog-authorGroup">
             <!--Author Image-->
             <picture class="blog-author-img">

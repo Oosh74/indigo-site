@@ -224,9 +224,7 @@ const getPlanNextText = (next: string) =>
             Island's top digital marketing agencies since 2006.
           </p>
           <div class="home__hero-actions">
-            <a class="home__btn home__btn--ghost" href="/contact-us/"
-              >Free evaluation</a
-            >
+            <a class="hero-eval-button" href="/contact-us/">Free evaluation</a>
             <a class="text-link text-link--dark" href="/our-services/"
               ><span class="text-link__content">Our services</span></a
             >
@@ -617,38 +615,6 @@ const getPlanNextText = (next: string) =>
 
   .home__h2--center {
     text-align: center;
-  }
-
-  .home__btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: clamp(0.74rem, 1.2vw, 1rem) clamp(1.3rem, 2vw, 2rem);
-    border-radius: 999px;
-    background: #0c1b67;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: clamp(1rem, 1vw, 1.15rem);
-    border: 1px solid transparent;
-    transition:
-      background-color 0.2s ease,
-      border-color 0.2s ease;
-  }
-
-  .home__btn::after {
-    content: "›";
-    font-size: 1.15em;
-    line-height: 1;
-  }
-
-  .home__btn:hover {
-    background: #08124a;
-  }
-
-  .home__btn--ghost {
-    background: transparent;
-    border-color: #d8dcf0;
   }
 
   .home__hero {

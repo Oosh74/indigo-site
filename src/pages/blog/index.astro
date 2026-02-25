@@ -11,6 +11,7 @@ import "@styles/sidebar.less";
 // Components
 import BaseLayout from "@layouts/BaseLayout.astro";
 import BlogRecentArticlesWithSidebar from "@layouts/BlogRecentArticlesWithSidebar.astro";
+import PageHero from "@components/PageHero/PageHero.astro";
 
 // Images
 import placeholderImage from "@assets/images/placeholder.jpg";
@@ -30,6 +31,12 @@ posts.sort(
   description="Read marketing insights, SEO tips, web design guidance, and growth strategies from Indigo Business Solutions."
   heroImage={placeholderOptimizedImage}
 >
+  <PageHero
+    title="Marketing Blog & Insights"
+    description="Read marketing insights, SEO tips, web design guidance, and growth strategies from Indigo Business Solutions."
+    breadcrumbs={[{ label: "Home Page", href: "/" }, { label: "Blog" }]}
+  />
+
   <!-- Use the BlogRecentArticles layout to display the recent articles in a standard grid -->
   <!-- <BlogRecentArticles posts={posts} /> -->
 

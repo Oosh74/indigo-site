@@ -2,6 +2,7 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import GoogleReviewsSlider from "@components/GoogleReviewsSlider/GoogleReviewsSlider.astro";
 import GlobalCta from "@components/GlobalCta/GlobalCta.astro";
+import PageHero from "@components/PageHero/PageHero.astro";
 
 const services = [
   {
@@ -71,18 +72,13 @@ const services = [
   title="Our Services | Indigo Business Solutions"
   description="Explore our digital marketing services including SEO, web design, social media, and more to help your business reach your audience and turn them into customers."
 >
-  <section class="hero">
-    <div class="shell">
-      <h1>Marketing services built around your business</h1>
-      <p>
-        Most agencies try to sell you everything at once. We start with what is
-        actually broken, then build the right mix of SEO, web, brand, and
-        strategy support for your current stage.
-      </p>
-    </div>
-  </section>
+  <PageHero
+    title="Marketing services built around your business"
+    description="Most agencies try to sell you everything at once. We start with what is actually broken, then build the right mix of SEO, web, brand, and strategy support for your current stage."
+    breadcrumbs={[{ label: "Home Page", href: "/" }, { label: "Our Services" }]}
+  />
 
-  <section class="services shell">
+  <section class="services content-shell">
     {
       services.map((service, index) => (
         <article class:list={["service-card", { reverse: index % 2 === 1 }]}>
@@ -113,32 +109,6 @@ const services = [
 </BaseLayout>
 
 <style lang="less">
-  .shell {
-    width: min(1120px, 94%);
-    margin: 0 auto;
-  }
-
-  .hero {
-    padding: clamp(5.5rem, 8vw, 8rem) 0 3rem;
-    background: linear-gradient(160deg, #0f1538 0%, #1b2664 56%, #2f3b86 100%);
-    border-bottom-left-radius: 3rem;
-    border-bottom-right-radius: 3rem;
-    color: #fff;
-  }
-
-  .hero h1 {
-    font-size: clamp(2rem, 5.1vw, 3.5rem);
-    line-height: 1.1;
-    color: #fff;
-    max-width: 16ch;
-    margin-bottom: 1rem;
-  }
-
-  .hero p {
-    color: #d8ddf9;
-    max-width: 65ch;
-  }
-
   .services {
     padding: clamp(2.5rem, 6vw, 5rem) 0;
     display: grid;
@@ -178,7 +148,9 @@ const services = [
 
   .service-content a:hover {
     text-decoration: underline;
-  }  @media only screen and (min-width: 64rem) {
+  }
+
+  @media only screen and (min-width: 64rem) {
     .service-card {
       padding: 1.5rem 1.75rem;
     }

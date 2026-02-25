@@ -2,6 +2,7 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import GoogleReviewsSlider from "@components/GoogleReviewsSlider/GoogleReviewsSlider.astro";
 import GlobalCta from "@components/GlobalCta/GlobalCta.astro";
+import PageHero from "@components/PageHero/PageHero.astro";
 
 const impactPoints = [
   "Look established: Professional design creates instant credibility",
@@ -41,18 +42,17 @@ const outcomes = [
   title="Creative Design & Branding | Indigo Business Solutions"
   description="Professional branding and design services that build trust and make your business stand out. Logos, packaging, and collateral designed to last and connect."
 >
-  <section class="hero">
-    <div class="shell">
-      <h1>Creative design services that build brands</h1>
-      <p>
-        At Indigo, our design services build trust and make your brand stand
-        out. From logos to collateral to packaging, we combine strategy and
-        style across every medium.
-      </p>
-    </div>
-  </section>
+  <PageHero
+    title="Creative design services that build brands"
+    description="At Indigo, our design services build trust and make your brand stand out. From logos to collateral to packaging, we combine strategy and style across every medium."
+    breadcrumbs={[
+      { label: "Home Page", href: "/" },
+      { label: "Our Services", href: "/our-services/" },
+      { label: "Creative Design & Branding" },
+    ]}
+  />
 
-  <section class="shell section">
+  <section class="content-shell content-section">
     <div class="two-col">
       <div class="card">
         <h2>Visual branding that builds connection and credibility</h2>
@@ -85,7 +85,7 @@ const outcomes = [
   </section>
 
   <section class="process">
-    <div class="shell">
+    <div class="content-shell">
       <h2>How We Work</h2>
       <p>Our design process from start to finish:</p>
       <ol>
@@ -94,7 +94,7 @@ const outcomes = [
     </div>
   </section>
 
-  <section class="shell section">
+  <section class="content-shell content-section">
     <div class="card results">
       <h2>Design that gets results, not just compliments</h2>
       <p>
@@ -129,36 +129,6 @@ const outcomes = [
 </BaseLayout>
 
 <style lang="less">
-  .shell {
-    width: min(1120px, 94%);
-    margin: 0 auto;
-  }
-
-  .section {
-    padding: clamp(2.5rem, 6vw, 5rem) 0;
-  }
-
-  .hero {
-    padding: clamp(5.5rem, 8vw, 8rem) 0 2.8rem;
-    background: linear-gradient(160deg, #12183f 0%, #1e2868 56%, #344494 100%);
-    border-bottom-left-radius: 3rem;
-    border-bottom-right-radius: 3rem;
-    color: #fff;
-  }
-
-  .hero h1 {
-    color: #fff;
-    font-size: clamp(2rem, 4.8vw, 3.3rem);
-    line-height: 1.1;
-    margin-bottom: 1rem;
-    max-width: 16ch;
-  }
-
-  .hero p {
-    color: #d8ddf7;
-    max-width: 65ch;
-  }
-
   .two-col {
     display: grid;
     gap: 1rem;

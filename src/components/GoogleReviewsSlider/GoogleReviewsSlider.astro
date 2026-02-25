@@ -341,6 +341,15 @@ const clientLogos: ClientLogo[] = [
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .grs__arrow:hover {
+    background: var(--hero-eval-hover-bg);
+    border-color: var(--secondary);
   }
 
   .grs__dots {
@@ -350,15 +359,24 @@ const clientLogos: ClientLogo[] = [
   }
 
   .grs__dot {
-    width: 0.55rem;
-    height: 0.55rem;
+    width: 0.65rem;
+    height: 0.65rem;
     border-radius: 50%;
-    border: 0;
+    border: 1px solid #5b6698;
     background: #5b6698;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .grs__dot:hover {
+    background: var(--hero-eval-hover-bg);
+    border-color: var(--secondary);
   }
 
   .grs__dot.is-active {
     background: var(--secondary);
+    border-color: var(--secondary);
   }
 
   @media only screen and (min-width: 48rem) {

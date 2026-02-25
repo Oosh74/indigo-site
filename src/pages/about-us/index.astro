@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import GlobalCta from "@components/GlobalCta/GlobalCta.astro";
+import PageHero from "@components/PageHero/PageHero.astro";
 
 const values = [
   {
@@ -79,19 +80,13 @@ const processSteps = [
   title="About Us | Indigo Business Solutions"
   description="Digital marketing professionals rooted in integrity since 2006. Built on trust, driven by relationships, and focused on measurable growth."
 >
-  <section class="hero">
-    <div class="shell">
-      <h1>About Us</h1>
-      <p>
-        We have helped hundreds of businesses across 30+ states grow with
-        confidence through efficient, transparent digital marketing tailored to
-        real goals and real budgets.
-      </p>
-      <a href="/contact-us/" class="cta">Free evaluation</a>
-    </div>
-  </section>
+  <PageHero
+    title="About Us"
+    description="We have helped hundreds of businesses across 30+ states grow with confidence through efficient, transparent digital marketing tailored to real goals and real budgets."
+    breadcrumbs={[{ label: "Home Page", href: "/" }, { label: "About Us" }]}
+  />
 
-  <section class="shell section">
+  <section class="content-shell content-section">
     <div class="two-col">
       <div class="card">
         <p class="eyebrow">Our History</p>
@@ -131,7 +126,7 @@ const processSteps = [
   </section>
 
   <section class="mission">
-    <div class="shell">
+    <div class="content-shell">
       <h2>Our Mission</h2>
       <p class="quote">
         "We exist to be the marketing partner you wish you found sooner,
@@ -147,7 +142,7 @@ const processSteps = [
     </div>
   </section>
 
-  <section class="shell section">
+  <section class="content-shell content-section">
     <div class="two-col">
       <div class="card">
         <h2>The people who make it happen</h2>
@@ -171,7 +166,7 @@ const processSteps = [
   </section>
 
   <section class="proof">
-    <div class="shell">
+    <div class="content-shell">
       <h2>Your business deserves better marketing</h2>
       <p>
         Indigo has spent nearly two decades helping businesses grow through
@@ -185,7 +180,7 @@ const processSteps = [
     </div>
   </section>
 
-  <section class="shell section">
+  <section class="content-shell content-section">
     <h2>How we will work together</h2>
     <p class="intro">
       New brand, strategy refresh, or full marketing overhaul, our process stays
@@ -214,50 +209,6 @@ const processSteps = [
 </BaseLayout>
 
 <style lang="less">
-  .shell {
-    width: min(1120px, 94%);
-    margin: 0 auto;
-  }
-
-  .section {
-    padding: clamp(2.5rem, 6vw, 5rem) 0;
-  }
-
-  .hero {
-    padding: clamp(5.5rem, 8vw, 8rem) 0 2.8rem;
-    background: linear-gradient(160deg, #12183f 0%, #1e2868 56%, #344494 100%);
-    border-bottom-left-radius: 3rem;
-    border-bottom-right-radius: 3rem;
-    color: #fff;
-  }
-
-  .hero h1 {
-    color: #fff;
-    font-size: clamp(2rem, 4.8vw, 3.3rem);
-    line-height: 1.1;
-    margin-bottom: 1rem;
-  }
-
-  .hero p {
-    color: #d8ddf7;
-    max-width: 68ch;
-    margin-bottom: 1rem;
-  }
-
-  .cta {
-    display: inline-block;
-    background: var(--secondary);
-    color: #fff;
-    padding: 0.58rem 1.05rem;
-    border-radius: 999px;
-    font-weight: 700;
-    text-decoration: none;
-  }
-
-  .cta:hover {
-    filter: brightness(0.95);
-  }
-
   .two-col {
     display: grid;
     gap: 1rem;

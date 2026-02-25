@@ -3,6 +3,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import StatsGrid from "@components/StatsGrid/StatsGrid.astro";
 import GoogleReviewsSlider from "@components/GoogleReviewsSlider/GoogleReviewsSlider.astro";
 import GlobalCta from "@components/GlobalCta/GlobalCta.astro";
+import PageHero from "@components/PageHero/PageHero.astro";
 
 const foundations = [
   "Customer-first: Real relationships through relevant content and authentic replies",
@@ -67,18 +68,17 @@ const results = [
   title="Social Media Management | Indigo Business Solutions"
   description="Show up where your customers scroll. Our social media strategies deliver consistent posts, smart ads, and real engagement that drive results."
 >
-  <section class="hero">
-    <div class="shell">
-      <h1>Social media management designed to connect and engage</h1>
-      <p>
-        Your customers spend hours scrolling every day. We help you show up
-        authentically with content, ads, and engagement that build real
-        relationships.
-      </p>
-    </div>
-  </section>
+  <PageHero
+    title="Social media management designed to connect and engage"
+    description="Your customers spend hours scrolling every day. We help you show up authentically with content, ads, and engagement that build real relationships."
+    breadcrumbs={[
+      { label: "Home Page", href: "/" },
+      { label: "Our Services", href: "/our-services/" },
+      { label: "Social Media Management" },
+    ]}
+  />
 
-  <section class="shell section">
+  <section class="content-shell content-section">
     <div class="two-col">
       <div class="card">
         <h2>Make your business part of the conversation</h2>
@@ -107,7 +107,7 @@ const results = [
   </section>
 
   <section class="process">
-    <div class="shell">
+    <div class="content-shell">
       <h2>A clear and collaborative process</h2>
       <p>
         Social media can feel overwhelming. Our process keeps it structured and
@@ -122,7 +122,7 @@ const results = [
     </div>
   </section>
 
-  <section class="shell section">
+  <section class="content-shell content-section">
     <div class="two-col">
       <div class="card">
         <h2>Social Media Built for Long-Term Connections</h2>
@@ -163,36 +163,6 @@ const results = [
 </BaseLayout>
 
 <style lang="less">
-  .shell {
-    width: min(1120px, 94%);
-    margin: 0 auto;
-  }
-
-  .section {
-    padding: clamp(2.5rem, 6vw, 5rem) 0;
-  }
-
-  .hero {
-    padding: clamp(5.5rem, 8vw, 8rem) 0 2.8rem;
-    background: linear-gradient(160deg, #12183f 0%, #1e2868 56%, #344494 100%);
-    border-bottom-left-radius: 3rem;
-    border-bottom-right-radius: 3rem;
-    color: #fff;
-  }
-
-  .hero h1 {
-    color: #fff;
-    font-size: clamp(2rem, 4.8vw, 3.3rem);
-    line-height: 1.1;
-    margin-bottom: 1rem;
-    max-width: 18ch;
-  }
-
-  .hero p {
-    color: #d8ddf7;
-    max-width: 65ch;
-  }
-
   .two-col {
     display: grid;
     gap: 1rem;

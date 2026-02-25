@@ -3,6 +3,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import StatsGrid from "@components/StatsGrid/StatsGrid.astro";
 import GoogleReviewsSlider from "@components/GoogleReviewsSlider/GoogleReviewsSlider.astro";
 import GlobalCta from "@components/GlobalCta/GlobalCta.astro";
+import PageHero from "@components/PageHero/PageHero.astro";
 
 const searchPlacements = [
   "Google top organic spots",
@@ -58,18 +59,17 @@ const results = [
   title="Search Engine Optimization | Indigo Business Solutions"
   description="SEO services that adapt to Google, AI, and voice search. We help your business rank higher, reach customers, and drive measurable growth."
 >
-  <section class="hero">
-    <div class="shell">
-      <h1>SEO that performs no matter how people search</h1>
-      <p>
-        Search has changed from Google to voice to AI. Your business needs to
-        show up wherever customers look for answers, and your strategy needs to
-        adapt quickly.
-      </p>
-    </div>
-  </section>
+  <PageHero
+    title="SEO that performs no matter how people search"
+    description="Search has changed from Google to voice to AI. Your business needs to show up wherever customers look for answers, and your strategy needs to adapt quickly."
+    breadcrumbs={[
+      { label: "Home Page", href: "/" },
+      { label: "Our Services", href: "/our-services/" },
+      { label: "Search Engine Optimization" },
+    ]}
+  />
 
-  <section class="shell section">
+  <section class="content-shell content-section">
     <div class="two-col">
       <div class="card">
         <h2>Strategic Optimization for a Changing Search Landscape</h2>
@@ -102,7 +102,7 @@ const results = [
   </section>
 
   <section class="process">
-    <div class="shell">
+    <div class="content-shell">
       <h2>Your SEO Strategy, Built for Real Results</h2>
       <p>How we work:</p>
       <ol>
@@ -115,7 +115,7 @@ const results = [
     </div>
   </section>
 
-  <section class="shell section">
+  <section class="content-shell content-section">
     <div class="two-col">
       <div class="card">
         <h2>SEO services designed to get you found</h2>
@@ -137,7 +137,7 @@ const results = [
     </div>
   </section>
 
-  <section class="shell section">
+  <section class="content-shell content-section">
     <div class="card">
       <h2>Results from recent SEO campaigns</h2>
       <StatsGrid
@@ -164,36 +164,6 @@ const results = [
 </BaseLayout>
 
 <style lang="less">
-  .shell {
-    width: min(1120px, 94%);
-    margin: 0 auto;
-  }
-
-  .section {
-    padding: clamp(2.5rem, 6vw, 5rem) 0;
-  }
-
-  .hero {
-    padding: clamp(5.5rem, 8vw, 8rem) 0 2.8rem;
-    background: linear-gradient(160deg, #12183f 0%, #1e2868 56%, #344494 100%);
-    border-bottom-left-radius: 3rem;
-    border-bottom-right-radius: 3rem;
-    color: #fff;
-  }
-
-  .hero h1 {
-    color: #fff;
-    font-size: clamp(2rem, 4.8vw, 3.3rem);
-    line-height: 1.1;
-    margin-bottom: 1rem;
-    max-width: 17ch;
-  }
-
-  .hero p {
-    color: #d8ddf7;
-    max-width: 65ch;
-  }
-
   .two-col {
     display: grid;
     gap: 1rem;

@@ -3,6 +3,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import StatsGrid from "@components/StatsGrid/StatsGrid.astro";
 import GoogleReviewsSlider from "@components/GoogleReviewsSlider/GoogleReviewsSlider.astro";
 import GlobalCta from "@components/GlobalCta/GlobalCta.astro";
+import PageHero from "@components/PageHero/PageHero.astro";
 
 const valueProps = [
   "Omnichannel expertise",
@@ -58,17 +59,17 @@ const caseStudies = [
   title="Digital Marketing | Indigo Business Solutions"
   description="Targeted ad campaigns on Google, Facebook, and more that drive leads, sales, and ROI. Custom strategies built around your business goals and budget."
 >
-  <section class="hero">
-    <div class="shell">
-      <h1>Advertising campaigns for your business</h1>
-      <p>
-        We run ad campaigns that drive leads, traffic, and revenue. Every
-        campaign is tailored to your goals and budget.
-      </p>
-    </div>
-  </section>
+  <PageHero
+    title="Advertising campaigns for your business"
+    description="We run ad campaigns that drive leads, traffic, and revenue. Every campaign is tailored to your goals and budget."
+    breadcrumbs={[
+      { label: "Home Page", href: "/" },
+      { label: "Our Services", href: "/our-services/" },
+      { label: "Digital Marketing" },
+    ]}
+  />
 
-  <section class="shell section">
+  <section class="content-shell content-section">
     <div class="two-col">
       <div class="card">
         <h2>Modern Ad Strategies for Leads and Real Returns</h2>
@@ -110,7 +111,7 @@ const caseStudies = [
   </section>
 
   <section class="process">
-    <div class="shell">
+    <div class="content-shell">
       <h2>Your path to better advertising</h2>
       <p>How we work:</p>
       <ol>
@@ -122,7 +123,7 @@ const caseStudies = [
     </div>
   </section>
 
-  <section class="shell section">
+  <section class="content-shell content-section">
     <div class="card results">
       <h2>Measurable Outcomes From Ads That Convert</h2>
       <p>
@@ -156,36 +157,6 @@ const caseStudies = [
 </BaseLayout>
 
 <style lang="less">
-  .shell {
-    width: min(1120px, 94%);
-    margin: 0 auto;
-  }
-
-  .section {
-    padding: clamp(2.5rem, 6vw, 5rem) 0;
-  }
-
-  .hero {
-    padding: clamp(5.5rem, 8vw, 8rem) 0 2.8rem;
-    background: linear-gradient(160deg, #12183f 0%, #1e2868 56%, #344494 100%);
-    border-bottom-left-radius: 3rem;
-    border-bottom-right-radius: 3rem;
-    color: #fff;
-  }
-
-  .hero h1 {
-    color: #fff;
-    font-size: clamp(2rem, 4.8vw, 3.3rem);
-    line-height: 1.1;
-    margin-bottom: 1rem;
-    max-width: 16ch;
-  }
-
-  .hero p {
-    color: #d8ddf7;
-    max-width: 65ch;
-  }
-
   .two-col {
     display: grid;
     gap: 1rem;

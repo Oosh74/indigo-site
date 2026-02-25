@@ -4,6 +4,7 @@ import { Picture, getImage } from "astro:assets";
 import { formatDate } from "@js/utils";
 
 import BaseLayout from "@layouts/BaseLayout.astro";
+import PageHero from "@components/PageHero/PageHero.astro";
 import placeholderImage from "@assets/images/placeholder.jpg";
 
 const placeholderOptimizedImage = await getImage({
@@ -30,23 +31,16 @@ const categories = [
   description="Google, social media, and web trends change fast. We track it, test it, and share what matters so your marketing stays ahead."
   heroImage={placeholderOptimizedImage}
 >
-  <section class="hero">
-    <div class="shell">
-      <p class="crumb">Home Page / News & Resources</p>
-      <h1>News & insights</h1>
-      <p>
-        Google, social media, and web trends change fast. We track it, test it,
-        and share what matters so you can stay ahead.
-      </p>
-      <p>
-        Check out our blog for updates and ideas to keep your marketing moving
-        forward.
-      </p>
-      <a href="/contact-us/" class="cta">Free evaluation</a>
-    </div>
-  </section>
+  <PageHero
+    title="News & insights"
+    description="Google, social media, and web trends change fast. We track it, test it, and share what matters so you can stay ahead. Check out our blog for updates and ideas to keep your marketing moving forward."
+    breadcrumbs={[
+      { label: "Home Page", href: "/" },
+      { label: "News & Resources" },
+    ]}
+  />
 
-  <section class="listing shell">
+  <section class="listing content-shell">
     <div class="listing-main">
       <h2>Recent Articles</h2>
       <div class="card-grid">
@@ -89,48 +83,6 @@ const categories = [
 </BaseLayout>
 
 <style lang="less">
-  .shell {
-    width: min(1120px, 94%);
-    margin: 0 auto;
-  }
-
-  .hero {
-    padding: clamp(5.6rem, 8vw, 8rem) 0 2.4rem;
-    background: linear-gradient(160deg, #12183f 0%, #1e2868 56%, #344494 100%);
-    border-bottom-left-radius: 3rem;
-    border-bottom-right-radius: 3rem;
-    color: #fff;
-  }
-
-  .crumb {
-    font-size: 0.86rem;
-    color: #c8cfee;
-    margin-bottom: 0.6rem;
-  }
-
-  .hero h1 {
-    color: #fff;
-    font-size: clamp(2rem, 4.8vw, 3.2rem);
-    line-height: 1.1;
-    margin-bottom: 0.8rem;
-  }
-
-  .hero p {
-    max-width: 68ch;
-    color: #d6dcf6;
-  }
-
-  .cta {
-    display: inline-block;
-    margin-top: 0.8rem;
-    padding: 0.58rem 1.04rem;
-    background: #fff;
-    color: #1b245d;
-    font-weight: 700;
-    text-decoration: none;
-    border-radius: 999px;
-  }
-
   .listing {
     padding: clamp(2.3rem, 6vw, 4rem) 0 clamp(3rem, 8vw, 5rem);
     display: grid;

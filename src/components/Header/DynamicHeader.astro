@@ -67,6 +67,7 @@ import navData from "@data/navData.json";
                         "cs-li-link",
                         { "cs-active": Astro.url.pathname.includes(entry.url) },
                       ]}
+                      aria-label={entry.key}
                       aria-current={isCurrentPage(
                         Astro.url.pathname,
                         entry.url,
@@ -92,6 +93,7 @@ import navData from "@data/navData.json";
                       "cs-li-link",
                       { "cs-active": Astro.url.pathname === entry.url },
                     ]}
+                    aria-label={entry.key}
                     aria-current={isCurrentPage(Astro.url.pathname, entry.url)}
                   >
                     {entry.key}
@@ -109,6 +111,7 @@ import navData from "@data/navData.json";
                         <a
                           href={child.url}
                           class="cs-li-link cs-drop-link"
+                          aria-label={child.key}
                           aria-current={isCurrentPage(
                             Astro.url.pathname,
                             child.url,

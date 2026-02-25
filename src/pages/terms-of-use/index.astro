@@ -1,20 +1,18 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import PageHero from "@components/PageHero/PageHero.astro";
 ---
 
 <BaseLayout
   title="Terms of Use | Indigo Business Solutions"
   description="Terms and conditions governing access to and use of Indigo Business Solutions website and services."
 >
-  <section class="hero">
-    <div class="shell">
-      <p class="crumb">Home Page / Terms of Use</p>
-      <h1>Terms of Use</h1>
-      <a href="/contact-us/" class="cta">Free evaluation</a>
-    </div>
-  </section>
+  <PageHero
+    title="Terms of Use"
+    breadcrumbs={[{ label: "Home Page", href: "/" }, { label: "Terms of Use" }]}
+  />
 
-  <section class="terms shell">
+  <section class="terms content-shell">
     <h2>1. Acceptance of Terms</h2>
     <p>
       By accessing or using our site, you agree to be bound by these Terms and
@@ -198,42 +196,6 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 </BaseLayout>
 
 <style lang="less">
-  .shell {
-    width: min(1120px, 94%);
-    margin: 0 auto;
-  }
-
-  .hero {
-    padding: clamp(5.6rem, 8vw, 8rem) 0 2.4rem;
-    background: linear-gradient(160deg, #12183f 0%, #1e2868 56%, #344494 100%);
-    border-bottom-left-radius: 3rem;
-    border-bottom-right-radius: 3rem;
-    color: #fff;
-  }
-
-  .crumb {
-    font-size: 0.86rem;
-    color: #c8cfee;
-    margin-bottom: 0.6rem;
-  }
-
-  .hero h1 {
-    color: #fff;
-    font-size: clamp(2rem, 4.8vw, 3.2rem);
-    line-height: 1.1;
-    margin-bottom: 0.9rem;
-  }
-
-  .cta {
-    display: inline-block;
-    padding: 0.58rem 1.04rem;
-    background: #fff;
-    color: #1b245d;
-    font-weight: 700;
-    text-decoration: none;
-    border-radius: 999px;
-  }
-
   .terms {
     padding: clamp(2.4rem, 6vw, 4.5rem) 0 clamp(3rem, 8vw, 5rem);
     max-width: 88ch;
