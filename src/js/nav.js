@@ -308,5 +308,27 @@ document.addEventListener("astro:page-load", () => {
     // Initialize navigation system
     init.inertState();
     init.eventListeners();
+
+    // --- NAV HEIGHT SYNC ---
+    const setNavHeight = () => {
+      if (!elements.navigation) return;
+
+      const height = elements.navigation.offsetHeight;
+      document.documentElement.style.setProperty("--nav-height", `${height}px`);
+    };
+
+    // Initial run
+    setNavHeight();
+
+    // Keep it updated
+    window.addEventListener("resize", setNavHeight);
+
+    const resizeObserver = new ResizeObserver(setNavHeight);
+
+    if (elements.navigation) {
+      resizeObserver.observe(elements.navigation);
+    }
+
+    window.addEventListener("resize", setNavHeight);
   })();
 });

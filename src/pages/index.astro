@@ -622,15 +622,15 @@ const getPlanNextText = (next: string) =>
     background-image: url("/src/assets/images/Indigo-Right-Bottom-Corner.svg");
     background-size: cover, cover;
     background-repeat: no-repeat;
-    padding: clamp(2.4rem, 5.5vw, 4.5rem) 0;
+    padding-bottom: var(--nav-height, 0px);
+    padding-top: calc(var(--space-xl) + var(--nav-height, 0px));
     border-bottom-left-radius: var(--radius-section);
   }
 
   .home__hero-grid {
     display: grid;
-    gap: clamp(1.2rem, 2.8vw, 2.5rem);
+    gap: var(--space-l);
     align-items: center;
-    margin-block: clamp(3.75rem, 9vw, 6rem);
   }
 
   .home__hero-title {
