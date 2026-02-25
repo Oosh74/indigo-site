@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import GoogleReviewsSlider from "@components/GoogleReviewsSlider/GoogleReviewsSlider.astro";
+import GlobalCta from "@components/GlobalCta/GlobalCta.astro";
 
 const categories = [
   "Apparel",
@@ -136,27 +137,15 @@ const industries = [
     </div>
   </section>
 
-  <GoogleReviewsSlider sectionClass="section testimonials" shellClass="shell" />
+  <GoogleReviewsSlider sectionClass="page-section testimonials" shellClass="page-shell" />
 
-  <section class="contact">
-    <div class="shell">
-      <h2>Let’s Chat</h2>
-      <p>
-        Call us and we’ll review your marketing, show what is working, what is
-        not, and how we would move forward.
-      </p>
-      <ul>
-        <li>
-          <strong>Location:</strong> 2150 Joshuas Path Suite 201, Hauppauge, NY 11788
-        </li>
-        <li>
-          <strong>Phone:</strong>
-          <a href="tel:+16316309845">(631) 630-9845</a>
-        </li>
-      </ul>
-      <a href="/contact-us/">Talk to our team</a>
-    </div>
-  </section>
+  <GlobalCta
+    title="Let's Chat"
+    accent=""
+    description="Call us and we'll review your marketing, show what is working, what is not, and how we would move forward."
+    ctaLabel="Talk to our team"
+    shellClass="page-shell"
+  />
 </BaseLayout>
 
 <style lang="less">
@@ -233,41 +222,15 @@ const industries = [
     padding: 0.9rem;
   }
 
-  .card a,
-  .testimonials a,
-  .contact a {
+  .card a {
     color: var(--secondary);
     font-weight: 700;
     text-decoration: none;
   }
 
-  .card a:hover,
-  .testimonials a:hover,
-  .contact a:hover {
+  .card a:hover {
     text-decoration: underline;
   }
-
-  .quote-author {
-    font-weight: 700;
-  }
-
-  .contact {
-    background: #0f1538;
-    color: #fff;
-    padding: clamp(2.6rem, 6vw, 4rem) 0;
-    border-top-left-radius: 2.5rem;
-    border-top-right-radius: 2.5rem;
-  }
-
-  .contact h2 {
-    color: #fff;
-  }
-
-  .contact p,
-  .contact li {
-    color: #d2d8f7;
-  }
-
   @media only screen and (min-width: 64rem) {
     .two-col {
       grid-template-columns: repeat(2, minmax(0, 1fr));

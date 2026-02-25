@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import GlobalCta from "@components/GlobalCta/GlobalCta.astro";
 
 const values = [
   {
@@ -203,29 +204,13 @@ const processSteps = [
     </div>
   </section>
 
-  <section class="contact">
-    <div class="shell">
-      <h2>Let&apos;s Chat</h2>
-      <p>
-        Give us a call. We will listen, share how we would help, and let you
-        know if we are the right fit.
-      </p>
-      <ul>
-        <li>
-          <strong>Location:</strong> 2150 Joshuas Path Suite 201, Hauppauge, NY 11788
-        </li>
-        <li>
-          <strong>Phone:</strong>
-          <a href="tel:+16316309845">(631) 630-9845</a>
-        </li>
-        <li>
-          <strong>Business Hours:</strong> Monday-Friday: 8:30 AM-6 PM, Saturday-Sunday:
-          Closed
-        </li>
-      </ul>
-      <a href="/contact-us/" class="cta">Contact us</a>
-    </div>
-  </section>
+  <GlobalCta
+    title="Let's Chat"
+    accent=""
+    description="Give us a call. We will listen, share how we would help, and let you know if we are the right fit."
+    ctaLabel="Contact us"
+    shellClass="page-shell"
+  />
 </BaseLayout>
 
 <style lang="less">
@@ -387,37 +372,6 @@ const processSteps = [
     letter-spacing: 0.07em;
     color: #526097;
     margin-bottom: 0.35rem;
-  }
-
-  .contact {
-    background: #0f1538;
-    color: #fff;
-    padding: clamp(2.6rem, 6vw, 4rem) 0;
-    border-top-left-radius: 2.5rem;
-    border-top-right-radius: 2.5rem;
-  }
-
-  .contact h2 {
-    color: #fff;
-  }
-
-  .contact p,
-  .contact li {
-    color: #d2d8f7;
-  }
-
-  .contact ul {
-    padding-left: 1.2rem;
-    margin-bottom: 1rem;
-  }
-
-  .contact a {
-    color: #fff;
-    text-decoration: none;
-  }
-
-  .contact a:hover {
-    text-decoration: underline;
   }
 
   @media only screen and (min-width: 64rem) {

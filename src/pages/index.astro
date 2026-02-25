@@ -337,29 +337,31 @@ const getPlanNextText = (next: string) =>
               Founded On Long Island In 2006, Still Here for Good Reason
             </h2>
           </div>
-          <p>
-            We started Indigo because too many agencies overpromise,
-            underdeliver, and disappear when it matters most. We knew there had
-            to be a better way.
-          </p>
+          <div class="home__about-copy">
+            <p>
+              We started Indigo because too many agencies overpromise,
+              underdeliver, and disappear when it matters most. We knew there
+              had to be a better way.
+            </p>
 
-          <p>
-            Since then, we’ve helped hundreds of companies—from small businesses
-            in Hauppauge, NY to nationwide brands—find a partner who actually
-            listens.
-          </p>
+            <p>
+              Since then, we’ve helped hundreds of companies-from small
+              businesses in Hauppauge, NY to nationwide brands-find a partner
+              who actually listens.
+            </p>
 
-          <p>
-            Most agencies push you into their system. We start with a
-            conversation: what’s working, what’s not, and where you want to go.
-            Then we create solutions that fit.
-          </p>
+            <p>
+              Most agencies push you into their system. We start with a
+              conversation: what’s working, what’s not, and where you want to
+              go. Then we create solutions that fit.
+            </p>
 
-          <p>
-            Clients stay with us because our strategies grow with them. Whether
-            you need a full rebuild or a few fixes, we meet you where you are
-            and help you move forward.
-          </p>
+            <p>
+              Clients stay with us because our strategies grow with them.
+              Whether you need a full rebuild or a few fixes, we meet you where
+              you are and help you move forward.
+            </p>
+          </div>
           <a class="cs-button-solid cs-button-solid--arrow" href="/about-us/"
             >Our story</a
           >
@@ -687,6 +689,10 @@ const getPlanNextText = (next: string) =>
     margin-top: var(--space-s);
   }
 
+  .home .cs-button-solid {
+    margin-top: var(--space-s);
+  }
+
   .home__hero-media {
     position: relative;
   }
@@ -719,6 +725,13 @@ const getPlanNextText = (next: string) =>
     display: flex;
     flex-direction: column;
     gap: var(--space-xs);
+    max-width: 55ch;
+  }
+
+  .home__about-copy {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
     max-width: 55ch;
   }
 
@@ -830,7 +843,7 @@ const getPlanNextText = (next: string) =>
   }
 
   .home__plan-card .cs-button-solid {
-    margin-top: 0;
+    margin-top: var(--space-s);
     width: fit-content;
     align-self: flex-start;
   }
@@ -986,7 +999,7 @@ const getPlanNextText = (next: string) =>
   }
 
   .home__quiz-cta p {
-    margin-bottom: var(--space-s);
+    margin-bottom: 0;
     max-width: 100%;
   }
 
@@ -1057,6 +1070,10 @@ const getPlanNextText = (next: string) =>
     text-align: center;
   }
 
+  .home__blog-footer-link .cs-button-solid {
+    margin-top: 0;
+  }
+
   @media only screen and (min-width: 48rem) {
     .home__hero-grid {
       grid-template-columns: 1fr 1fr;
@@ -1112,40 +1129,45 @@ const getPlanNextText = (next: string) =>
 </style>
 
 <script>
-  const accordions = document.querySelectorAll<HTMLElement>(
-    ".home__values-accordion",
-  );
-  accordions.forEach((accordion) => {
-    if (!(accordion instanceof HTMLElement)) return;
-    if (accordion.dataset.initialized === "true") return;
-    accordion.dataset.initialized = "true";
-
-    const items = Array.from(
-      accordion.querySelectorAll<HTMLElement>(".home__accordion-item"),
+  const initHomeAccordions = () => {
+    const accordions = document.querySelectorAll<HTMLElement>(
+      ".home__values-accordion",
     );
-    items.forEach((item) => {
-      const trigger = item.querySelector<HTMLButtonElement>(
-        ".home__accordion-trigger",
-      );
-      if (!(trigger instanceof HTMLButtonElement)) return;
+    accordions.forEach((accordion) => {
+      if (!(accordion instanceof HTMLElement)) return;
+      if (accordion.dataset.initialized === "true") return;
+      accordion.dataset.initialized = "true";
 
-      trigger.addEventListener("click", () => {
-        const willOpen = !item.classList.contains("is-open");
-        items.forEach((other) => {
-          other.classList.remove("is-open");
-          const otherTrigger = other.querySelector<HTMLButtonElement>(
-            ".home__accordion-trigger",
-          );
-          if (otherTrigger instanceof HTMLButtonElement) {
-            otherTrigger.setAttribute("aria-expanded", "false");
+      const items = Array.from(
+        accordion.querySelectorAll<HTMLElement>(".home__accordion-item"),
+      );
+      items.forEach((item) => {
+        const trigger = item.querySelector<HTMLButtonElement>(
+          ".home__accordion-trigger",
+        );
+        if (!(trigger instanceof HTMLButtonElement)) return;
+
+        trigger.addEventListener("click", () => {
+          const willOpen = !item.classList.contains("is-open");
+          items.forEach((other) => {
+            other.classList.remove("is-open");
+            const otherTrigger = other.querySelector<HTMLButtonElement>(
+              ".home__accordion-trigger",
+            );
+            if (otherTrigger instanceof HTMLButtonElement) {
+              otherTrigger.setAttribute("aria-expanded", "false");
+            }
+          });
+
+          if (willOpen) {
+            item.classList.add("is-open");
+            trigger.setAttribute("aria-expanded", "true");
           }
         });
-
-        if (willOpen) {
-          item.classList.add("is-open");
-          trigger.setAttribute("aria-expanded", "true");
-        }
       });
     });
-  });
+  };
+
+  initHomeAccordions();
+  document.addEventListener("astro:page-load", initHomeAccordions);
 </script>
