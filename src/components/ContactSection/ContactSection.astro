@@ -1,0 +1,284 @@
+---
+interface Props {
+  sectionClass?: string;
+  shellClass?: string;
+}
+
+const { sectionClass = "page-section", shellClass = "page-shell" } =
+  Astro.props;
+---
+
+<section class={sectionClass}>
+  <div class={`${shellClass} contact-section`}>
+    <div class="contact-section__info">
+      <p class="cs-topper">Contact Us</p>
+      <h2 class="contact-section__title">Let's Chat</h2>
+      <p>
+        Give us a call. We'll listen, share how we'd help, and let you know if
+        we're the right fit.
+      </p>
+      <ul class="contact-section__list">
+        <li>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>
+            <strong>Location</strong><br />2150 Joshuas Path Suite 201,
+            Hauppauge, NY 11788
+          </span>
+        </li>
+        <li>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.19 19a19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-2.92-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.78.59 2.63a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.45-1.16a2 2 0 0 1 2.11-.45c.85.27 1.73.47 2.63.59A2 2 0 0 1 22 16.92z"
+            ></path>
+          </svg>
+          <span>
+            <strong>Phone</strong><br /><a href="tel:+16316309845"
+              >(631) 630-9845</a
+            >
+          </span>
+        </li>
+        <li>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span>
+            <strong>Business Hours</strong><br />Monday-Friday: 8:30 AM-6 PM<br
+            />Saturday-Sunday: Closed
+          </span>
+        </li>
+      </ul>
+    </div>
+    <form class="contact-section__form" action="/contact-us/" method="get">
+      <h3>Contact Form</h3>
+      <div class="contact-section__form-grid">
+        <div class="contact-section__form-field">
+          <label for="contact-first-name"
+            >First Name <span aria-label="required">*</span></label
+          >
+          <input
+            id="contact-first-name"
+            name="first-name"
+            type="text"
+            placeholder="First"
+            required
+            minlength="1"
+            maxlength="40"
+            autocomplete="given-name"
+          />
+        </div>
+        <div class="contact-section__form-field">
+          <label for="contact-last-name"
+            >Last Name <span aria-label="required">*</span></label
+          >
+          <input
+            id="contact-last-name"
+            name="last-name"
+            type="text"
+            placeholder="Last"
+            required
+            minlength="1"
+            maxlength="40"
+            autocomplete="family-name"
+          />
+        </div>
+        <div class="contact-section__form-field">
+          <label for="contact-email"
+            >Email <span aria-label="required">*</span></label
+          >
+          <input
+            id="contact-email"
+            name="email"
+            type="email"
+            placeholder="example@businessemail.com"
+            required
+            autocomplete="email"
+          />
+        </div>
+        <div class="contact-section__form-field">
+          <label for="contact-phone"
+            >Phone Number <span aria-label="required">*</span></label
+          >
+          <input
+            id="contact-phone"
+            name="phone"
+            type="tel"
+            placeholder="(631) 630-9845"
+            required
+            minlength="7"
+            maxlength="20"
+            autocomplete="tel"
+          />
+        </div>
+        <div class="contact-section__form-field">
+          <label for="contact-business"
+            >Business Name <span aria-label="required">*</span></label
+          >
+          <input
+            id="contact-business"
+            name="business"
+            type="text"
+            placeholder="Indigo Business Solutions"
+            required
+            minlength="1"
+            maxlength="120"
+            autocomplete="organization"
+          />
+        </div>
+        <div
+          class="contact-section__form-field contact-section__form-field--full"
+        >
+          <label for="contact-message">How can we help you?</label>
+          <textarea
+            id="contact-message"
+            name="message"
+            rows="4"
+            placeholder="Tell us a bit about your business, goals, and what support you need."
+          ></textarea>
+        </div>
+      </div>
+      <button class="cs-button-solid cs-button-solid--arrow" type="submit"
+        >Send Message</button
+      >
+    </form>
+  </div>
+</section>
+
+<style lang="less">
+  .contact-section {
+    display: grid;
+    gap: var(--space-s);
+    align-items: start;
+  }
+
+  .contact-section__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-3xs);
+    min-height: 100%;
+  }
+
+  .contact-section__info p {
+    max-width: 40ch;
+  }
+
+  .contact-section__title {
+    font-size: var(--font-size-h2);
+    line-height: 1.08;
+    color: var(--color-heading-light);
+    margin-bottom: 1rem;
+  }
+
+  .contact-section__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+    list-style: none;
+    padding: 0;
+    margin: var(--space-s) 0 0 var(--space-2xs);
+  }
+
+  .contact-section__list li {
+    display: flex;
+    align-items: start;
+    gap: var(--space-2xs);
+  }
+
+  .contact-section__list svg {
+    width: 1.05rem;
+    height: 1.05rem;
+    margin-top: 0.25rem;
+    color: var(--secondaryLight);
+  }
+
+  .contact-section__form {
+    background: var(--section-light-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-card);
+    box-shadow: var(--soft-shadow);
+    padding: var(--space-m);
+  }
+
+  .contact-section__form h3 {
+    font-size: var(--font-size-h5);
+    margin: 0 0 var(--space-xs);
+  }
+
+  .contact-section__form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: var(--space-xs);
+  }
+
+  .contact-section__form-field {
+    margin: 0;
+  }
+
+  .contact-section__form-field--full {
+    grid-column: 1 / -1;
+  }
+
+  .contact-section__form label {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-size: clamp(0.94rem, 0.95vw, 1.04rem);
+    color: #2f3b5f;
+    margin-bottom: 0.36rem;
+  }
+
+  .contact-section__form input,
+  .contact-section__form textarea {
+    width: 100%;
+    padding: 0.68rem 0.78rem;
+    border: 1px solid #d0d8ee;
+    border-radius: 999px;
+    background: #fff;
+    font: inherit;
+  }
+
+  .contact-section__form textarea {
+    border-radius: 1.6rem;
+    resize: vertical;
+    min-height: 8rem;
+  }
+
+  .contact-section__form button {
+    border: 0;
+    margin-top: var(--space-s);
+  }
+
+  @media only screen and (min-width: 48rem) {
+    .contact-section {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

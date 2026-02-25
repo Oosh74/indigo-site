@@ -126,6 +126,7 @@ h6 {
     --space-xl: clamp(2.625rem, 2.0192rem + 2.2333vw, 3.75rem);
     --space-2xl: clamp(3.5rem, 2.6923rem + 2.9777vw, 5rem);
     --space-3xl: clamp(5.25rem, 4.0385rem + 4.4665vw, 7.5rem);
+    --page-section-space: clamp(3.25rem, 2.7115rem + 1.9841vw, 4.25rem);
 
     --topperFontSize: var(--step--2);
     --topperLineHeight: 1.2;
@@ -312,6 +313,10 @@ button {
   background: var(--section-dark-bg);
 }
 
+.accent-span {
+  color: var(--secondary);
+}
+
 /*-- -------------------------- -->
 <---   Layout + Stats Helpers   -->
 <--- -------------------------- -*/
@@ -332,6 +337,16 @@ button {
 .page-section--radius-diagonal {
   border-top-right-radius: var(--radius-section);
   border-bottom-left-radius: var(--radius-section);
+}
+
+@media only screen and (max-width: 47.99rem) {
+  .page-section--radius,
+  .page-section--radius-diagonal {
+    padding-block: max(
+      0px,
+      calc(var(--page-section-space, var(--space-2xl)) - var(--space-xs))
+    );
+  }
 }
 
 .layout-split {

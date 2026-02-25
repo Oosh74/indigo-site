@@ -2,18 +2,22 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import StatsGrid from "@components/StatsGrid/StatsGrid.astro";
 import GoogleReviewsSlider from "@components/GoogleReviewsSlider/GoogleReviewsSlider.astro";
+import GlobalCta from "@components/GlobalCta/GlobalCta.astro";
+import ContactSection from "@components/ContactSection/ContactSection.astro";
 import { getCollection } from "astro:content";
 import { Picture } from "astro:assets";
 import { formatDate } from "@js/utils";
 import heroImg from "../assets/images/indigo-office-background-1.webp";
 import aboutCollageImg from "../assets/images/Indigo-PhotoCollage-1-01-1-600x559.webp";
 import whyTeamImg from "../assets/images/indigo-team-ice-cream-1.webp";
+import IndigoStatsImg from "../assets/images/Indigo-Stats-1-600x515.webp";
 import layoutIcon from "../icons/layout.svg";
 import atIcon from "../icons/at-sign.svg";
 import penIcon from "../icons/pen-tool.svg";
 import searchIcon from "../icons/search.svg";
 import trendingIcon from "../icons/trending-up.svg";
 import shoppingIcon from "../icons/shopping-bag.svg";
+import { Image } from "astro:assets";
 
 const services = [
   {
@@ -207,7 +211,8 @@ const getPlanNextText = (next: string) =>
       <div class="page-shell home__hero-grid">
         <div class="home__hero-content">
           <h1 class="home__hero-title">
-            Your Marketing <span>Partner</span>, Minus the Overhead
+            Your Marketing <span class="accent-span">Partner</span>, Minus the
+            Overhead
           </h1>
           <p>
             Business is challenging, and most marketing agencies make it harder
@@ -281,12 +286,11 @@ const getPlanNextText = (next: string) =>
           >
         </div>
         <div class="home__collage" aria-hidden="true">
-          <img
-            src="/assets/images/Indigo-Stats-1-600x515.webp"
-            alt=""
+          <Image
+            src={IndigoStatsImg}
+            alt="A collage of Indigo's client metrics and stats."
             class="home__collage-image"
-            loading="lazy"
-            decoding="async"
+            loading="eager"
           />
         </div>
       </div>
@@ -492,7 +496,10 @@ const getPlanNextText = (next: string) =>
 
     <GoogleReviewsSlider />
 
-    <section class="page-section section-color__soft page-section--radius">
+    <section
+      class="page-section section-color__soft page-section--radius-diagonal"
+      id="service-options"
+    >
       <div class="page-shell home__plans-head">
         <p class="cs-topper">Marketing Service Options</p>
         <h2 class="home__h2 home__h2--center">
@@ -545,20 +552,7 @@ const getPlanNextText = (next: string) =>
       </div>
     </section>
 
-    <section class="page-section section-color__dark">
-      <div class="page-shell home__inner-cta">
-        <h2 class="home__h2">
-          What's next for your business? Let's find out <span>together.</span>
-        </h2>
-        <p>
-          Call us and we'll review your marketing, show you what's working,
-          what's not, and how we'd move forward.
-        </p>
-        <a class="cs-button-solid cs-button-solid--arrow" href="/contact-us/"
-          >Talk to our team</a
-        >
-      </div>
-    </section>
+    <GlobalCta />
 
     <section class="page-section">
       <div class="page-shell home__blog-head">
@@ -583,11 +577,7 @@ const getPlanNextText = (next: string) =>
                   quality={"mid"}
                 />
               </a>
-              <p class="home__blog-meta">
-                {formatDate(post.data.date)}
-                <br />
-                {post.data.author}
-              </p>
+              <p class="home__blog-meta">{formatDate(post.data.date)}</p>
               <h3>
                 <a href={`/${post.id}/`}>{post.data.title}</a>
               </h3>
@@ -605,60 +595,11 @@ const getPlanNextText = (next: string) =>
       </div>
     </section>
 
-    <section class="page-section">
-      <div class="page-shell home__contact-grid">
-        <div class="home__contact-info">
-          <p class="cs-topper">Contact Us</p>
-          <h2 class="home__h2">Let's Chat</h2>
-          <p>
-            Give us a call. We'll listen, share how we'd help, and let you know
-            if we're the right fit.
-          </p>
-          <ul>
-            <li>
-              <strong>Location</strong><br />2150 Joshuas Path Suite 201,
-              Hauppauge, NY 11788
-            </li>
-            <li>
-              <strong>Phone</strong><br /><a href="tel:+16316309845"
-                >(631) 630-9845</a
-              >
-            </li>
-            <li>
-              <strong>Business Hours</strong><br />Monday-Friday: 8:30 AM-6 PM<br
-              />Saturday-Sunday: Closed
-            </li>
-          </ul>
-        </div>
-        <form class="home__contact-form" action="/contact-us/" method="get">
-          <h3>Contact Form</h3>
-          <label>Full Name*<input type="text" name="name" required /></label>
-          <label>Email*<input type="email" name="email" required /></label>
-          <label>Phone Number*<input type="tel" name="phone" required /></label>
-          <label
-            >Business Name*<input type="text" name="business" required /></label
-          >
-          <label
-            >How can we help you?<textarea name="message" rows="4"
-            ></textarea></label
-          >
-          <button class="cs-button-solid cs-button-solid--arrow" type="submit"
-            >Send Message</button
-          >
-        </form>
-      </div>
-    </section>
+    <ContactSection />
   </div>
 </BaseLayout>
 
 <style lang="less">
-  .home {
-    --page-section-space: var(--space-3xl);
-    --home-space-stack: var(--space-s);
-
-    background: var(--home-bg);
-  }
-
   .page-section--services {
     display: flex;
     flex-direction: column;
@@ -713,7 +654,7 @@ const getPlanNextText = (next: string) =>
     background-image: url("/src/assets/images/Indigo-Right-Bottom-Corner.svg");
     background-size: cover, cover;
     background-repeat: no-repeat;
-    padding: clamp(2.8rem, 6.2vw, 5.2rem) 0;
+    padding: clamp(2.4rem, 5.5vw, 4.5rem) 0;
     border-bottom-left-radius: var(--radius-section);
   }
 
@@ -721,8 +662,7 @@ const getPlanNextText = (next: string) =>
     display: grid;
     gap: clamp(1.2rem, 2.8vw, 2.5rem);
     align-items: center;
-    margin-top: 6rem;
-    margin-bottom: 6rem;
+    margin-block: clamp(3.75rem, 9vw, 6rem);
   }
 
   .home__hero-title {
@@ -731,10 +671,6 @@ const getPlanNextText = (next: string) =>
     color: var(--color-heading-dark);
     margin-bottom: 1rem;
     max-width: 13ch;
-  }
-
-  .home__hero-title span {
-    color: var(--home-accent);
   }
 
   .home__hero-content p {
@@ -769,17 +705,13 @@ const getPlanNextText = (next: string) =>
   .home__content,
   .home__plans-head,
   .home__blog-head,
-  .home__contact-info,
-  .home__inner-cta,
   .home__quiz-cta {
     display: flex;
     flex-direction: column;
     gap: var(--space-3xs);
   }
 
-  .home__content,
-  .home__contact-info,
-  .home__inner-cta {
+  .home__content {
     align-items: flex-start;
   }
 
@@ -797,8 +729,6 @@ const getPlanNextText = (next: string) =>
   }
 
   .home__content .cs-button-solid,
-  .home__contact-info .cs-button-solid,
-  .home__inner-cta .cs-button-solid,
   .home__quiz-cta .cs-button-solid {
     width: fit-content;
   }
@@ -815,13 +745,16 @@ const getPlanNextText = (next: string) =>
   }
 
   .home__service-card,
-  .home__plan-card,
-  .home__contact-form {
+  .home__plan-card {
     background: white;
     border: 1px solid var(--border-color);
     border-radius: var(--radius-card);
     padding: var(--space-m);
     box-shadow: var(--soft-shadow);
+  }
+
+  #service-options {
+    margin-bottom: var(--space-xl);
   }
 
   .home__plan-card a {
@@ -853,7 +786,6 @@ const getPlanNextText = (next: string) =>
 
   .home__service-card h3,
   .home__plan-card h3,
-  .home__contact-form h3,
   .home__values h3 {
     font-size: var(--font-size-h3);
     line-height: 1.15;
@@ -863,8 +795,7 @@ const getPlanNextText = (next: string) =>
 
   .home__service-card ul,
   .home__plan-card ul,
-  .home__checklist,
-  .home__contact-info ul {
+  .home__checklist {
     list-style: none;
     padding: 0;
     margin: 1rem 0;
@@ -872,8 +803,7 @@ const getPlanNextText = (next: string) =>
 
   .home__service-card li,
   .home__plan-card li,
-  .home__checklist li,
-  .home__contact-info li {
+  .home__checklist li {
     padding-left: var(--space-s);
     position: relative;
     margin-bottom: var(--space-3xs);
@@ -1060,47 +990,53 @@ const getPlanNextText = (next: string) =>
     max-width: 100%;
   }
 
-  .home__inner-cta {
-    background: #f4f6fb;
-    border-radius: var(--radius-card);
-    padding: clamp(1.3rem, 3vw, 2.5rem);
-  }
-
-  .home__inner-cta h2 span {
-    color: var(--home-accent);
-  }
-
   .home__blog-head {
-    margin-bottom: var(--space-m);
+    margin-bottom: var(--space-xl);
   }
 
   .home__blog-grid {
     display: grid;
-    gap: var(--space-s);
+    gap: var(--space-l);
   }
 
   .home__blog-card {
     display: grid;
-    gap: 0.5rem;
+    gap: var(--space-s);
   }
 
   .home__blog-image-link {
+    --blog-image-inset: var(--space-xs);
+    --blog-image-radius-outer: var(--radius-card);
+    --blog-image-radius-inner: max(
+      0px,
+      calc(var(--blog-image-radius-outer) - var(--blog-image-inset))
+    );
     display: block;
-    border-radius: var(--radius-card);
+    border-radius: var(--blog-image-radius-outer);
     overflow: hidden;
-    border: 1px solid var(--border-color);
-    background: #fff;
+    background: var(--section-light-bg);
+    padding: var(--blog-image-inset);
+    aspect-ratio: 1 / 1;
+    box-shadow: var(--soft-shadow);
+  }
+
+  .home__blog-image-link :global(picture) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--blog-image-radius-inner);
   }
 
   .home__blog-image-link :global(img) {
+    display: block;
     width: 100%;
-    height: clamp(12rem, 20vw, 17rem);
+    height: 100%;
     object-fit: cover;
+    border-radius: var(--blog-image-radius-inner);
   }
 
   .home__blog-card h3 {
-    font-size: clamp(1.5rem, 2.4vw, 2rem);
-    line-height: 1.2;
+    font-size: var(--font-size-h5);
     margin: 0;
   }
 
@@ -1121,47 +1057,8 @@ const getPlanNextText = (next: string) =>
     text-align: center;
   }
 
-  .home__contact-grid {
-    display: grid;
-    gap: var(--space-s);
-    align-items: start;
-  }
-
-  .home__contact-form {
-    padding: clamp(1.3rem, 2.5vw, 2rem);
-  }
-
-  .home__contact-form label {
-    display: grid;
-    gap: 0.36rem;
-    font-size: clamp(0.94rem, 0.95vw, 1.04rem);
-    color: #2f3b5f;
-    margin-bottom: 0.65rem;
-  }
-
-  .home__contact-form input,
-  .home__contact-form textarea {
-    width: 100%;
-    padding: 0.68rem 0.78rem;
-    border: 1px solid #d0d8ee;
-    border-radius: 999px;
-    background: #fff;
-    font: inherit;
-  }
-
-  .home__contact-form textarea {
-    border-radius: 1.6rem;
-    resize: vertical;
-    min-height: 8rem;
-  }
-
-  .home__contact-form button {
-    border: 0;
-  }
-
   @media only screen and (min-width: 48rem) {
-    .home__hero-grid,
-    .home__contact-grid {
+    .home__hero-grid {
       grid-template-columns: 1fr 1fr;
     }
 
