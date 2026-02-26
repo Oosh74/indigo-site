@@ -25,13 +25,12 @@ interface Props {
   shellClass?: string;
 }
 
-const { sectionClass = "page-section", shellClass = "page-shell" } =
-  Astro.props;
+const { sectionClass = "page-section", shellClass = "page-shell" } = Astro.props;
 
 const reviews: Review[] = [
   {
     quote:
-      "I can’t express enough gratitude to the Indigo team. Every person I’ve interacted with has been top-notch. This is the kind of business you want on your side—no question about it! My experience has been nothing but positive, and Indigo truly makes you feel like family, not just a client. Howard, Matt, Anthony, Trey, and Aneta were incredibly welcoming and professional. Great company, great people, great work. I'm a very happy customer!",
+      "I can't express enough gratitude to the Indigo team. Every person I've interacted with has been top-notch. This is the kind of business you want on your side—no question about it! My experience has been nothing but positive, and Indigo truly makes you feel like family, not just a client. Howard, Matt, Anthony, Trey, and Aneta were incredibly welcoming and professional. Great company, great people, great work. I'm a very happy customer!",
     author: "Kristin - Business Owner",
   },
   {
@@ -71,11 +70,7 @@ const clientLogos: ClientLogo[] = [
 <section class={sectionClass}>
   <div class={`${shellClass} grs`}>
     <div class="grs__mark">
-      <img
-        src="/src/icons/Indigo-Google-Reviews-01.svg"
-        alt="Google Reviews Logo"
-        loading="lazy"
-      />
+      <img src="/src/icons/Indigo-Google-Reviews-01.svg" alt="Google Reviews Logo" loading="lazy" />
       <a href="/news-insights/">
         <span>Read more of our 50+ five-star reviews</span>
         <svg
@@ -90,8 +85,7 @@ const clientLogos: ClientLogo[] = [
           stroke-linejoin="round"
           aria-hidden="true"
         >
-          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
-          ></path>
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
           <polyline points="15 3 21 3 21 9"></polyline>
           <line x1="10" y1="14" x2="21" y2="3"></line>
         </svg>
@@ -120,11 +114,7 @@ const clientLogos: ClientLogo[] = [
       </div>
 
       <div class="grs__controls">
-        <button
-          class="grs__arrow grs__arrow--prev"
-          type="button"
-          aria-label="Previous review"
-        >
+        <button class="grs__arrow grs__arrow--prev" type="button" aria-label="Previous review">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -152,11 +142,7 @@ const clientLogos: ClientLogo[] = [
           }
         </div>
 
-        <button
-          class="grs__arrow grs__arrow--next"
-          type="button"
-          aria-label="Next review"
-        >
+        <button class="grs__arrow grs__arrow--next" type="button" aria-label="Next review">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -182,12 +168,7 @@ const clientLogos: ClientLogo[] = [
         {
           clientLogos.map((logo) => (
             <div class="grs__logo-item">
-              <Image
-                src={logo.src}
-                alt={logo.alt}
-                class="grs__logo-asset"
-                loading="lazy"
-              />
+              <Image src={logo.src} alt={logo.alt} class="grs__logo-asset" loading="lazy" />
             </div>
           ))
         }
@@ -401,19 +382,13 @@ const clientLogos: ClientLogo[] = [
       if (slider.dataset.initialized === "true") return;
       slider.dataset.initialized = "true";
 
-      const slides = Array.from(
-        slider.querySelectorAll<HTMLElement>(".grs__slide"),
-      );
-      const dots = Array.from(
-        slider.querySelectorAll<HTMLButtonElement>(".grs__dot"),
-      );
+      const slides = Array.from(slider.querySelectorAll<HTMLElement>(".grs__slide"));
+      const dots = Array.from(slider.querySelectorAll<HTMLButtonElement>(".grs__dot"));
       const prev = slider.querySelector<HTMLButtonElement>(".grs__arrow--prev");
       const next = slider.querySelector<HTMLButtonElement>(".grs__arrow--next");
 
       if (!slides.length || !prev || !next) return;
-      let index = slides.findIndex((slide) =>
-        slide.classList.contains("is-active"),
-      );
+      let index = slides.findIndex((slide) => slide.classList.contains("is-active"));
       if (index < 0) index = 0;
 
       const show = (nextIndex: number) => {

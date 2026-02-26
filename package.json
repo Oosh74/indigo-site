@@ -16,12 +16,13 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.0",
-    "astro": "^5.16.16",
     "astro-icon": "^1.1.5",
     "autoprefixer": "^10.4.24",
     "less": "^4.5.1"
   },
   "devDependencies": {
+    "@types/node": "^25.3.0",
+    "astro": "^5.18.0",
     "netlify-plugin-cache": "^1.0.3",
     "prettier": "^3.8.1",
     "prettier-plugin-astro": "^0.14.1"
